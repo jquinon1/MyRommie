@@ -102,7 +102,7 @@
             }
 
             body {
-                background-image: url(http://es.best-wallpaper.net/wallpaper/1920x1440/1311/New-York-USA-Brooklyn-Bridge_1920x1440.jpg);
+                background-image: url("images/fpantalla.jpg");
                 background-size: cover;
                 background-color: #101010;
             }
