@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('home', 'HomeController@index');
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
