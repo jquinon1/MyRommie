@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ControladorFrontEnd@index';
+Route::get('/', 'ControladorFrontEnd@index');
 
 //Auth::routes();
 
