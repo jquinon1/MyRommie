@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/habitacion', 'ControladorFrontEnd@habitacion');
+
+Route::get('/arrendador', 'ControladorFrontEnd@arrendador')
