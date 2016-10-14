@@ -118,8 +118,8 @@
                 </div>-->
 
                 <div class="links">
-                    <a href="https://laravel.com/docs" style="color: whitesmoke";  ><font size="20">ESTUDIANTE</font></a>
-                    <a href="https://laracasts.com" style="color: whitesmoke"><font size="15">ARRENDADOR</font></a>
+                    <a href="estudiante" style="color: whitesmoke";  ><font size="20">ESTUDIANTE</font></a>
+                    <a href="arrendador" style="color: whitesmoke"><font size="15">ARRENDADOR</font></a>
 
                 </div>
             </div>
