@@ -13,6 +13,8 @@
 
 Route::get('/', 'ControladorFrontEnd@index');
 
-//Auth::routes();
+Route::get('/map', 'ControladorFrontEnd@map');
 
-//Route::get('/home', 'HomeController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
