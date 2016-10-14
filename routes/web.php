@@ -18,3 +18,5 @@ Route::get('/map', 'ControladorFrontEnd@map');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/habitacion', 'ControladorFrontEnd@habitacion');

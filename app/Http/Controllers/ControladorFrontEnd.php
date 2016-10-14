@@ -15,4 +15,9 @@ class ControladorFrontEnd extends Controller
     public function map(){
       return view('map');
     }
+
+    public function habitacion(){
+      //$hab = 'habitacion/'.index;
+      return view('habitacion');
+    }
 }
