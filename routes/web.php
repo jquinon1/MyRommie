@@ -15,6 +15,8 @@ Route::get('/', 'ControladorFrontEnd@index');
 
 Route::get('/map', 'ControladorFrontEnd@map');
 
+Route::get('/map/{dir}', 'ControladorFrontEnd@map2');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

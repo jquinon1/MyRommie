@@ -22,10 +22,10 @@
         <img src="../images/<?= $foto; ?>" width=400 height=200 align=right>
       </div>
       <ul>
-        <li><a href="pm">contactar</a></li>
-        <li><a href="pm">arrendador</a></li>
-        <!--li><a href="pm"><?= $id; ?></a></li-->
-        <li><a href="pm"><?= $dir; ?></a></li>
+        <li><a href="../pm">contactar</a></li>
+        <li><a href="../pm">arrendador</a></li>
+        <li>Precio: <?= $precio; ?></li>
+        <li><a href="../map/<?= $dir; ?>">Direccion: <?= $dir; ?></a></li>
       </ul>
       <div>
         <br><br><br><br>
