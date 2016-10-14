@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +13,8 @@
 
             @if (Route::has('login'))
                 <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+                    <a href="{{ url('/login') }}" style="color: whitesmoke">Login</a>
+                    <a href="{{ url('/register') }}" style="color: whitesmoke">Register</a>
                 </div>
             @endif
         </ul>
@@ -100,20 +100,26 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            body {
+                background-image: url(http://es.best-wallpaper.net/wallpaper/1920x1440/1311/New-York-USA-Brooklyn-Bridge_1920x1440.jpg);
+                background-size: cover;
+                background-color: #101010;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
 
 
-            <div class="content">
+            <!--<div class="content">
                 <div class="title m-b-md" >
                     <img src="my1" alt="HTML5 Icon" style="width:128px;height:128px;">
-                </div>
+                </div>-->
 
                 <div class="links">
-                    <a href="https://laravel.com/docs" >ESTUDIANTE</a>
-                    <a href="https://laracasts.com">ARRENDADOR</a>
+                    <a href="https://laravel.com/docs" style="color: whitesmoke";  ><font size="20">ESTUDIANTE</font></a>
+                    <a href="https://laracasts.com" style="color: whitesmoke"><font size="15">ARRENDADOR</font></a>
 
                 </div>
             </div>
