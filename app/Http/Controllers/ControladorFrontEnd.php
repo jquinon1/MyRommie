@@ -24,12 +24,14 @@ class ControladorFrontEnd extends Controller
 
     public function habitacion2($id){
       //$hab="nada";
-      $hab = DB::select('select * from habitaciones where id = :id', ['id' => 1]);
+      $hab = DB::select('select * from habitaciones where id = :id', ['id' => $id]);
       $name="";
+      $dir="";
       foreach($hab as $w){
         $name = $w->foto;
+        $dir = $w->direccion;
       }
-      return view('habitacion2', ['id' => $id, 'dir' => $name]);
+      return view('habitacion2', ['id' => $id, 'foto' => $name, 'dir' => $dir]);
     }
 
     public function arrendador(){

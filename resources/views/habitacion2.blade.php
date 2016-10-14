@@ -19,7 +19,7 @@
     </head>
     <body>
       <div>
-        <img src="../images/<?= $dir; ?>" width=400 height=200 align=right>
+        <img src="../images/<?= $foto; ?>" width=400 height=200 align=right>
       </div>
       <ul>
         <li><a href="pm">contactar</a></li>
