@@ -19,12 +19,17 @@
     </head>
     <body>
       <div>
-        <a href ="map"><img src="images/480.jpg" width=400 height=200 align=right></img></a>
+        <img src="../images/<?= $dir; ?>" width=400 height=200 align=right>
       </div>
       <ul>
         <li><a href="pm">contactar</a></li>
         <li><a href="pm">arrendador</a></li>
-        <li><a href="pm"><?= $id; ?></a></li>
+        <!--li><a href="pm"><?= $id; ?></a></li-->
+        <li><a href="pm"><?= $dir; ?></a></li>
       </ul>
+      <div>
+        <br><br><br><br>
+        <a href ="../map"><img src="../images/480.jpg" width=400 height=200 align=right></img></a>
+      </div>
     </body>
 </html>

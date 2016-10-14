@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use DB;
+
 class ControladorFrontEnd extends Controller
 {
     public function index(){
@@ -17,13 +19,17 @@ class ControladorFrontEnd extends Controller
     }
 
     public function habitacion(){
-      //$hab = 'habitacion/'.index;
       return view('habitacion');
     }
 
     public function habitacion2($id){
-      //$hab = 'habitacion/'.index;
-      return view('habitacion2', ['id' => $id]);
+      //$hab="nada";
+      $hab = DB::select('select * from habitaciones where id = :id', ['id' => 1]);
+      $name="";
+      foreach($hab as $w){
+        $name = $w->foto;
+      }
+      return view('habitacion2', ['id' => $id, 'dir' => $name]);
     }
 
     public function arrendador(){
