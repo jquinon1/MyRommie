@@ -18,10 +18,23 @@ class ControladorFrontEnd extends Controller
 
     public function habitacion(){
       //$hab = 'habitacion/'.index;
-      return view('habitacion');
+      return view('habitacion', ['id' => 0]);
+    }
+
+    public function habitacion2($id){
+      //$hab = 'habitacion/'.index;
+      return view('habitacion', ['id' => $id]);
     }
 
     public function arrendador(){
       return view('arrendador');
+    }
+
+    public function estudiante(){
+      return view('estudiante');
+    }
+
+    public function pm(){
+      return view('noProgramada');
     }
 }

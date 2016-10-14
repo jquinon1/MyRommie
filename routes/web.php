@@ -21,4 +21,10 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/habitacion', 'ControladorFrontEnd@habitacion');
 
+Route::get('/habitacion/{id}', 'ControladorFrontEnd@habitacion2')->where(['id' => '[0-9]*']);
+
 Route::get('/arrendador', 'ControladorFrontEnd@arrendador');
+
+Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
+
+Route::get('/pm', 'ControladorFrontEnd@pm');
