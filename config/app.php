@@ -172,12 +172,13 @@ return [
         /*
          * Application Service Providers...
          */
+
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Jenssegers\Mongodb\MongodbServiceProvider::class
     ],
 
     /*
@@ -192,7 +193,7 @@ return [
     */
 
     'aliases' => [
-
+        'Moloquent' => 'Jenssegers\Mongodb\Model',
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
