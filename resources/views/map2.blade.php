@@ -32,7 +32,7 @@
   </head>
   <body>
     <div id="floating-panel">
-      <input id="address" type="textbox" value="direccion 1">
+      <input id="address" type="textbox" value="<?= $dir; ?>">
       <input id="submit" type="button" value="Buscar">
     </div>
     <div id="map"></div>
@@ -57,11 +57,12 @@ function initMap() {
       geocodeAddress(geocoder, map);
     }
   }, false);//function(){geocodeAddress(geocoder, map);});
+  geocodeAddress(geocoder, map);
 }
 
 function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
-  var address = <?= $dir ?>;//document.getElementById('address').value;
+  var address = document.getElementById('address').value;
   var i =0;
   var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
