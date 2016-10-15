@@ -32,7 +32,7 @@
   </head>
   <body>
     <div id="floating-panel">
-      <input id="address" type="textbox" value="direccion 1">
+      <input id="address" type="textbox" value="direccion">
       <input id="submit" type="button" value="Buscar">
     </div>
     <div id="map"></div>

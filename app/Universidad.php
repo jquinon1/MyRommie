@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\Habitacion as Authenticatable;
 
-class Habitacion extends Authenticatable
+class Universidad extends Authenticatable
 {
     use Notifiable;
 
@@ -15,7 +15,7 @@ class Habitacion extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'direccion', 'latitud', 'longitud', 'precio', 'foto',
+        'nombre', 'lema', 'escudo', 'pagina', 'latitud', 'longitud',
     ];
 
     /**

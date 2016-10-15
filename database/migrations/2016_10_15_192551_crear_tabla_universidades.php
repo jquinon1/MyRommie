@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaHabitacion extends Migration
+class CrearTablaUniversidades extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CrearTablaHabitacion extends Migration
      */
     public function up()
     {
-      Schema::create('habitaciones', function (Blueprint $table) {
+      Schema::create('universidades', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('direccion')->unique();
+        $table->string('nombre')->unique();
+        $table->string('lema',1023);
+        $table->string('escudo');
+        $table->string('pagina',1023);
         $table->double('latitud',25,20);
         $table->double('longitud',25,20);
-        $table->integer('precio')->unsigned();
-        $table->string('foto');
       });
     }
 
@@ -30,6 +31,6 @@ class CrearTablaHabitacion extends Migration
      */
     public function down()
     {
-        Schema::drop('habitaciones');
+        Schema::drop('universidades');
     }
 }
