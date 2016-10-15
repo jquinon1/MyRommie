@@ -31,8 +31,8 @@ class ControladorFrontEnd extends Controller
       //$hab="nada";
       $hab = DB::select('select * from habitaciones where id = :id', ['id' => $id]);
       $name="";
-      $dir="";
-      $precio="";
+      $dir="no tiene";
+      $precio="no tiene";
       foreach($hab as $w){
         $name = $w->foto;
         $dir = $w->direccion;
