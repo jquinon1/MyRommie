@@ -8,9 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!--<title>{{ config('My Roomie', 'Laravel') }}</title>-->
 
     <!-- Styles -->
+
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -19,6 +20,74 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <style>
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: #111;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+
+        body {
+            background-image: url("images/fpantalla.jpg");
+            background-size: cover;
+            background-color: #101010;
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
@@ -36,7 +105,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('My Rommie', 'Laravel') }}
                     </a>
                 </div>
 
@@ -49,6 +118,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+
+                        <li><a href="news.asp">Contactanos</a></li>
+                        <li><a href="contact.asp">Acerca de</a></li>
+                        <li><a href="about.asp">Mapa</a></li>
+
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
