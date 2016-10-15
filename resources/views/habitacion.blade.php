@@ -2,8 +2,6 @@
 <html>
 <head>
     <style>
-
-
         div.img {
             border:5px solid #ccc;
         }
@@ -52,10 +50,6 @@
             display: table;
             clear: both;
         }
-
-
-
-
     </style>
 </head>
 <body background="images/fpantalla.jpg">
@@ -119,8 +113,13 @@
     </div>
 </div>
 </div>
-
 <div class="clearfix"></div>
-
-</body>
+<body>
 </html>
+
+
+
+
+
+
+
