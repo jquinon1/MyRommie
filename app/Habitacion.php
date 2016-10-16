@@ -14,16 +14,17 @@ class Habitacion extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'direccion', 'latitud', 'longitud', 'precio', 'foto',
-    ];
+    protected $fillable = [ 'precio','calificacion','estado','user_id','direccion'];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     *//*
-    protected $hidden = [
-        'password', 'remember_token',
-    ];*/
+    public function user(){
+        return $this->belongsTo('App\User')
+    }
+
+    public function direccion(){
+        return $this->belongsTo('App\Ubicacion');
+    }
+
+    public function imagenes(){
+        return $this->hasMany('App\Imagen');
+    }
 }

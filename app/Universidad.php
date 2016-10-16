@@ -15,15 +15,8 @@ class Universidad extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'lema', 'escudo', 'pagina', 'latitud', 'longitud',
+        'nombre', 'lema', 'escudo', 'url', 'direccion'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     *//*
-    protected $hidden = [
-        'password', 'remember_token',
-    ];*/
+   
 }
