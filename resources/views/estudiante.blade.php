@@ -38,7 +38,7 @@
                 background-color: #45a049;
             }
 
-          
+
 
             .right{
                 position: absolute;

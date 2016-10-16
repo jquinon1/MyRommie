@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!--<title>{{ config('My Roomie', 'Laravel') }}</title>-->
+    <!--<title>{{ config('My Roomie', 'MyRoomie') }}</title>-->
 
     <!-- Styles -->
 
@@ -105,7 +105,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('My Rommie', 'Laravel') }}
+                        {{ config('My Rommie', 'MyRoomie') }}
                     </a>
                 </div>
 
