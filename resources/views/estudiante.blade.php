@@ -38,13 +38,7 @@
                 background-color: #45a049;
             }
 
-            div{
-
-                border-radius: 5px;
-                display: table;
-                vertical-align: middle;
-
-            }
+          
 
             .right{
                 position: absolute;
