@@ -36,124 +36,25 @@
       <input id="submit" type="button" value="Buscar">
     </div>
     <div id="map"></div>
+    @foreach($name as $es=>$valu)
+      <div>
+        <input id="{{$valu}}name" type="hidden" value="<?= $name[$es]; ?>">
+        <input id="{{$valu}}lema" type="hidden" value="<?= $lema[$es]; ?>">
+        <input id="{{$valu}}escudo" type="hidden" value="<?= $escudo[$es]; ?>">
+        <input id="{{$valu}}pagina" type="hidden" value="<?= $pagina[$es]; ?>">
+        <input id="{{$valu}}lat" type="hidden" value="<?= $lat[$es]; ?>">
+        <input id="{{$valu}}lng" type="hidden" value="<?= $lng[$es]; ?>">
+      </div>
+    @endforeach
+
+    @foreach($dirs as $este=>$val)
     <div>
-      <input id="<?= $name[0]; ?>name" type="hidden" value="<?= $name[0]; ?>">
-      <input id="<?= $name[0]; ?>lema" type="hidden" value="<?= $lema[0]; ?>">
-      <input id="<?= $name[0]; ?>escudo" type="hidden" value="<?= $escudo[0]; ?>">
-      <input id="<?= $name[0]; ?>pagina" type="hidden" value="<?= $pagina[0]; ?>">
-      <input id="<?= $name[0]; ?>lat" type="hidden" value="<?= $lat[0]; ?>">
-      <input id="<?= $name[0]; ?>lng" type="hidden" value="<?= $lng[0]; ?>">
-    </div>
-    <div>
-      <input id="<?= $name[1]; ?>name" type="hidden" value="<?= $name[1]; ?>">
-      <input id="<?= $name[1]; ?>lema" type="hidden" value="<?= $lema[1]; ?>">
-      <input id="<?= $name[1]; ?>escudo" type="hidden" value="<?= $escudo[1]; ?>">
-      <input id="<?= $name[1]; ?>pagina" type="hidden" value="<?= $pagina[1]; ?>">
-      <input id="<?= $name[1]; ?>lat" type="hidden" value="<?= $lat[1]; ?>">
-      <input id="<?= $name[1]; ?>lng" type="hidden" value="<?= $lng[1]; ?>">
-    </div>
-    <div>
-      <input id="<?= $name[2]; ?>name" type="hidden" value="<?= $name[2]; ?>">
-      <input id="<?= $name[2]; ?>lema" type="hidden" value="<?= $lema[2]; ?>">
-      <input id="<?= $name[2]; ?>escudo" type="hidden" value="<?= $escudo[2]; ?>">
-      <input id="<?= $name[2]; ?>pagina" type="hidden" value="<?= $pagina[2]; ?>">
-      <input id="<?= $name[2]; ?>lat" type="hidden" value="<?= $lat[2]; ?>">
-      <input id="<?= $name[2]; ?>lng" type="hidden" value="<?= $lng[2]; ?>">
-    </div>
-    <div>
-      <input id="<?= $name[3]; ?>name" type="hidden" value="<?= $name[3]; ?>">
-      <input id="<?= $name[3]; ?>lema" type="hidden" value="<?= $lema[3]; ?>">
-      <input id="<?= $name[3]; ?>escudo" type="hidden" value="<?= $escudo[3]; ?>">
-      <input id="<?= $name[3]; ?>pagina" type="hidden" value="<?= $pagina[3]; ?>">
-      <input id="<?= $name[3]; ?>lat" type="hidden" value="<?= $lat[3]; ?>">
-      <input id="<?= $name[3]; ?>lng" type="hidden" value="<?= $lng[3]; ?>">
-    </div>
-    <div>
-      <input id="<?= $name[4]; ?>name" type="hidden" value="<?= $name[4]; ?>">
-      <input id="<?= $name[4]; ?>lema" type="hidden" value="<?= $lema[4]; ?>">
-      <input id="<?= $name[4]; ?>escudo" type="hidden" value="<?= $escudo[4]; ?>">
-      <input id="<?= $name[4]; ?>pagina" type="hidden" value="<?= $pagina[4]; ?>">
-      <input id="<?= $name[4]; ?>lat" type="hidden" value="<?= $lat[4]; ?>">
-      <input id="<?= $name[4]; ?>lng" type="hidden" value="<?= $lng[4]; ?>">
-    </div>
-    <div>
-      <input id="<?= $name[5]; ?>name" type="hidden" value="<?= $name[5]; ?>">
-      <input id="<?= $name[5]; ?>lema" type="hidden" value="<?= $lema[5]; ?>">
-      <input id="<?= $name[5]; ?>escudo" type="hidden" value="<?= $escudo[5]; ?>">
-      <input id="<?= $name[5]; ?>pagina" type="hidden" value="<?= $pagina[5]; ?>">
-      <input id="<?= $name[5]; ?>lat" type="hidden" value="<?= $lat[5]; ?>">
-      <input id="<?= $name[5]; ?>lng" type="hidden" value="<?= $lng[5]; ?>">
-    </div>
-    <div>
-      <input id="hab1dir" type="hidden" value="<?= $dirs[0]; ?>">
-      <input id="hab1lat" type="hidden" value="<?= $lats[0]; ?>">
-      <input id="hab1lng" type="hidden" value="<?= $longs[0]; ?>">
-    </div>
-    <div>
-      <input id="hab2dir" type="hidden" value="<?= $dirs[1]; ?>">
-      <input id="hab2lat" type="hidden" value="<?= $lats[1]; ?>">
-      <input id="hab2lng" type="hidden" value="<?= $longs[1]; ?>">
-    </div>
-    <div>
-      <input id="hab3dir" type="hidden" value="<?= $dirs[2]; ?>">
-      <input id="hab3lat" type="hidden" value="<?= $lats[2]; ?>">
-      <input id="hab3lng" type="hidden" value="<?= $longs[2]; ?>">
-    </div>
-    <div>
-      <input id="hab4dir" type="hidden" value="<?= $dirs[3]; ?>">
-      <input id="hab4lat" type="hidden" value="<?= $lats[3]; ?>">
-      <input id="hab4lng" type="hidden" value="<?= $longs[3]; ?>">
-    </div>
-    <div>
-      <input id="hab5dir" type="hidden" value="<?= $dirs[4]; ?>">
-      <input id="hab5lat" type="hidden" value="<?= $lats[4]; ?>">
-      <input id="hab5lng" type="hidden" value="<?= $longs[4]; ?>">
-    </div>
-    <div>
-      <input id="hab6dir" type="hidden" value="<?= $dirs[5]; ?>">
-      <input id="hab6lat" type="hidden" value="<?= $lats[5]; ?>">
-      <input id="hab6lng" type="hidden" value="<?= $longs[5]; ?>">
-    </div>
-    <div>
-      <input id="hab7dir" type="hidden" value="<?= $dirs[6]; ?>">
-      <input id="hab7lat" type="hidden" value="<?= $lats[6]; ?>">
-      <input id="hab7lng" type="hidden" value="<?= $longs[6]; ?>">
-    </div>
-    <div>
-      <input id="hab8dir" type="hidden" value="<?= $dirs[7]; ?>">
-      <input id="hab8lat" type="hidden" value="<?= $lats[7]; ?>">
-      <input id="hab8lng" type="hidden" value="<?= $longs[7]; ?>">
-    </div>
-    @foreach($dirs as $este=>$value)
-    <div>
-      <input id="{{$este}}ensayo" type="hidden" value={{$value}}>
+      <input id="hab{{$este}}dir" type="hidden" value={{$val}}>
+      <input id="hab{{$este}}lat" type="hidden" value="<?= $lats[$este]; ?>">
+      <input id="hab{{$este}}lng" type="hidden" value="<?= $longs[$este]; ?>">
     </div>
     @endforeach
     <script>
-    /*var input = document.createElement("hab8dir");
-
-    input.setAttribute("type", "hidden");
-
-    input.setAttribute("id", "hab8dir");
-
-    input.setAttribute("value", "<?= $dirs[7]; ?>");
-
-    var input2 = document.createElement("hab8lat");
-
-    input.setAttribute("type", "hidden");
-
-    input.setAttribute("id", "hab8lat");
-
-    input.setAttribute("value", "<?= $lats[7]; ?>");
-
-    var input3 = document.createElement("hab8lng");
-
-    input.setAttribute("type", "hidden");
-
-    input.setAttribute("id", "hab8lng");
-
-    input.setAttribute("value", "<?= $longs[7]; ?>");*/
-
     var us = {eafit: {lat: parseFloat(document.getElementById('EAFITlat').value), lng: parseFloat(document.getElementById('EAFITlng').value)},
               upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
               ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
@@ -180,8 +81,10 @@ function initMap() {
 function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
-  //alert(document.getElementById('EAFITlat').value);
-  alert(document.getElementById('1ensayo').value);
+  //alert(document.getElementById('hab7dir').value);
+  /*for(var j=0; j <8;j++ ){
+    alert(document.getElementById('hab'+j+'lng').value);
+  }*/
   var i =0;
   var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
@@ -327,12 +230,12 @@ function geocodeAddress(geocoder, resultsMap) {
   }else{
     var p=-1;
     var nam="";
-    for(var y=1; y<=8;y++){
+    for(var y=0; y<8;y++){
       nam = "hab";
       nam+=y;
       nam+="dir";
       //alert(nam);
-      //alert(document.getElementById('hab8dir').value);
+      //alert(document.getElementById('hab7dir').value);
       //alert(document.getElementById('address').value);
       if(document.getElementById(nam).value == document.getElementById('address').value){
         p=y;
