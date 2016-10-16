@@ -15,7 +15,33 @@ class ControladorFrontEnd extends Controller
     }
 
     public function map(){
-      return view('map');
+      $uni = DB::select('select * from universidades');
+      $names=array();
+      $lemas=array();
+      $escudos=array();
+      $paginas=array();
+      $latitudes=array();
+      $longitudes=array();
+      foreach ($uni as $key) {
+        $names[]= $key->nombre;
+        $lemas[]= $key->lema;
+        $escudos[]= $key->escudo;
+        $paginas[]= $key->pagina;
+        $latitudes[]= $key->latitud;
+        $longitudes[]= $key->longitud;
+      }
+
+      $hab = DB::select('select * from habitaciones');
+      $dirs=array();
+      $lats=array();
+      $longs=array();
+      foreach ($hab as $key) {
+        $dirs[]=$key->direccion;
+        $lats[]=$key->latitud;
+        $longs[]=$key->longitud;
+      }
+
+      return view('map', ['dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);
     }
 
     public function map2($dir){

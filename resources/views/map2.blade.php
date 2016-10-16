@@ -34,6 +34,7 @@
     <div id="floating-panel">
       <input id="address" type="textbox" value="<?= $dir; ?>">
       <input id="submit" type="button" value="Buscar">
+      <input id="tam" type="hidden" value="<?= count($dirs); ?>">
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
@@ -86,7 +87,7 @@
           alert(document.getElementById('hab'+j+'lng').value);
         }*/
         var i =0;
-        var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
+        //var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
         if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
           var marker = new google.maps.Marker({
           map: resultsMap,
@@ -142,8 +143,19 @@
           map: resultsMap,
           position: us["udem"]
           });
+          var ensayo = '<h2>Universidad ';
+          ensayo += document.getElementById('UDEMname').value;
+          ensayo +='</h2>';
+          ensayo += '<img src="../images/';
+          ensayo += document.getElementById('UDEMescudo').value;
+          ensayo += '"> <p>Lema: "';
+          ensayo += document.getElementById('UDEMlema').value;
+          ensayo += '".<a href="';
+          ensayo += document.getElementById('UDEMpagina').value;
+          ensayo += '"> sitio oficial</a></p>';
           var infowindow = new google.maps.InfoWindow({
-            content: '<h2>Universiad de medellín</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/udem.jpg"> <p>"ciencia y libertad".<a href="http://www.udem.edu.co"> sitio oficial</a></p>'
+            //content: '<h2>Universiad de medellín</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/udem.jpg"> <p>"ciencia y libertad".<a href="http://www.udem.edu.co"> sitio oficial</a></p>'
+            content: ensayo
           });
           marker.addListener('click', function() {
             infowindow.open(map, marker);
@@ -234,9 +246,6 @@
             nam = "hab";
             nam+=y;
             nam+="dir";
-            //alert(nam);
-            //alert(document.getElementById('hab7dir').value);
-            //alert(document.getElementById('address').value);
             if(document.getElementById(nam).value == document.getElementById('address').value){
               p=y;
             }
@@ -278,7 +287,7 @@
             }
           });*/
         }
-        for(i; i < dirs.length; i++){
+        for(i; i < parseInt(document.getElementById('hab'+i+'lat').value); i++){
           distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap);
           /*geocoder.geocode({'address': dirs[i], componentRestrictions: {
               country: 'CO',

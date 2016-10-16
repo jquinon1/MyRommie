@@ -34,15 +34,34 @@
     <div id="floating-panel">
       <input id="address" type="textbox" value="direccion">
       <input id="submit" type="button" value="Buscar">
+      <input id="tam" type="hidden" value="<?= count($dirs); ?>">
     </div>
     <div id="map"></div>
+    @foreach($name as $es=>$valu)
+      <div>
+        <input id="{{$valu}}name" type="hidden" value="<?= $name[$es]; ?>">
+        <input id="{{$valu}}lema" type="hidden" value="<?= $lema[$es]; ?>">
+        <input id="{{$valu}}escudo" type="hidden" value="<?= $escudo[$es]; ?>">
+        <input id="{{$valu}}pagina" type="hidden" value="<?= $pagina[$es]; ?>">
+        <input id="{{$valu}}lat" type="hidden" value="<?= $lat[$es]; ?>">
+        <input id="{{$valu}}lng" type="hidden" value="<?= $lng[$es]; ?>">
+      </div>
+    @endforeach
+
+    @foreach($dirs as $este=>$val)
+    <div>
+      <input id="hab{{$este}}dir" type="hidden" value={{$val}}>
+      <input id="hab{{$este}}lat" type="hidden" value="<?= $lats[$este]; ?>">
+      <input id="hab{{$este}}lng" type="hidden" value="<?= $longs[$este]; ?>">
+    </div>
+    @endforeach
     <script>
-    var us = {eafit: {lat: 6.200299999999999, lng: -75.57754599999998},
-              upb: {lat: 6.244481218168726, lng: -75.58940827846527},
-              ces: {lat: 6.2084094, lng: -75.5557789},
-              udea: {lat: 6.267352196455107, lng: -75.56699842214584},
-              unal: {lat: 6.259617555850852, lng: -75.57885646820068},
-              udem: {lat: 6.231869491114237, lng: -75.60983598232269}};
+    var us = {eafit: {lat: parseFloat(document.getElementById('EAFITlat').value), lng: parseFloat(document.getElementById('EAFITlng').value)},
+            upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
+            ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
+            udea: {lat: parseFloat(document.getElementById('UDEAlat').value), lng: parseFloat(document.getElementById('UDEAlng').value)},
+            unal: {lat: parseFloat(document.getElementById('UNALlat').value), lng: parseFloat(document.getElementById('UNALlng').value)},
+            udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
               var markers=[];
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -56,21 +75,26 @@ function initMap() {
     if(kas == 13){
       geocodeAddress(geocoder, map);
     }
-  }, false);//function(){geocodeAddress(geocoder, map);});
+  }, false);
 }
 
 function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
   var i =0;
-  var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
     var marker = new google.maps.Marker({
     map: resultsMap,
     position: us["eafit"]
     });
+    var ensayo = '<h2>Universidad '  + document.getElementById('EAFITname').value;
+      + '</h2>' + '<img src="images/' + document.getElementById('EAFITescudo').value
+      + '"> <p>Lema: "' + document.getElementById('EAFITlema').value
+      + '".<br> le meilleure université du monde.<a href="'
+      + document.getElementById('EAFITpagina').value
+      + '"> sitio oficial</a></p>';
     var infowindow = new google.maps.InfoWindow({
-      content: '<h2>Universiad EAFIT</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/eafit.jpg"> <p>Lema: "abierta al mundo".<br> le meilleure université du monde.<a href="http://www.eafit.edu.co"> sitio oficial</a></p>'
+      content: ensayo
     });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
@@ -83,8 +107,13 @@ function geocodeAddress(geocoder, resultsMap) {
     map: resultsMap,
     position: us["upb"]
     });
+    var ensayo = '<h2>Universidad ' + document.getElementById('UPBname').value + '</h2>'
+      + '<img src="images/' + document.getElementById('UPBescudo').value
+      + '"> <p>Lema: "' + document.getElementById('UPBlema').value
+      + '".<a href="' + document.getElementById('UPBpagina').value
+      + '"> sitio oficial</a></p>';
     var infowindow = new google.maps.InfoWindow({
-      content: '<h2>Universiad pontifica bolivariana</h2> <IMG BORDER="0" ALIGN="Left" SRC="fotos/upb.jpg"> <p> Lema: "formación integral para la transformación social y humana".<a href="http://www.upb.edu.co/portal/page?_pageid=1054,1&_dad=portal&_schema=PORTAL"> sitio oficial</a></p>'
+      content: ensayo
     });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
@@ -97,8 +126,18 @@ function geocodeAddress(geocoder, resultsMap) {
     map: resultsMap,
     position: us["udem"]
     });
+    var ensayo = '<h2>Universidad ';
+    ensayo += document.getElementById('UDEMname').value;
+    ensayo +='</h2>';
+    ensayo += '<img src="images/';
+    ensayo += document.getElementById('UDEMescudo').value;
+    ensayo += '"> <p>Lema: "';
+    ensayo += document.getElementById('UDEMlema').value;
+    ensayo += '".<a href="';
+    ensayo += document.getElementById('UDEMpagina').value;
+    ensayo += '"> sitio oficial</a></p>';
     var infowindow = new google.maps.InfoWindow({
-      content: '<h2>Universiad de medellín</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/udem.jpg"> <p>"ciencia y libertad".<a href="http://www.udem.edu.co"> sitio oficial</a></p>'
+      content: ensayo
     });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
@@ -111,8 +150,18 @@ function geocodeAddress(geocoder, resultsMap) {
       map: resultsMap,
       position: us["udea"]
       });
+      var ensayo = '<h2>Universidad ';
+      ensayo += document.getElementById('UDEAname').value;
+      ensayo +='</h2>';
+      ensayo += '<img src="images/';
+      ensayo += document.getElementById('UDEAescudo').value;
+      ensayo += '"> <p>Lema: "';
+      ensayo += document.getElementById('UDEAlema').value;
+      ensayo += '".<a href="';
+      ensayo += document.getElementById('UDEApagina').value;
+      ensayo += '"> sitio oficial</a></p>';
       var infowindow = new google.maps.InfoWindow({
-        content: '<h2>Universiad de antioquia</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/udea.jpg"> <p>"alma máter de la raza".<a href="http://www.udea.edu.co"> sitio oficial</a></p>'
+        content: ensayo
       });
       marker.addListener('click', function() {
         infowindow.open(map, marker);
@@ -125,8 +174,18 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: us["unal"]
         });
+        var ensayo = '<h2>Universidad ';
+        ensayo += document.getElementById('UNALname').value;
+        ensayo +='</h2>';
+        ensayo += '<img src="images/';
+        ensayo += document.getElementById('UNALescudo').value;
+        ensayo += '"> <p>Lema: "';
+        ensayo += document.getElementById('UNALlema').value;
+        ensayo += '".<a href="';
+        ensayo += document.getElementById('UNALpagina').value;
+        ensayo += '"> sitio oficial</a></p>';
         var infowindow = new google.maps.InfoWindow({
-          content: '<h2>Universiad nacional sede medellín</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/unal.jpg"> <p>"Inter Aulas Academiæ Quære Verum «Busca la verdad en las aulas de la Academia»"<a href="http://www.medellin.unal.edu.co"> sitio oficial</a>.</p>'
+          content: ensayo
         });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -139,8 +198,18 @@ function geocodeAddress(geocoder, resultsMap) {
     map: resultsMap,
     position: us["ces"]
     });
+    var ensayo = '<h2>Universidad ';
+    ensayo += document.getElementById('CESname').value;
+    ensayo +='</h2>';
+    ensayo += '<img src="images/';
+    ensayo += document.getElementById('CESescudo').value;
+    ensayo += '"></img><p>Lema: "';
+    ensayo += document.getElementById('CESlema').value;
+    ensayo += '".<a href="';
+    ensayo += document.getElementById('CESpagina').value;
+    ensayo += '"> sitio oficial</a></p>';
     var infowindow = new google.maps.InfoWindow({
-      content: '<h2>Universiad ces</h2><IMG BORDER="0" ALIGN="Left" SRC="fotos/ces.jpg"> <p>"un compromiso con la excelencia".<a href="http://www.ces.edu.co"> sitio oficial</a></p>'
+      content:ensayo
     });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
@@ -149,41 +218,33 @@ function geocodeAddress(geocoder, resultsMap) {
     resultsMap.panTo(us["ces"]);
     resultsMap.setZoom(15);
   }else{
-    geocoder.geocode({'address': address, componentRestrictions: {
-        country: 'CO',
-        locality: 'medellin'
-      //geocoder.geocode({'address': address
+    var p=-1;
+    var nam="";
+    for(var y=0; y<8;y++){
+      nam = "hab";
+      nam+=y;
+      nam+="dir";
+      if(document.getElementById(nam).value == document.getElementById('address').value){
+        p=y;
       }
-    }, function(results, status) {
-      if (status === google.maps.GeocoderStatus.OK) {
-          var marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
-          });
-          markers.push(marker);
-          resultsMap.panTo(results[0].geometry.location);
-          resultsMap.setZoom(15);
-      } else {
-        if(status = "OVER_QUERY_LIMIT"){
-          alert("Lo sentimos intentelo de nuevo unos segundos mas tarde");
-          i=dirs.length;
-        }else{
-          alert('Geocode no pudo encontrar su dirección debido a: ' + status);
-        }
-      }
+    }
+    nam = "hab";
+    nam += p;
+    nam += "lat";
+    var nam2 = "hab";
+    nam2 += p;
+    nam2 += "lng";
+
+    var marker = new google.maps.Marker({
+    map: resultsMap,
+    position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)}
     });
+    markers.push(marker);
+    resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
+    resultsMap.setZoom(15);
   }
-  for(i; i < dirs.length; i++){
-    geocoder.geocode({'address': dirs[i], componentRestrictions: {
-        country: 'CO',
-        locality: 'medellin'
-      }}, function(results, status) {
-      if (status === google.maps.GeocoderStatus.OK) {
-        distancia(results[0].geometry.location, resultsMap);
-      } else {
-        alert('Geocode no pudo encontrar su dirección debido a: ' + status);
-      }
-    });
+  for(i; i < parseInt(document.getElementById('hab'+i+'lat').value); i++){
+    distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap);
   }
 }
 
@@ -195,45 +256,14 @@ function distancia(origen, map){
   }else{
     posEafit = us[uni];
   }
+  var origen2 = new google.maps.LatLng(origen.lat, origen.lng);
   var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
   var distan;
-  distan = google.maps.geometry.spherical.computeDistanceBetween(a,origen);
+  distan = google.maps.geometry.spherical.computeDistanceBetween(a,origen2);
   machete(map, origen, distan);
-  /*var geocoder = new google.maps.Geocoder;
-  var dist;
-  var service = new google.maps.DistanceMatrixService;
-  service.getDistanceMatrix({
-    origins: [origen],
-    destinations: [posEafit],
-    travelMode: google.maps.TravelMode.DRIVING,
-    unitSystem: google.maps.UnitSystem.METRIC,
-    avoidHighways: false,
-    avoidTolls: false
-  }, function(response, status) {
-    if (status !== google.maps.DistanceMatrixStatus.OK) {
-      alert('Error was: ' + status);
-    } else {
-      var originList = response.originAddresses;
-      var destinationList = response.destinationAddresses;
-      //var outputDiv = document.getElementById('address');
-
-      for (var i = 0; i < originList.length; i++) {
-        var results = response.rows[i].elements;
-        geocoder.geocode({'address': originList[i]});
-        for (var j = 0; j < results.length; j++) {
-          geocoder.geocode({'address': destinationList[j]});
-              //document.getElementById('address').value = results[j].distance.text;
-              //alert(results[j].distance.text);
-              alert("manda machete con: " + results[j].distance.text);
-              machete(map, origen, results[j].distance.text);
-        }
-      }
-    }
-  });*/
 }
 function machete (map, pos, dist){
   if(dist < 2000.0){
-  //if(parseFloat(dist.substring(0,dist.indexOf(' '))) < 2.0){
     var marker = new google.maps.Marker({
     map: map,
     position: pos
