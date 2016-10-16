@@ -84,7 +84,76 @@
       <input id="<?= $name[5]; ?>lat" type="hidden" value="<?= $lat[5]; ?>">
       <input id="<?= $name[5]; ?>lng" type="hidden" value="<?= $lng[5]; ?>">
     </div>
+    <div>
+      <input id="hab1dir" type="hidden" value="<?= $dirs[0]; ?>">
+      <input id="hab1lat" type="hidden" value="<?= $lats[0]; ?>">
+      <input id="hab1lng" type="hidden" value="<?= $longs[0]; ?>">
+    </div>
+    <div>
+      <input id="hab2dir" type="hidden" value="<?= $dirs[1]; ?>">
+      <input id="hab2lat" type="hidden" value="<?= $lats[1]; ?>">
+      <input id="hab2lng" type="hidden" value="<?= $longs[1]; ?>">
+    </div>
+    <div>
+      <input id="hab3dir" type="hidden" value="<?= $dirs[2]; ?>">
+      <input id="hab3lat" type="hidden" value="<?= $lats[2]; ?>">
+      <input id="hab3lng" type="hidden" value="<?= $longs[2]; ?>">
+    </div>
+    <div>
+      <input id="hab4dir" type="hidden" value="<?= $dirs[3]; ?>">
+      <input id="hab4lat" type="hidden" value="<?= $lats[3]; ?>">
+      <input id="hab4lng" type="hidden" value="<?= $longs[3]; ?>">
+    </div>
+    <div>
+      <input id="hab5dir" type="hidden" value="<?= $dirs[4]; ?>">
+      <input id="hab5lat" type="hidden" value="<?= $lats[4]; ?>">
+      <input id="hab5lng" type="hidden" value="<?= $longs[4]; ?>">
+    </div>
+    <div>
+      <input id="hab6dir" type="hidden" value="<?= $dirs[5]; ?>">
+      <input id="hab6lat" type="hidden" value="<?= $lats[5]; ?>">
+      <input id="hab6lng" type="hidden" value="<?= $longs[5]; ?>">
+    </div>
+    <div>
+      <input id="hab7dir" type="hidden" value="<?= $dirs[6]; ?>">
+      <input id="hab7lat" type="hidden" value="<?= $lats[6]; ?>">
+      <input id="hab7lng" type="hidden" value="<?= $longs[6]; ?>">
+    </div>
+    <div>
+      <input id="hab8dir" type="hidden" value="<?= $dirs[7]; ?>">
+      <input id="hab8lat" type="hidden" value="<?= $lats[7]; ?>">
+      <input id="hab8lng" type="hidden" value="<?= $longs[7]; ?>">
+    </div>
+    @foreach($dirs as $este=>$value)
+    <div>
+      <input id="{{$este}}ensayo" type="hidden" value={{$value}}>
+    </div>
+    @endforeach
     <script>
+    /*var input = document.createElement("hab8dir");
+
+    input.setAttribute("type", "hidden");
+
+    input.setAttribute("id", "hab8dir");
+
+    input.setAttribute("value", "<?= $dirs[7]; ?>");
+
+    var input2 = document.createElement("hab8lat");
+
+    input.setAttribute("type", "hidden");
+
+    input.setAttribute("id", "hab8lat");
+
+    input.setAttribute("value", "<?= $lats[7]; ?>");
+
+    var input3 = document.createElement("hab8lng");
+
+    input.setAttribute("type", "hidden");
+
+    input.setAttribute("id", "hab8lng");
+
+    input.setAttribute("value", "<?= $longs[7]; ?>");*/
+
     var us = {eafit: {lat: parseFloat(document.getElementById('EAFITlat').value), lng: parseFloat(document.getElementById('EAFITlng').value)},
               upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
               ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
@@ -112,7 +181,7 @@ function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
   //alert(document.getElementById('EAFITlat').value);
-  //alert(document.getElementById('EAFITpagina').value);
+  alert(document.getElementById('1ensayo').value);
   var i =0;
   var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
@@ -256,10 +325,36 @@ function geocodeAddress(geocoder, resultsMap) {
     resultsMap.panTo(us["ces"]);
     resultsMap.setZoom(15);
   }else{
-    geocoder.geocode({'address': address, componentRestrictions: {
+    var p=-1;
+    var nam="";
+    for(var y=1; y<=8;y++){
+      nam = "hab";
+      nam+=y;
+      nam+="dir";
+      //alert(nam);
+      //alert(document.getElementById('hab8dir').value);
+      //alert(document.getElementById('address').value);
+      if(document.getElementById(nam).value == document.getElementById('address').value){
+        p=y;
+      }
+    }
+    nam = "hab";
+    nam += p;
+    nam += "lat";
+    var nam2 = "hab";
+    nam2 += p;
+    nam2 += "lng";
+
+    var marker = new google.maps.Marker({
+    map: resultsMap,
+    position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)}
+    });
+    markers.push(marker);
+    resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
+    resultsMap.setZoom(15);
+    /*geocoder.geocode({'address': address, componentRestrictions: {
         country: 'CO',
         locality: 'medellin'
-      //geocoder.geocode({'address': address
       }
     }, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
@@ -278,7 +373,7 @@ function geocodeAddress(geocoder, resultsMap) {
           alert('Geocode no pudo encontrar su dirección debido a: ' + status);
         }
       }
-    });
+    });*/
   }
   for(i; i < dirs.length; i++){
     geocoder.geocode({'address': dirs[i], componentRestrictions: {

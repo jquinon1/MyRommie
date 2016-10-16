@@ -27,6 +27,8 @@ Route::get('/habitacion/{id}', 'ControladorFrontEnd@habitacion2')->where(['id' =
 
 Route::get('/arrendador', 'ControladorFrontEnd@arrendador');
 
+Route::get('/infoarrendador', 'ControladorFrontEnd@infoarrendador');
+
 Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 
 Route::get('/pm', 'ControladorFrontEnd@pm');

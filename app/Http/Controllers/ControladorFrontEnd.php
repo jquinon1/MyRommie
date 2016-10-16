@@ -35,7 +35,17 @@ class ControladorFrontEnd extends Controller
         $longitudes[]= $key->longitud;
       }
 
-      return view('map2', ['dir' => $dir, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);
+      $hab = DB::select('select * from habitaciones');
+      $dirs=array();
+      $lats=array();
+      $longs=array();
+      foreach ($hab as $key) {
+        $dirs[]=$key->direccion;
+        $lats[]=$key->latitud;
+        $longs[]=$key->longitud;
+      }
+
+      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);
     }
 
     public function habitacion(){
@@ -58,6 +68,10 @@ class ControladorFrontEnd extends Controller
 
     public function arrendador(){
       return view('arrendador');
+    }
+
+    public function infoarrendador(){
+      return view('infoarrendador');
     }
 
     public function estudiante(){
