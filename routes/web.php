@@ -32,3 +32,5 @@ Route::get('/infoarrendador', 'ControladorFrontEnd@infoarrendador');
 Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 
 Route::get('/pm', 'ControladorFrontEnd@pm');
+
+Route::get('/signup', 'UsersController@create');
