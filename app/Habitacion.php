@@ -2,18 +2,12 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Habitacion as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Habitacion extends Authenticatable
+class Imagen extends Model
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = "imagenes";
+    
     protected $fillable = [ 'precio','calificacion','estado','user_id','direccion'];
 
     public function user(){

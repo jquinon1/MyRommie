@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Ubicacion extends Model
 {
 
+	protected $table = "ubicaciones";
 	protected $fillable = ['direccion', 'ciudad','pais','longitud','latitud'];
     
-
+	// Una direccion pertenece a una universidad o a una habitacion
     public function universidad(){
-    	return $this->belongsTo('App\Universidad');
+    	return $this->hasOne('App\Universidad');
     }
 
     public function habitacion(){
-    	return $this->belongsTo('App\Habitacion');
+    	return $this->hasOne('App\Habitacion');
     }
 }

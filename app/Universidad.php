@@ -2,12 +2,11 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Habitacion as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Universidad extends Authenticatable
+class Imagen extends Model
 {
-    use Notifiable;
+    protected $table = "universidades";
 
     /**
      * The attributes that are mass assignable.
@@ -18,5 +17,9 @@ class Universidad extends Authenticatable
         'nombre', 'lema', 'escudo', 'url', 'direccion'
     ];
 
+
+    public function direccion(){
+        return $this->belongsTo('App\Ubicacion');
+    }
    
 }
