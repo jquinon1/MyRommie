@@ -1,23 +1,37 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
-<html lang="es">
-  <style>
-    body{background:#ffffff; /*el color del fondo*/
-      font-size:20px; /*tamaño del texto en pixeles*/
-      color:black; /*color de las letras*/
-      padding:20px; /*el espacio entre el borde y el contenido*/
-      border:6px solid white; /*tamaño, forma y color del borde de la pagina*/
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+
+</style>
+<body >
+<div class="w3-container">
+  <div class="w3-content w3-section" style="width:800px; margin-right: 70%;margin-top: 30%;position: fixed" >
+    <img class="mySlides w3-animate-fading" src="../images/hab3.jpg"  width="600" height="400">
+    <img class="mySlides w3-animate-fading" src="../images/hab4.jpg"  width="600" height="400">
+    <img class="mySlides w3-animate-fading" src="../images/hab5.jpg"  width="600" height="400">
+      </div>
+  </div>
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 9000);
     }
-    h1{color:red;} /*color del encabezado*/
-  </style>
-  <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </script>
 
-        <title>habitacion</title>
-
-    </head>
-    <body>
       <div>
         <img src="../images/<?= $foto; ?>" width=400 height=200 align=right>
       </div>
@@ -33,3 +47,4 @@
       </div>
     </body>
 </html>
+@endsection
