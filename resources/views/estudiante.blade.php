@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -14,6 +15,43 @@
     <div>
 
         <style>
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+                src: local('Material Icons'),
+                local('MaterialIcons-Regular'),
+                url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+                url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+                url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+            }
+
+            .material-icons {
+                font-family: 'Material Icons';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 24px;  /* Preferred icon size */
+                display: inline-block;
+                line-height: 1;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: nowrap;
+                direction: ltr;
+
+                /* Support for all WebKit browsers. */
+                -webkit-font-smoothing: antialiased;
+                /* Support for Safari and Chrome. */
+                text-rendering: optimizeLegibility;
+
+                /* Support for Firefox. */
+                -moz-osx-font-smoothing: grayscale;
+
+                /* Support for IE. */
+                font-feature-settings: 'liga';
+            }
             input[type=text],select {
                 width: 100%;
                 padding: 0px 0px;
@@ -24,7 +62,7 @@
             }
 
             input[type=submit]{
-                width: 30%;
+                width: 50%;
                 background-color: #4CAF50;
                 color: white;
                 padding: 14px 20px;
@@ -38,7 +76,7 @@
                 background-color: #45a049;
             }
 
-          
+
 
             .right{
                 position: absolute;
@@ -59,43 +97,48 @@
 
         </style>
 
-        <!--<form action="container" >
-            <label style="color: mintcream" for="Universidad">Universidad</label>
-            <input type="text" id="Universidad" name="u">
+        <form action="container" >
+            <div class="row" >
+                <i class="material-icons" style="color: whitesmoke">location_city</i></i><font color="#f5fffa"> Universidad </font></li>
+                    <input  type="text" id="Universidad" name="universidad">
+            </div>
+            <br><br>
+            <div class="row" >
+                <i class="material-icons" style="color: whitesmoke">place</i> <font color="#f5fffa"> Ciudad </font></li>
+                    <input  type="text" id="ciudad" name="ciudad" >
+            </div>
+                <br><br>
+            <div class="row" >
+                    <i class="material-icons" style="color: whitesmoke">local_atm</i> <font color="#f5fffa"> Precio </font></li>
+                    <input  type="text" id="precio" name="precio" >
+            </div>
+                <br><br>
+            <div>
+                <i class="material-icons" style="color: whitesmoke">people</i> <font color="#f5fffa"> Genero </font></li>
+                    <select id="Genero" name="Genero">
+                        <option value="genmas">Masculino</option>
+                        <option value="genfem">Femenino</option>
+                    </select>
+            </div>
             <br><br>
 
-            <label style="color: mintcream" for="ciudad">Ciudad</label>
-            <input type="text" id="ciudad" name="ciudad">
+            <div>
+                <i class="material-icons" style="color: whitesmoke">timer</i> <font color="#f5fffa"> Tiempo </font></li>
+                    <select id="Tiempo" name="Tiempo">
+                         <option value="seism">6 Meses</option>
+                         <option value="unoydos">Entre 1 a 2 Años</option>
+                        <option value="dosytres">Entre 2 a 3 Años</option>
+                        <option value="tresycuatro">Entre 3 a 4 Años</option>
+                        <option value="cuatroycinco">Entre 4 a 5 Años</option>
+                        <option value="cincomas">Mas de 5 Años</option>
+                </select>
+            </div>
             <br><br>
-
-            <label style="color: mintcream" for="precio">Precio</label>
-            <input type="text" id="precio" name="precio">
-            <br><br>
-
-            <label style="color: mintcream" for="Genero">Genero</label>
-            <select id="Genero" name="Genero">
-                <option value="genmas">Masculino</option>
-                <option value="genfem">Femenino</option>
-
-            </select>
-            <br><br>
-
-            <label style="color: mintcream" for="Tiempo">Tiempo</label>
-            <select id="Tiempo" name="Tiempo">
-                <option value="seism">6 Meses</option>
-                <option value="unoydos">Entre 1 a 2 Años</option>
-                <option value="dosytres">Entre 2 a 3 Años</option>
-                <option value="tresycuatro">Entre 3 a 4 Años</option>
-                <option value="cuatroycinco">Entre 4 a 5 Años</option>
-                <option value="cincomas">Mas de 5 Años</option>
-            </select>
-            <br><br>
-
                 <input type="submit" value="Aceptar" class="input">
             </form>
+            </div>
+        </div>
     </div>
-    </form>-->
-</div>
 </div>
 </body>
 </html>
