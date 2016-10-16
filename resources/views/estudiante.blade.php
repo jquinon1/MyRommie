@@ -118,7 +118,7 @@
                 </select>
             </div>
 
-                <input type="submit" value="Aceptar" class="input">
+                <input href="habitacion" type="submit" value="Aceptar" class="input" >
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <br>
             </form>
