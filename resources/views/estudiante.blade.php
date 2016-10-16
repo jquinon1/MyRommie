@@ -13,7 +13,6 @@
 <div class="flex-center position-ref full-height">
 
     <div>
-
         <style>
 
             @font-face {
@@ -76,25 +75,11 @@
                 background-color: #45a049;
             }
 
-
-
-            .right{
-                position: absolute;
-                left: 60%;
-                width: 300px;
-                padding: 10px;
-                top: 20%;
-
-            }
-
             input {
 
                 margin-right: 50%;
 
             }
-
-
-
         </style>
 
         <form action="container" >
@@ -102,17 +87,17 @@
                 <i class="material-icons" style="color: whitesmoke">location_city</i></i><font color="#f5fffa"> Universidad </font></li>
                     <input  type="text" id="Universidad" name="universidad">
             </div>
-            <br><br>
+
             <div class="row" >
                 <i class="material-icons" style="color: whitesmoke">place</i> <font color="#f5fffa"> Ciudad </font></li>
                     <input  type="text" id="ciudad" name="ciudad" >
             </div>
-                <br><br>
+
             <div class="row" >
                     <i class="material-icons" style="color: whitesmoke">local_atm</i> <font color="#f5fffa"> Precio </font></li>
                     <input  type="text" id="precio" name="precio" >
             </div>
-                <br><br>
+
             <div>
                 <i class="material-icons" style="color: whitesmoke">people</i> <font color="#f5fffa"> Genero </font></li>
                     <select id="Genero" name="Genero">
@@ -120,7 +105,6 @@
                         <option value="genfem">Femenino</option>
                     </select>
             </div>
-            <br><br>
 
             <div>
                 <i class="material-icons" style="color: whitesmoke">timer</i> <font color="#f5fffa"> Tiempo </font></li>
@@ -133,8 +117,10 @@
                         <option value="cincomas">Mas de 5 Años</option>
                 </select>
             </div>
-            <br><br>
+
                 <input type="submit" value="Aceptar" class="input">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br>
             </form>
             </div>
         </div>
