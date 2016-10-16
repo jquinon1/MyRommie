@@ -33,4 +33,4 @@ Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 
 Route::get('/pm', 'ControladorFrontEnd@pm');
 
-Route::get('/signup', 'UsersController@create');
+Route::resource('users', 'UsersController');

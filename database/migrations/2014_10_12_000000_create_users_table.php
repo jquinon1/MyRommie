@@ -24,11 +24,13 @@ class CreateUsersTable extends Migration
             $table->string('tipo_id');
             $table->string('genero');
             $table->enum('tipo_usuario',['arrendador','arrendatario']);
-            $table->double('calificacion',3,2);
+            $table->double('calificacion',3,2)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
+
 
     /**
      * Reverse the migrations.
