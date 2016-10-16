@@ -16,11 +16,14 @@ class CrearTablaUniversidades extends Migration
       Schema::create('universidades', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nombre')->unique();
-        $table->string('lema',1023);
+        $table->text('lema');
         $table->string('escudo');
-        $table->string('pagina',1023);
-        $table->double('latitud',25,20);
-        $table->double('longitud',25,20);
+        $table->string('url',100);
+        $table->integer('direccion')->unsigned();
+
+        $table->foreign('direccion')->references('id')->on('ubicaciones')->onDelete('cascade');
+
+        $table->timestamps();
       });
     }
 
