@@ -8,16 +8,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
+
 body{
 
-    background: whitesmoke;
+    background-image:  url("../images/fpantalla.jpg");
 }
-
 #contenedor {
 
 }
-#cabecera {
-}
+
 #menu {
     float: left;
     width: 15%;
@@ -41,10 +40,10 @@ body{
 
 
 input[type=submit]{
-    width: 25%;
+    width: 28%;
     background-color: #4CAF50;
     color: white;
-    padding: 5px 15px;
+    padding: 20px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
@@ -89,17 +88,17 @@ input[type=submit]:hover {
 
     <div id="contenido">
        <div id="principal">
-        <h1 align="center">VILLAS EAFIT</h1>
+        <h1 align="center" style="color: whitesmoke">VILLAS EAFIT</h1>
         <br>
-        <p align="center"> <font size="5">$</font> <?= $precio; ?></p>
+        <p align="center" style="color: whitesmoke"> <font size="5">$</font> <?= $precio; ?></p>
         <br>
-        <td>
-    Habitacion con bano, balcon y television con aire acondicionado, colchon nuevo. cerca de la universidad eafit, inem y politecnico.
-            lugar tranquilo para estudiar, acceso a la cocina y a la piscina de la unidad.
-       </td>
+        <p style="color: whitesmoke"><font size="4">Habitacion con bano, balcon y television con aire acondicionado, colchon nuevo. cerca de la universidad eafit, inem y politecnico.
+                lugar tranquilo para estudiar, acceso a la cocina y a la piscina de la unidad.</font>
+       </p>
            <br><br>
-           <input href="../pm" type="submit" value="contactar" class="input" style="margin-left: 34.4%"><br><br>
-           <h3 align="center"> CALIFICACION</h3>
+           <input href="../pm" type="submit" value="CONTACTAR" class="input" style="margin-left: 34.8%">
+           <br><br>
+           <h3 align="center" style="color: whitesmoke"> CALIFICACION</h3>
            <form action="#"  style="margin-left: 34.8%">
                <p>
                    <input name="group1" type="radio" id="test1" />
@@ -119,30 +118,24 @@ input[type=submit]:hover {
                </p>
            </form>
            <br><br>
-           <input type="text" name="oferta" style="margin-left: 10%"><input href="habitacion" type="submit" value="Ofertar" class="input" style="margin-left: 15%">
+           <input type="text" name="oferta" style="margin-left: 10%"><input href="habitacion" type="submit" value="OFERTAR" class="input" style="margin-left: 15%">
            <br><br>
-           <h3 align="center">UBICACION</h3>
+           <h3 align="center" style="color: whitesmoke">UBICACION</h3>
            <br><br>
-           <div>
+           <div style="margin-right: 15%">
            <!--<img src="../images/<?= $foto; ?>" width=400 height=200 >-->
                <a href ="../map"><img src="../images/gmaps.jpg" width=400 height=200 align=right></img></a>
            </div>
            <br><br><br><br>
-
-
-           <br><br>
-
-           <a href="../pm">arrendador</a>
-           <a href="../map/<?= $dir; ?>">Direccion: <?= $dir; ?></a>
     </div>
     </div>
 
 
 <div id="secundario">
-      <div>
-      <!--<img src="../images/<?= $foto; ?>" width=400 height=200 >-->
-          <a href ="../map"><img src="../images/gmaps.jpg" width=400 height=200 align=right></img></a>
-      </div>
+
+
+    <a href="../pm">arrendador</a>
+    <a href="../map/<?= $dir; ?>">Direccion: <?= $dir; ?></a>
 </div>
     </body>
 </html>
