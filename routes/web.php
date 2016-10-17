@@ -34,3 +34,8 @@ Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 Route::get('/pm', 'ControladorFrontEnd@pm');
 
 Route::resource('users', 'UsersController');
+
+Route::group(['prefix => users','middleware'=>'auth'], function(){
+	Route::resource('habitaciones','HabitacionesController');
+	
+});

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Imagen extends Model
+class Universidades extends Model
 {
     protected $table = "universidades";
 
@@ -14,11 +14,11 @@ class Imagen extends Model
      * @var array
      */
     protected $fillable = [
-        'nombre', 'lema', 'escudo', 'url', 'direccion'
+        'nombre', 'lema', 'escudo', 'url', 'direccion','ciudad'
     ];
 
 
-    public function direccion(){
+    public function ciudad(){
         return $this->belongsTo('App\Ubicacion');
     }
    

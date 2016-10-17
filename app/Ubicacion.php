@@ -8,14 +8,7 @@ class Ubicacion extends Model
 {
 
 	protected $table = "ubicaciones";
-	protected $fillable = ['direccion', 'ciudad','pais','longitud','latitud'];
+	protected $fillable = ['ciudad','pais'];
     
-	// Una direccion pertenece a una universidad o a una habitacion
-    public function universidad(){
-    	return $this->hasOne('App\Universidad');
-    }
-
-    public function habitacion(){
-    	return $this->hasOne('App\Habitacion');
-    }
+	
 }
