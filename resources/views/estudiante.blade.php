@@ -75,12 +75,7 @@
         </style>
         <br>
         <form class="form-horizontal" >
-            {!! Form::open(['route'=>'habitaciones.store', 'method'=>'POST','class'=>'form-horizontal']) !!}
-            <div class="form-group" >
-                <i class="material-icons" style="color: whitesmoke">location_city</i></i><label class="col-md-4 control-label"> Universidad </label>
-                    <input  type="text" id="Universidad" name="universidad">
-            </div>
-
+            {!! Form::open(['route'=> 'users.store', 'method'=>'POST','class'=>'form-horizontal']) !!}
 
             <div class="form-group">
                 {!! Form::label('ciudad','Ciudad',['class'=>'col-md-4 control-label']) !!}
@@ -114,8 +109,10 @@
                 </div>
             </div>
             <div class="row" >
+
                     <i class="material-icons" style="color: whitesmoke">local_atm</i> <font color="#f5fffa"> Precio </font></li>
-                    <input  type="text" id="precio" name="precio" >
+                    {!! Form::text('precio',null,['class' => 'form-control','required','autofocus']) !!}
+
             </div>
 
             <div>
