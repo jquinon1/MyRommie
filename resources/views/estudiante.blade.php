@@ -75,16 +75,44 @@
         </style>
         <br>
         <form class="form-horizontal" >
+            {!! Form::open(['route'=>'habitaciones.store', 'method'=>'POST','class'=>'form-horizontal']) !!}
             <div class="form-group" >
                 <i class="material-icons" style="color: whitesmoke">location_city</i></i><label class="col-md-4 control-label"> Universidad </label>
                     <input  type="text" id="Universidad" name="universidad">
             </div>
 
-            <div class="row" >
-                <i class="material-icons" style="color: whitesmoke">place</i> <font color="#f5fffa"> Ciudad </font></li>
-                    <input  type="text" id="ciudad" name="ciudad" >
+
+            <div class="form-group">
+                {!! Form::label('ciudad','Ciudad',['class'=>'col-md-4 control-label']) !!}
+                <div class="form-group">
+                    <select name="ciudad" class="form-control">
+                        <option value="0">Ciudad</option>
+                        @foreach ($ciudades as $ciudad)
+
+                                <option>
+                                        value="{{$ciudad->id}}">{{$ciudad->ciudad .'-'. $ciudad->pais}}
+                                </option>
+
+                        @endforeach
+                    </select>
+                </div>
             </div>
 
+            <div class="form-group">
+                {!! Form::label('universidades','Universidades',['class'=>'col-md-4 control-label']) !!}
+                <div class="form-group">
+                    <select name="universidades" class="form-control">
+                        <option value="0">universidades</option>
+                        @foreach ($universidades as $universidad)
+
+                            <option>
+                                value="{{$universidad->id}}">{{$universidad->nombre}}
+                            </option>
+
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <div class="row" >
                     <i class="material-icons" style="color: whitesmoke">local_atm</i> <font color="#f5fffa"> Precio </font></li>
                     <input  type="text" id="precio" name="precio" >
@@ -110,9 +138,12 @@
                 </select>
             </div>
 
-                <input href="habitacion" type="submit" value="Aceptar" class="input" >
+            <a href="habitacion" target="_self"> <input type="button" name="boton" value="Aceptar" /> </a>
+
+
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <br>
+            {!! Form::close() !!}
             </form>
             </div>
         </div>

@@ -19,9 +19,10 @@ class CrearTablaUniversidades extends Migration
         $table->text('lema');
         $table->string('escudo');
         $table->string('url',100);
-        $table->integer('direccion')->unsigned();
+        $table->string('direccion');
+        $table->integer('ciudad')->unsigned();
 
-        $table->foreign('direccion')->references('id')->on('ubicaciones')->onDelete('cascade');
+        $table->foreign('ciudad')->references('id')->on('ubicaciones')->onDelete('cascade');
 
         $table->timestamps();
       });
