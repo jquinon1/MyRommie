@@ -33,7 +33,8 @@ class HabitacionesController extends Controller
      */
     public function create()
     {
-        $ubicacion = Ubicacion::all(); 
+        $ubicacion = Ubicacion::all();
+
         return view('habitaciones.create')->with('ciudades',$ubicacion);
     }
 

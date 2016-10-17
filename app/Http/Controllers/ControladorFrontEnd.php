@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Universidades;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 use DB;
+use App\Ubicacion;
+use App\Universidad;
 
 class ControladorFrontEnd extends Controller
 {
@@ -101,7 +104,10 @@ class ControladorFrontEnd extends Controller
     }
 
     public function estudiante(){
-      return view('estudiante');
+        $ubicacion = Ubicacion::all();
+        $universidad = Universidad::all();
+
+        return view('estudiante')->with('ciudades',$ubicacion)->with('universidades',$universidad);
     }
 
     public function pm(){
