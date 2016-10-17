@@ -11,7 +11,7 @@
 
 body{
 
-    background-image:  url("../images/fpantalla.jpg");
+    background: whitesmoke;
 }
 #contenedor {
 
@@ -88,17 +88,17 @@ input[type=submit]:hover {
 
     <div id="contenido">
        <div id="principal">
-        <h1 align="center" style="color: whitesmoke">VILLAS EAFIT</h1>
+        <h1 align="center" style="color: gray">VILLAS EAFIT</h1>
         <br>
-        <p align="center" style="color: whitesmoke"> <font size="5">$</font> <?= $precio; ?></p>
+        <p align="center" style="color: gray"> <font size="5">$</font> <?= $precio; ?></p>
         <br>
-        <p style="color: whitesmoke"><font size="4">Habitacion con bano, balcon y television con aire acondicionado, colchon nuevo. cerca de la universidad eafit, inem y politecnico.
+        <p style="color: gray"><font size="4">Habitacion con bano, balcon y television con aire acondicionado, colchon nuevo. cerca de la universidad eafit, inem y politecnico.
                 lugar tranquilo para estudiar, acceso a la cocina y a la piscina de la unidad.</font>
        </p>
            <br><br>
            <input href="../pm" type="submit" value="CONTACTAR" class="input" style="margin-left: 34.8%">
            <br><br>
-           <h3 align="center" style="color: whitesmoke"> CALIFICACION</h3>
+           <h3 align="center" style="color: gray"> CALIFICACION</h3>
            <form action="#"  style="margin-left: 34.8%">
                <p>
                    <input name="group1" type="radio" id="test1" />
@@ -120,7 +120,7 @@ input[type=submit]:hover {
            <br><br>
            <input type="text" name="oferta" style="margin-left: 10%"><input href="habitacion" type="submit" value="OFERTAR" class="input" style="margin-left: 15%">
            <br><br>
-           <h3 align="center" style="color: whitesmoke">UBICACION</h3>
+           <h3 align="center" style="color: gray">UBICACION</h3>
            <br><br>
            <div style="margin-right: 15%">
            <!--<img src="../images/<?= $foto; ?>" width=400 height=200 >-->
