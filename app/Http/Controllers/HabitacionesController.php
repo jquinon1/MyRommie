@@ -101,6 +101,10 @@ class HabitacionesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+
+        $habitacion->delete();
+        Flash::error('La habitacion ha sido eliminado de forma exitosa');
+        return redirect()->route('habitaciones.index');
     }
 }

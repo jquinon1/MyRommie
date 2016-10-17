@@ -28,7 +28,7 @@
                     <a href="#" class="btn btn-warning">
                         <span class="glyphicon glyphicon-wrench"></span>
                     </a> 
-                    <a href="{{ route('users.habitaciones.destroy', ,$habitacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                    <a href="{{ route('users.habitaciones.destroy', $habitacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                         <span class="glyphicon glyphicon-remove-circle"></span>
                     </a>
                     </td>
