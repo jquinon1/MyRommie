@@ -1,14 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
-</head>
-<body>
+<!-- @extends('layouts.app')
+@section('title','Estudiante')
+@section('content') -->
 
 <div class="flex-center position-ref full-height">
 
@@ -81,10 +73,10 @@
 
             }
         </style>
-
-        <form action="container" >
-            <div class="row" >
-                <i class="material-icons" style="color: whitesmoke">location_city</i></i><font color="#f5fffa"> Universidad </font></li>
+        <br>
+        <form class="form-horizontal" >
+            <div class="form-group" >
+                <i class="material-icons" style="color: whitesmoke">location_city</i></i><label class="col-md-4 control-label"> Universidad </label>
                     <input  type="text" id="Universidad" name="universidad">
             </div>
 
@@ -126,6 +118,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
 @endsection
