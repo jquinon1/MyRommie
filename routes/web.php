@@ -19,7 +19,7 @@ Route::get('/map/{dir}', 'ControladorFrontEnd@map2');
 
 Auth::routes();
 
-Route::get('/home', 'HabitacionesController@index');
+Route::get('/home', 'UsersController@index');
 
 Route::get('/habitacion', 'ControladorFrontEnd@habitacion');
 
@@ -35,7 +35,7 @@ Route::get('/pm', 'ControladorFrontEnd@pm');
 
 Route::resource('users', 'UsersController');
 
-Route::group(['prefix => users','middleware'=>'auth'], function(){
+Route::group(['prefix => users'], function(){
 	Route::resource('habitaciones','HabitacionesController');
 	Route::get('habitaciones/{id}/destroy',[
 		'uses'	=>	'HabitacionesController@destroy',

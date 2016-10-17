@@ -7,9 +7,24 @@ use Laracasts\Flash\Flash;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\User;
+use App\Habitacion;
+use Auth;
 
 class UsersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['create','store']]);
+    }
+
+
+
+    public function index(){
+        $habitaciones = Habitacion::orderBy('id','ASC')->paginate(6);
+        // dd($habitaciones);
+        return view('home')->with('habitaciones',$habitaciones);
+    }
     public function create(){
     	return view('auth.register');
     }

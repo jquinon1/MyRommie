@@ -25,7 +25,7 @@
                                     <td>{{ $habitacion->direccion}}</td>
                                     <td>{{ $habitacion->descripcion}}</td>
                                     <td>
-                    <a href="#" class="btn btn-warning">
+                    <a href="{{ route('habitaciones.edit',$habitacion)}}" class="btn btn-warning">
                         <span class="glyphicon glyphicon-wrench"></span>
                     </a> 
                     <a href="{{ route('users.habitaciones.destroy', $habitacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
@@ -41,4 +41,8 @@
         </div>
     </div>
 </div>
+<center>
+    
+{{ $habitaciones->render() }}
+</center>
 @endsection

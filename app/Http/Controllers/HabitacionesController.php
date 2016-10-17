@@ -20,6 +20,11 @@ use App\User;
 
 class HabitacionesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,9 +33,7 @@ class HabitacionesController extends Controller
     public function index()
     {
         // $id = Auth::user()->id;
-        $habitaciones = Habitacion::all();
-        // dd($habitaciones);
-        return view('home')->with('habitaciones',$habitaciones);
+        
     }
 
     /**
@@ -41,7 +44,7 @@ class HabitacionesController extends Controller
     public function create()
     {
         $ubicacion = Ubicacion::all(); 
-        return view('habitaciones.create')->with('ciudades',$ubicacion);
+        return view('users.habitaciones.create')->with('ciudades',$ubicacion);
     }
 
     /**
@@ -78,7 +81,8 @@ class HabitacionesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+        return view('users.habitaciones.edit')->with('habitacion',$habitacion);
     }
 
     /**
@@ -90,7 +94,11 @@ class HabitacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+        $habitacion->fill($request->all());
+        $habitacion->save();
+        Flash::success('Se actualizo correctamente');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -105,6 +113,6 @@ class HabitacionesController extends Controller
 
         $habitacion->delete();
         Flash::error('La habitacion ha sido eliminado de forma exitosa');
-        return redirect()->route('habitaciones.index');
+        return redirect()->route('users.index');
     }
 }
