@@ -85,9 +85,9 @@
         }
 
         body {
-            background-image: url("images/fpantalla.jpg");
+            background-color: whitesmoke;
             background-size: cover;
-            background-color: #101010;
+
         }
 
     </style>

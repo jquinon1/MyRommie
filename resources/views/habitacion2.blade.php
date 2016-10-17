@@ -9,10 +9,7 @@
 
 <style>
 
-body{
 
-    background-image:  url("../images/fpantalla.jpg");
-}
 #contenedor {
 
 }
@@ -22,25 +19,29 @@ body{
     width: 15%;
     margin-top: 5%;
 
+
 }
 #contenido {
     float: left;
     width: 50%;
-    margin-top: 5%;
+    margin-top: 4%;
+
 }
 #contenido #principal {
     float: right;
     width: 50%;
+   margin-right: 10%;
 
 }
 #contenido #secundario {
     float: left;
     width: 20%;
+
 }
 
 
 input[type=submit]{
-    width: 28%;
+    width: 33%;
     background-color: #4CAF50;
     color: white;
     padding: 20px 20px;
@@ -51,7 +52,7 @@ input[type=submit]{
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: darkgreen;
 }
 
 </style>
@@ -59,10 +60,10 @@ input[type=submit]:hover {
 
 <div id="contenedor">
     <div id="menu" class="w3-container">
-        <div class="w3-content w3-section" style="padding-left: 15%">
-            <img class="mySlides w3-animate-fading" src="../images/hab3.jpg"  width="600" height="400">
-            <img class="mySlides w3-animate-fading" src="../images/hab4.jpg"  width="600" height="400">
-            <img class="mySlides w3-animate-fading" src="../images/hab5.jpg"  width="600" height="400">
+        <div class="w3-content w3-section" style="padding-left: 20%">
+            <img class="mySlides w3-animate-fading" src="../images/hab3.jpg"  width="500" height="400">
+            <img class="mySlides w3-animate-fading" src="../images/hab4.jpg"  width="500" height="400">
+            <img class="mySlides w3-animate-fading" src="../images/hab5.jpg"  width="500" height="400">
         </div>
     </div>
 </div>
@@ -86,19 +87,19 @@ input[type=submit]:hover {
 
 
 
-    <div id="contenido">
-       <div id="principal">
-        <h1 align="center" style="color: whitesmoke">VILLAS EAFIT</h1>
+    <div id="contenido" >
+       <div id="principal" >
+        <h1 align="center" style="color: dimgray">VILLAS EAFIT</h1>
         <br>
-        <p align="center" style="color: whitesmoke"> <font size="5">$</font> <?= $precio; ?></p>
+        <p align="center" style="color: dimgray"> <font size="5">$</font> <?= $precio; ?></p>
         <br>
-        <p style="color: whitesmoke"><font size="4">Habitacion con bano, balcon y television con aire acondicionado, colchon nuevo. cerca de la universidad eafit, inem y politecnico.
+        <p style="color: dimgray"><font size="4">Habitacion con bano, balcon y television con aire acondicionado, colchon nuevo. cerca de la universidad eafit, inem y politecnico.
                 lugar tranquilo para estudiar, acceso a la cocina y a la piscina de la unidad.</font>
        </p>
            <br><br>
            <input href="../pm" type="submit" value="CONTACTAR" class="input" style="margin-left: 34.8%">
            <br><br>
-           <h3 align="center" style="color: whitesmoke"> CALIFICACION</h3>
+           <h3 align="center" style="color: dimgray"> CALIFICACION</h3>
            <form action="#"  style="margin-left: 34.8%">
                <p>
                    <input name="group1" type="radio" id="test1" />
@@ -118,9 +119,9 @@ input[type=submit]:hover {
                </p>
            </form>
            <br><br>
-           <input type="text" name="oferta" style="margin-left: 10%"><input href="habitacion" type="submit" value="OFERTAR" class="input" style="margin-left: 15%">
+           <input type="text" name="oferta" style="margin-left: 10%;;"><input href="habitacion" type="submit" value="OFERTAR" class="input" style="margin-left: 15%">
            <br><br>
-           <h3 align="center" style="color: whitesmoke">UBICACION</h3>
+           <h3 align="center" style="color: dimgray">UBICACION</h3>
            <br><br>
            <div style="margin-right: 15%">
            <!--<img src="../images/<?= $foto; ?>" width=400 height=200 >-->
@@ -137,6 +138,7 @@ input[type=submit]:hover {
     <a href="../pm">arrendador</a>
     <a href="../map/<?= $dir; ?>">Direccion: <?= $dir; ?></a>
 </div>
+
     </body>
 </html>
 @endsection
