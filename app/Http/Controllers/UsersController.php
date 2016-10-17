@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use App\Http\Requests;
+use App\Http\Requests\UserRequest;
 use App\User;
 
 class UsersController extends Controller
@@ -13,7 +14,7 @@ class UsersController extends Controller
     	return view('auth.register');
     }
 
-    public function store(Request $request){
+    public function store(UserRequest $request){
     	$user = new User($request->all());
     	if ($request->repeat_password == $request->password) {
     		$user->password = bcrypt($request->password);
