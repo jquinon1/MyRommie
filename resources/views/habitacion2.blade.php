@@ -11,7 +11,7 @@
 
 body{
 
-    background-image:  url("../images/fpantalla.jpg");
+
 }
 #contenedor {
 
@@ -25,7 +25,7 @@ body{
 }
 #contenido {
     float: left;
-    width: 50%;
+    width: 80%;
     margin-top: 5%;
 }
 #contenido #principal {

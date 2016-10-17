@@ -110,7 +110,9 @@
                 </select>
             </div>
 
-                <input href="habitacion" type="submit" value="Aceptar" class="input" >
+            <a href="habitacion" target="_self"> <input type="button" name="boton" value="Aceptar" /> </a>
+
+
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <br>
             </form>
