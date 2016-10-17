@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 use App\Http\Requests;
 
 use App\Http\Requests\HabitacionRequest;
@@ -14,6 +16,8 @@ use App\Habitacion;
 
 use App\Ubicacion;
 
+use App\User;
+
 class HabitacionesController extends Controller
 {
     /**
@@ -23,7 +27,10 @@ class HabitacionesController extends Controller
      */
     public function index()
     {
-        //
+        // $id = Auth::user()->id;
+        $habitaciones = Habitacion::all();
+        // dd($habitaciones);
+        return view('home')->with('habitaciones',$habitaciones);
     }
 
     /**

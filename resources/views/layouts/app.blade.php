@@ -12,7 +12,7 @@
     <!--<title>{{ config('My Roomie', 'MyRoomie') }}</title>-->
 
     <!-- Styles -->
-
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
     <link href="/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -151,5 +151,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
 </body>
 </html>
