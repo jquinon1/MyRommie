@@ -63,7 +63,7 @@ class HabitacionesController extends Controller
         $habitacion = new Habitacion($request->all());
         $habitacion->save();
         Flash::success('Se ha agreagado existosamente');
-        return view('home');
+        return redirect()->route('users.index');
 
     }
 
