@@ -16,7 +16,7 @@ use App\Habitacion;
 
 use App\Ubicacion;
 
-use App\User;
+// use App\User;
 
 use App\Imagen;
 
@@ -63,29 +63,30 @@ class HabitacionesController extends Controller
     public function store(HabitacionRequest $request)
     {
         if($request->file('imagen')){            
-            $habitacion = new Habitacion($request->all());
-            $habitacion->user_id = Auth::user()->id;
-            // dd($habitacion);
-            $habitacion->user()->associate(Auth::user());
-            $habitacion->save();
+           
 
             $file = $request->file('imagen');
             $name = 'myrommie_'.time() . '.'.$file->getClientOriginalExtension();
             $path = public_path() . '/images/habitaciones';
             $file->move($path,$name);
-
-            // $imagen = new Imagen();
-            // $imagen->habitacion_id = $habitacion->id;
-            // // $imagen->habitacion()->associate($habitacion);
-            // $imagen->name = $name;
-            // $imagen->save();
-            Flash::success('Se ha agreagado existosamente');
-            return redirect()->route('users.index');
-        }else{
-            Flash::danger('Ingrese imagen');
-            return redirect()->route('habitaciones.create');
+            // dd($habitacion);           
         }
+        $habitacion = new Habitacion($request->all());
+        $habitacion->user_id = Auth::user()->id;
+        // dd($habitacion);
+        // $habitacion->user()->associate(Auth::user());
+        $habitacion->save();
 
+
+        $imagen = new Imagen();
+        $imagen->habitacion()->associate($habitacion);
+        // $imagen->habitacion_id = $habitacion->id;
+        $imagen->name = $name;
+        // dd($imagen);
+        $imagen->save();
+        
+        Flash::success('Se ha agreagado existosamente');
+        return redirect()->route('users.index');
     }
 
     /**
