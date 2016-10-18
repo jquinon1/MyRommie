@@ -10,34 +10,63 @@
 <style>
 
 
-#contenedor {
+    *{margin: 0; padding: 0}
+    body {
+        background: whitesmoke;
+        text-align: center;
 
-}
+    }
+    #contenedor{
+        text-align: left;
+        margin: auto;
+        width: 100%;
+    }
+    #cabecera{
+        background-color: #cccccc;
+        clear: both;
 
-#menu {
-    float: left;
-    width: 15%;
-    margin-top: 5%;
+        text-align:center;
+    }
+    #cuerpo{
+
+        margin-top: 5%;
+    }
+    #lateral{
+        background-color: whitesmoke;
+        width: 33.3%;
+        float:left;
+        text-align:center;
+    }
+    #otrolado{
+        background-color: whitesmoke;
+        float: right;
+        width: 33.3%;
+        text-align:center;
+        border-bottom-color: grey;
+    }
+    #principal{
+        background-color: whitesmoke;
+        float: left;
+        width: 33.3%;
+        text-align:center;
+    }
+    #pie{
+        background-color: #cccccc;
+        clear: both;
+        text-align:center;
+    }
 
 
-}
-#contenido {
-    float: left;
-    width: 50%;
-    margin-top: 4%;
 
-}
-#contenido #principal {
-    float: right;
-    width: 50%;
-   margin-right: 10%;
 
-}
-#contenido #secundario {
-    float: left;
-    width: 20%;
 
-}
+
+    * {
+
+        padding: 1px;
+        box-sizing: border-box;
+    }
+
 
 
 input[type=submit]{
@@ -59,14 +88,19 @@ input[type=submit]:hover {
 <body>
 
 <div id="contenedor">
-    <div id="menu" class="w3-container">
-        <div class="w3-content w3-section" style="padding-left: 20%">
+    <div id="cabecera">
+        HABITACION
+    </div>
+    <div id="cuerpo">
+        <div id="lateral">
+            <div id="menu" class="w3-container">
+            <div class="w3-content w3-section" style="padding-left: 20%">
             <img class="mySlides w3-animate-fading" src="../images/hab3.jpg"  width="500" height="400">
             <img class="mySlides w3-animate-fading" src="../images/hab4.jpg"  width="500" height="400">
             <img class="mySlides w3-animate-fading" src="../images/hab5.jpg"  width="500" height="400">
+            </div>
+            </div>
         </div>
-    </div>
-</div>
 
     <script>
         var myIndex = 0;
@@ -87,7 +121,7 @@ input[type=submit]:hover {
 
 
 
-    <div id="contenido" >
+
        <div id="principal" >
         <h1 align="center" style="color: dimgray">VILLAS EAFIT</h1>
         <br>
@@ -97,10 +131,10 @@ input[type=submit]:hover {
                 lugar tranquilo para estudiar, acceso a la cocina y a la piscina de la unidad.</font>
        </p>
            <br><br>
-           <input href="../pm" type="submit" value="CONTACTAR" class="input" style="margin-left: 34.8%">
+           <input href="../pm" type="submit" value="CONTACTAR" class="input" >
            <br><br>
            <h3 align="center" style="color: dimgray"> CALIFICACION</h3>
-           <form action="#"  style="margin-left: 34.8%">
+           <form action="#">
                <p>
                    <input name="group1" type="radio" id="test1" />
                    <label for="test1">1</label>
@@ -116,6 +150,7 @@ input[type=submit]:hover {
 
                    <input name="group1" type="radio" id="test4" />
                    <label for="test4">5</label>
+                   <input href="../pm" type="button" value="Aceptar" class="input" >
                </p>
            </form>
            <br><br>
@@ -128,15 +163,20 @@ input[type=submit]:hover {
                <a href ="../map"><img src="../images/gmaps.jpg" width=400 height=200 align=right></img></a>
            </div>
            <br><br><br><br>
+            </div>
+        </div>
     </div>
-    </div>
 
 
-<div id="secundario">
 
 
+
+    <div id="otrolado">
     <a href="../pm">arrendador</a>
     <a href="../map/<?= $dir; ?>">Direccion: <?= $dir; ?></a>
+</div>
+<div id="pie">
+    MYROMMIE
 </div>
 
     </body>
