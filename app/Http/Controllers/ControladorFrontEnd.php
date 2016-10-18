@@ -13,6 +13,11 @@ use App\Universidad;
 
 class ControladorFrontEnd extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['arrendador','estudiante']]);
+    }
     public function index(){
       return view('welcome');
     }
