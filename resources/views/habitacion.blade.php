@@ -7,7 +7,7 @@
 <head>
 
 </head>
-<body background="images/fpantalla.jpg" style="background-size: cover">
+<body>
 
 <style>
     div.img {
