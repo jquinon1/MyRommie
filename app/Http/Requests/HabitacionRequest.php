@@ -27,9 +27,9 @@ class HabitacionRequest extends FormRequest
             'precio' => 'required',
             'estado' => 'min:3|required',
             'descripcion' => 'required',
-            'user_id' => 'required',
             'direccion' => 'min:6|required',
-            'ciudad' => 'required' 
+            'ciudad' => 'required', 
+            'imagen' => 'required'
         ];
     }
 }

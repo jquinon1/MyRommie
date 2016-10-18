@@ -23,8 +23,12 @@ class UsersController extends Controller
     public function index(){
         $habitaciones = Habitacion::orderBy('id','ASC')->paginate(6);
         // dd($habitaciones);
+        // $user = User::find(Auth::user()->id);
+        // $habitaciones = $user->habitaciones();
         return view('home')->with('habitaciones',$habitaciones);
     }
+
+
     public function create(){
     	return view('auth.register');
     }

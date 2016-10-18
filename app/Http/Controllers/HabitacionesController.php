@@ -18,6 +18,8 @@ use App\Ubicacion;
 
 use App\User;
 
+use App\Imagen;
+
 class HabitacionesController extends Controller
 {
 
@@ -44,12 +46,12 @@ class HabitacionesController extends Controller
     public function create()
     {
 
-        $ubicacion = Ubicacion::all(); 
+        $ubicacion = Ubicacion::orderBy('id','ASC')->pluck('ciudad','id'); 
         return view('users.habitaciones.create')->with('ciudades',$ubicacion);
 
-        $ubicacion = Ubicacion::all();
+        // $ubicacion = Ubicacion::all();
 
-        return view('habitaciones.create')->with('ciudades',$ubicacion);
+        // return view('habitaciones.create')->with('ciudades',$ubicacion);
     }
 
     /**
@@ -60,10 +62,29 @@ class HabitacionesController extends Controller
      */
     public function store(HabitacionRequest $request)
     {
-        $habitacion = new Habitacion($request->all());
-        $habitacion->save();
-        Flash::success('Se ha agreagado existosamente');
-        return redirect()->route('users.index');
+        if($request->file('imagen')){            
+            $habitacion = new Habitacion($request->all());
+            $habitacion->user_id = Auth::user()->id;
+            // dd($habitacion);
+            $habitacion->user()->associate(Auth::user());
+            $habitacion->save();
+
+            $file = $request->file('imagen');
+            $name = 'myrommie_'.time() . '.'.$file->getClientOriginalExtension();
+            $path = public_path() . '/images/habitaciones';
+            $file->move($path,$name);
+
+            // $imagen = new Imagen();
+            // $imagen->habitacion_id = $habitacion->id;
+            // // $imagen->habitacion()->associate($habitacion);
+            // $imagen->name = $name;
+            // $imagen->save();
+            Flash::success('Se ha agreagado existosamente');
+            return redirect()->route('users.index');
+        }else{
+            Flash::danger('Ingrese imagen');
+            return redirect()->route('habitaciones.create');
+        }
 
     }
 
