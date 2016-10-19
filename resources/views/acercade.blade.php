@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label for="nombre" class="col-md-4 control-label">Direccion </label>
                                 <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >Centro Comercial Eafit oficina 401</output>
+                                    <output id="nombre" type="email" class="form-control" name="nombre" >Centro Comercial Eafit oficina 19-2</output>
                                 </div>
                             </div>
 

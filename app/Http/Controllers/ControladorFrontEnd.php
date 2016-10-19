@@ -18,6 +18,14 @@ class ControladorFrontEnd extends Controller
     {
         $this->middleware('auth', ['only' => ['arrendador','estudiante']]);
     }
+    public function contacto(){
+      return view('contactanos');
+    }
+
+    public function acerca(){
+      return view('acercade');
+    }
+
     public function index(){
       return view('welcome');
     }

@@ -130,8 +130,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
 
-                        <li><a href="news.asp">Contactanos</a></li>
-                        <li><a href="contact.asp">Acerca de</a></li>
+                        <li><a href="contacto">Contactanos</a></li>
+                        <li><a href="acerca">Acerca de</a></li>
                         <li><a href="map">Mapa</a></li>
 
                         @if (Auth::guest())

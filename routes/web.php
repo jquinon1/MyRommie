@@ -15,6 +15,10 @@ Route::get('/', 'ControladorFrontEnd@index');
 
 Route::get('/map', 'ControladorFrontEnd@map');
 
+Route::get('/contacto', 'ControladorFrontEnd@contacto');
+
+Route::get('/acerca', 'ControladorFrontEnd@acerca');
+
 Route::get('/map/{dir}', 'ControladorFrontEnd@map2');
 
 Auth::routes();
@@ -43,5 +47,5 @@ Route::group(['prefix => users'], function(){
 		'uses'	=>	'HabitacionesController@destroy',
 		'as'	=> 'users.habitaciones.destroy'
 		]);
-	
+
 });
