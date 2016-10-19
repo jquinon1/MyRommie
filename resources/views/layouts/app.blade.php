@@ -132,7 +132,7 @@
 
                         <li><a href="news.asp">Contactanos</a></li>
                         <li><a href="contact.asp">Acerca de</a></li>
-                        <li><a href="about.asp">Mapa</a></li>
+                        <li><a href="map">Mapa</a></li>
 
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
@@ -147,7 +147,7 @@
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
-                            </li>   
+                            </li>
                         @endif
                     </ul>
                 </div>
