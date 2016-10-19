@@ -14,12 +14,12 @@ class Universidad extends Model
      * @var array
      */
     protected $fillable = [
-        'nombre', 'lema', 'escudo', 'url', 'direccion','ciudad'
+        'nombre', 'lema', 'escudo', 'pagina', 'direccion','ciudad'
     ];
 
 
     public function ciudad(){
         return $this->belongsTo('App\Ubicacion');
     }
-   
+
 }

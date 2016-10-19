@@ -18,7 +18,7 @@ class CrearTablaUniversidades extends Migration
         $table->string('nombre')->unique();
         $table->text('lema');
         $table->string('escudo');
-        $table->string('url',100);
+        $table->string('pagina',100);
         $table->string('direccion');
         $table->integer('ciudad')->unsigned();
 

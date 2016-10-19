@@ -4,8 +4,8 @@
 
 <div class="flex-center position-ref full-height" >
 
-    <div style="position: fixed; z-index: -99; width: 130%; height: 130%; volume: silent" >
-        <iframe width="100%" height="100%"  src="http://www.youtube.com/embed/sK2e42jzohk?
+    <div style="position: fixed-top; z-index: -99; width: 200%; height: 130%; volume: silent" >
+        <iframe width="138%" height="100%" src="http://www.youtube.com/embed/sK2e42jzohk?
         &autoplay=1
 &loop=1
 &playlist=sK2e42jzohk
@@ -21,8 +21,8 @@
 
 
     <div class="links">
-        <a href="estudiante" style="color: whitesmoke";  ><font size="20">ESTUDIANTE</font></a>
-        <a href="arrendador" style="color: whitesmoke"><font size="15">ARRENDADOR</font></a>
+        <a href="estudiante" style="color: whitesmoke" ><font size="20">ESTUDIANTE</font></a>
+        <a href="arrendador" style="color: whitesmoke" ><font size="20">ARRENDADOR</font></a>
     </div>
 
     </body>

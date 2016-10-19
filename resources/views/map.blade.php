@@ -57,28 +57,28 @@
     @endforeach
     <script>
     var us = {eafit: {lat: parseFloat(document.getElementById('EAFITlat').value), lng: parseFloat(document.getElementById('EAFITlng').value)},
-            upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
-            ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
-            udea: {lat: parseFloat(document.getElementById('UDEAlat').value), lng: parseFloat(document.getElementById('UDEAlng').value)},
-            unal: {lat: parseFloat(document.getElementById('UNALlat').value), lng: parseFloat(document.getElementById('UNALlng').value)},
-            udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
+              upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
+              ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
+              udea: {lat: parseFloat(document.getElementById('UDEAlat').value), lng: parseFloat(document.getElementById('UDEAlng').value)},
+              unal: {lat: parseFloat(document.getElementById('UNALlat').value), lng: parseFloat(document.getElementById('UNALlng').value)},
+              udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
               var markers=[];
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 6.2359, lng: -75.5751},
     zoom: 10
   });
-  var geocoder = new google.maps.Geocoder;
+  //var geocoder = new google.maps.Geocoder;
   document.getElementById('submit').addEventListener('click', function(){geocodeAddress(geocoder, map);});
   document.getElementById('address').addEventListener('keypress', function(e){
     var kas = e.keyCode;
     if(kas == 13){
-      geocodeAddress(geocoder, map);
+      geocodeAddress(map);
     }
   }, false);
 }
 
-function geocodeAddress(geocoder, resultsMap) {
+function geocodeAddress(resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
   var i =0;
@@ -126,16 +126,11 @@ function geocodeAddress(geocoder, resultsMap) {
     map: resultsMap,
     position: us["udem"]
     });
-    var ensayo = '<h2>Universidad ';
-    ensayo += document.getElementById('UDEMname').value;
-    ensayo +='</h2>';
-    ensayo += '<img src="images/';
-    ensayo += document.getElementById('UDEMescudo').value;
-    ensayo += '"> <p>Lema: "';
-    ensayo += document.getElementById('UDEMlema').value;
-    ensayo += '".<a href="';
-    ensayo += document.getElementById('UDEMpagina').value;
-    ensayo += '"> sitio oficial</a></p>';
+    var ensayo = '<h2>Universidad ' + document.getElementById('UDEMname').value +'</h2>'
+    + '<img src="images/' + document.getElementById('UDEMescudo').value
+    + '"> <p>Lema: "' + document.getElementById('UDEMlema').value
+    + '".<a href="' + document.getElementById('UDEMpagina').value
+    + '"> sitio oficial</a></p>';
     var infowindow = new google.maps.InfoWindow({
       content: ensayo
     });
@@ -150,16 +145,11 @@ function geocodeAddress(geocoder, resultsMap) {
       map: resultsMap,
       position: us["udea"]
       });
-      var ensayo = '<h2>Universidad ';
-      ensayo += document.getElementById('UDEAname').value;
-      ensayo +='</h2>';
-      ensayo += '<img src="images/';
-      ensayo += document.getElementById('UDEAescudo').value;
-      ensayo += '"> <p>Lema: "';
-      ensayo += document.getElementById('UDEAlema').value;
-      ensayo += '".<a href="';
-      ensayo += document.getElementById('UDEApagina').value;
-      ensayo += '"> sitio oficial</a></p>';
+      var ensayo = '<h2>Universidad ' + document.getElementById('UDEAname').value + '</h2>'
+      + '<img src="images/' + document.getElementById('UDEAescudo').value
+      + '"> <p>Lema: "' + document.getElementById('UDEAlema').value
+      + '".<a href="' + document.getElementById('UDEApagina').value
+      + '"> sitio oficial</a></p>';
       var infowindow = new google.maps.InfoWindow({
         content: ensayo
       });
@@ -174,16 +164,11 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: us["unal"]
         });
-        var ensayo = '<h2>Universidad ';
-        ensayo += document.getElementById('UNALname').value;
-        ensayo +='</h2>';
-        ensayo += '<img src="images/';
-        ensayo += document.getElementById('UNALescudo').value;
-        ensayo += '"> <p>Lema: "';
-        ensayo += document.getElementById('UNALlema').value;
-        ensayo += '".<a href="';
-        ensayo += document.getElementById('UNALpagina').value;
-        ensayo += '"> sitio oficial</a></p>';
+        var ensayo = '<h2>Universidad ' + document.getElementById('UNALname').value + '</h2>'
+        + '<img src="images/' + document.getElementById('UNALescudo').value
+        + '"> <p>Lema: "' + document.getElementById('UNALlema').value
+        + '".<a href="' + document.getElementById('UNALpagina').value
+        + '"> sitio oficial</a></p>';
         var infowindow = new google.maps.InfoWindow({
           content: ensayo
         });
@@ -198,16 +183,11 @@ function geocodeAddress(geocoder, resultsMap) {
     map: resultsMap,
     position: us["ces"]
     });
-    var ensayo = '<h2>Universidad ';
-    ensayo += document.getElementById('CESname').value;
-    ensayo +='</h2>';
-    ensayo += '<img src="images/';
-    ensayo += document.getElementById('CESescudo').value;
-    ensayo += '"></img><p>Lema: "';
-    ensayo += document.getElementById('CESlema').value;
-    ensayo += '".<a href="';
-    ensayo += document.getElementById('CESpagina').value;
-    ensayo += '"> sitio oficial</a></p>';
+    var ensayo = '<h2>Universidad ' + document.getElementById('CESname').value + '</h2>'
+    + '<img src="images/' + document.getElementById('CESescudo').value
+    + '"></img><p>Lema: "' + document.getElementById('CESlema').value
+    + '".<a href="' + document.getElementById('CESpagina').value
+    + '"> sitio oficial</a></p>';
     var infowindow = new google.maps.InfoWindow({
       content:ensayo
     });
@@ -221,19 +201,13 @@ function geocodeAddress(geocoder, resultsMap) {
     var p=-1;
     var nam="";
     for(var y=0; y<8;y++){
-      nam = "hab";
-      nam+=y;
-      nam+="dir";
+      nam = "hab" + y + "dir";
       if(document.getElementById(nam).value == document.getElementById('address').value){
         p=y;
       }
     }
-    nam = "hab";
-    nam += p;
-    nam += "lat";
-    var nam2 = "hab";
-    nam2 += p;
-    nam2 += "lng";
+    nam = "hab" + p + "lat";
+    var nam2 = "hab" + p + "lng";
 
     var marker = new google.maps.Marker({
     map: resultsMap,
