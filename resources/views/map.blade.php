@@ -85,7 +85,8 @@ function geocodeAddress(resultsMap) {
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
     var marker = new google.maps.Marker({
     map: resultsMap,
-    position: us["eafit"]
+    position: us["eafit"],
+    icon: '../images/universidad.png'
     });
     var ensayo = '<h2>Universidad '  + document.getElementById('EAFITname').value;
       + '</h2>' + '<img src="images/' + document.getElementById('EAFITescudo').value
@@ -105,7 +106,8 @@ function geocodeAddress(resultsMap) {
   }else if(address=="upb" || address == "Upb" || address =="UPB" || address =="universidad pontificia bolivariana"){
     var marker = new google.maps.Marker({
     map: resultsMap,
-    position: us["upb"]
+    position: us["upb"],
+    icon: '../images/universidad.png'
     });
     var ensayo = '<h2>Universidad ' + document.getElementById('UPBname').value + '</h2>'
       + '<img src="images/' + document.getElementById('UPBescudo').value
@@ -143,7 +145,8 @@ function geocodeAddress(resultsMap) {
   }else if(address=="udea" || address == "UdeA" || address =="universidad de antioquia"){
       var marker = new google.maps.Marker({
       map: resultsMap,
-      position: us["udea"]
+      position: us["udea"],
+      icon: '../images/universidad.png'
       });
       var ensayo = '<h2>Universidad ' + document.getElementById('UDEAname').value + '</h2>'
       + '<img src="images/' + document.getElementById('UDEAescudo').value
@@ -162,7 +165,8 @@ function geocodeAddress(resultsMap) {
   }else if(address=="unal" || address == "UNAL" || address =="universidad nacional"){
         var marker = new google.maps.Marker({
         map: resultsMap,
-        position: us["unal"]
+        position: us["unal"],
+        icon: '../images/universidad.png'
         });
         var ensayo = '<h2>Universidad ' + document.getElementById('UNALname').value + '</h2>'
         + '<img src="images/' + document.getElementById('UNALescudo').value
@@ -181,7 +185,8 @@ function geocodeAddress(resultsMap) {
   }else if(address=="ces" || address == "Ces" || address =="CES" || address =="universidad CES" || address =="universidad ces"){
     var marker = new google.maps.Marker({
     map: resultsMap,
-    position: us["ces"]
+    position: us["ces"],
+    icon: '../images/universidad.png'
     });
     var ensayo = '<h2>Universidad ' + document.getElementById('CESname').value + '</h2>'
     + '<img src="images/' + document.getElementById('CESescudo').value
@@ -240,7 +245,8 @@ function machete (map, pos, dist){
   if(dist < 2000.0){
     var marker = new google.maps.Marker({
     map: map,
-    position: pos
+    position: pos,
+    icon: '../images/casa.png'
     });
     markers.push(marker);
   }

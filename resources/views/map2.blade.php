@@ -57,12 +57,13 @@
     @endforeach
     <script>
       var us = {eafit: {lat: parseFloat(document.getElementById('EAFITlat').value), lng: parseFloat(document.getElementById('EAFITlng').value)},
-              upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
-              ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
-              udea: {lat: parseFloat(document.getElementById('UDEAlat').value), lng: parseFloat(document.getElementById('UDEAlng').value)},
-              unal: {lat: parseFloat(document.getElementById('UNALlat').value), lng: parseFloat(document.getElementById('UNALlng').value)},
-              udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
+                upb: {lat: parseFloat(document.getElementById('UPBlat').value), lng: parseFloat(document.getElementById('UPBlng').value)},
+                ces: {lat: parseFloat(document.getElementById('CESlat').value), lng: parseFloat(document.getElementById('CESlng').value)},
+                udea: {lat: parseFloat(document.getElementById('UDEAlat').value), lng: parseFloat(document.getElementById('UDEAlng').value)},
+                unal: {lat: parseFloat(document.getElementById('UNALlat').value), lng: parseFloat(document.getElementById('UNALlng').value)},
+                udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
       var markers=[];
+      var uni="pm";
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 6.2359, lng: -75.5751},
@@ -91,8 +92,10 @@
         if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
           var marker = new google.maps.Marker({
           map: resultsMap,
-          position: us["eafit"]
+          position: us["eafit"],
+          icon: '../images/universidad.png'
           });
+          uni = "eafit";
           var ensayo = '<h2>Universidad ';
           ensayo += document.getElementById('EAFITname').value;
           ensayo +='</h2>';
@@ -116,8 +119,10 @@
         }else if(address=="upb" || address == "Upb" || address =="UPB" || address =="universidad pontificia bolivariana"){
           var marker = new google.maps.Marker({
           map: resultsMap,
-          position: us["upb"]
+          position: us["upb"],
+          icon: '../images/universidad.png'
           });
+          uni = "upb";
           var ensayo = '<h2>Universidad ';
           ensayo += document.getElementById('UPBname').value;
           ensayo +='</h2>';
@@ -141,8 +146,10 @@
         }else if(address=="udem" || address == "UdeM" || address =="UDEM" || address =="universidad de medellin"){
           var marker = new google.maps.Marker({
           map: resultsMap,
-          position: us["udem"]
+          position: us["udem"],
+          icon: '../images/universidad.png'
           });
+          uni = "udem";
           var ensayo = '<h2>Universidad ';
           ensayo += document.getElementById('UDEMname').value;
           ensayo +='</h2>';
@@ -166,8 +173,10 @@
         }else if(address=="udea" || address == "UdeA" || address =="universidad de antioquia"){
             var marker = new google.maps.Marker({
             map: resultsMap,
-            position: us["udea"]
+            position: us["udea"],
+            icon: '../images/universidad.png'
             });
+            uni = "udea";
             var ensayo = '<h2>Universidad ';
             ensayo += document.getElementById('UDEAname').value;
             ensayo +='</h2>';
@@ -191,8 +200,10 @@
         }else if(address=="unal" || address == "UNAL" || address =="universidad nacional"){
               var marker = new google.maps.Marker({
               map: resultsMap,
-              position: us["unal"]
+              position: us["unal"],
+              icon: '../images/universidad.png'
               });
+              uni = "unal";
               var ensayo = '<h2>Universidad ';
               ensayo += document.getElementById('UNALname').value;
               ensayo +='</h2>';
@@ -216,8 +227,10 @@
         }else if(address=="ces" || address == "Ces" || address =="CES" || address =="universidad CES" || address =="universidad ces"){
           var marker = new google.maps.Marker({
           map: resultsMap,
-          position: us["ces"]
+          position: us["ces"],
+          icon: '../images/universidad.png'
           });
+          uni = "ces";
           var ensayo = '<h2>Universidad ';
           ensayo += document.getElementById('CESname').value;
           ensayo +='</h2>';
@@ -259,7 +272,8 @@
 
           var marker = new google.maps.Marker({
           map: resultsMap,
-          position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)}
+          position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)}//,
+          //icon: '../images/universidad.png'
           });
           markers.push(marker);
           resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
@@ -304,13 +318,13 @@
 
       function distancia(origen, map){
         //alert(origen);
-        var uni = document.getElementById('address').value;
+        //var uni = document.getElementById('address').value;
         var posEafit;
-        if(uni == "universidad pontificia bolivariana"){
-          posEafit = us["upb"];
-        }else{
+        //if(uni == "universidad pontificia bolivariana"){
+        //  posEafit = us["upb"];
+        //}else{
           posEafit = us[uni];
-        }
+        //}
         var origen2 = new google.maps.LatLng(origen.lat, origen.lng);
         //alert(origen2);
         var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
@@ -355,7 +369,8 @@
         if(dist < 2000.0){
           var marker = new google.maps.Marker({
           map: map,
-          position: pos
+          position: pos,
+          icon: '../images/casa.png'
           });
           markers.push(marker);
         }
