@@ -22,4 +22,8 @@ class Universidad extends Model
         return $this->belongsTo('App\Ubicacion');
     }
 
+    public function habitaciones(){
+        return $this->belongsToMany('App\Habitacion')->withTimestamps();
+    }
+
 }

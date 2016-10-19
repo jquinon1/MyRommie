@@ -12,10 +12,12 @@
     <!--<title>{{ config('My Roomie', 'MyRoomie') }}</title>-->
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
     <link href="/css/app.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
+
+
 
     <!-- Scripts -->
     <script>
@@ -116,6 +118,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        {!! Form::open(['route'=>'habitaciones.index','method'=>'GET', 'class'=>'navbar-form navbar-left']) !!}
+                            <div class="form-group">
+                                {!! Form::text('universidad',null,['class'=>'form-control','placeholder'=>'Cerca de..']) !!}
+                            </div>
+                            {!! Form::submit('SEARCH',['class'=>'btn btn-default']) !!}
+                        {!! Form::close() !!}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -162,5 +170,8 @@
     <script src="/js/app.js"></script>
     <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
+    <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
+
+    @yield('js')
 </body>
 </html>

@@ -16,7 +16,7 @@ use App\Habitacion;
 
 use App\Ubicacion;
 
-// use App\User;
+ use App\Universidad;
 
 use App\Imagen;
 
@@ -25,7 +25,7 @@ class HabitacionesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('auth', ['except' => ['show','index']]);
     }
     /**
      * Display a listing of the resource.
@@ -34,7 +34,8 @@ class HabitacionesController extends Controller
      */
     public function index()
     {
-        // $id = Auth::user()->id;
+        $habitaciones = Habitacion::orderBy('id','ASC')->paginate(10);
+        return view('users.habitaciones.index')->with('habitaciones',$habitaciones);
         
     }
 
@@ -46,8 +47,10 @@ class HabitacionesController extends Controller
     public function create()
     {
 
-        $ubicacion = Ubicacion::orderBy('id','ASC')->pluck('ciudad','id'); 
-        return view('users.habitaciones.create')->with('ciudades',$ubicacion);
+        $ubicaciones = Ubicacion::orderBy('id','ASC')->pluck('ciudad','id'); 
+        $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
+        // dd($universidades);
+        return view('users.habitaciones.create')->with('ciudades',$ubicaciones)->with('universidades',$universidades);
 
         // $ubicacion = Ubicacion::all();
 
@@ -62,6 +65,7 @@ class HabitacionesController extends Controller
      */
     public function store(HabitacionRequest $request)
     {
+        // dd($request->universidades);
         if($request->file('imagen')){            
            
 
@@ -72,11 +76,12 @@ class HabitacionesController extends Controller
             // dd($habitacion);           
         }
         $habitacion = new Habitacion($request->all());
-        $habitacion->user_id = Auth::user()->id;
+        // $habitacion->user_id = Auth::user()->id;
         // dd($habitacion);
-        // $habitacion->user()->associate(Auth::user());
+        $habitacion->user()->associate(Auth::user());
         $habitacion->save();
 
+        $habitacion->universidades()->sync($request->universidades);
 
         $imagen = new Imagen();
         $imagen->habitacion()->associate($habitacion);
@@ -109,7 +114,9 @@ class HabitacionesController extends Controller
     public function edit($id)
     {
         $habitacion = Habitacion::find($id);
-        return view('users.habitaciones.edit')->with('habitacion',$habitacion);
+        $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
+        $habitacion_universidades = $habitacion->universidades->pluck('id')->ToArray();
+        return view('users.habitaciones.edit')->with('habitacion',$habitacion)->with('universidades',$universidades)->with('habitacion_universidades',$habitacion_universidades);
     }
 
     /**
@@ -124,6 +131,7 @@ class HabitacionesController extends Controller
         $habitacion = Habitacion::find($id);
         $habitacion->fill($request->all());
         $habitacion->save();
+        $habitacion->universidades()->sync($request->universidades);
         Flash::success('Se actualizo correctamente');
         return redirect()->route('users.index');
     }

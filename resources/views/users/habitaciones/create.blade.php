@@ -37,6 +37,13 @@
 						</div>
 
 						<div class="form-group">
+							{!! Form::label('universidades','Universidades Cercanas',['class'=>'col-md-4 control-label']) !!}
+							<div class="col-md-6">	
+									{!! Form::select('universidades[]',$universidades,null,['class'=>'form-control chosen-select','multiple','required']) !!}
+							</div>
+						</div>
+
+						<div class="form-group">
 							{!! Form::label('imagen','Imagen',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
 								{!! Form::file('imagen') !!}
@@ -61,4 +68,17 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('js')
+	<script>
+		$('.chosen-select').chosen({
+			width: "60%",
+			placeholder_text_multiple: 'Seleccione universidades cercanas',
+			search_contains: true,
+			no_results_text: 'No se encontraron tags'
+		});
+
+	</script>
+
 @endsection

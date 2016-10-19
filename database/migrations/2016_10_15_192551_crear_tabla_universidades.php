@@ -26,6 +26,16 @@ class CrearTablaUniversidades extends Migration
 
         $table->timestamps();
       });
+
+      Schema::create('habitacion_universidad',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('habitacion_id')->unsigned();
+            $table->integer('universidad_id')->unsigned();
+
+            $table->foreign('habitacion_id')->references('id')->on('habitaciones')->onDelete('cascade');
+            $table->foreign('universidad_id')->references('id')->on('universidades')->onDelete('cascade');
+            $table->timestamps();
+      });
     }
 
     /**

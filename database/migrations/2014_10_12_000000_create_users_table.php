@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             // Ya que puede ser cc, ce o cosas por el estilo
             $table->string('tipo_id');
             $table->string('genero');
-            $table->enum('tipo_usuario',['arrendador','arrendatario']);
+            $table->enum('tipo_usuario',['arrendador','arrendatario','admin']);
             $table->double('calificacion',3,2)->nullable();
             $table->rememberToken();
             $table->timestamps();

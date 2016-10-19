@@ -21,4 +21,8 @@ class Habitacion extends Model
     public function imagenes(){
     	return $this->hasMany('App\Imagen');
     }
+
+    public function universidades(){
+        return $this->belongsToMany('App\Universidad')->withTimestamps();
+    }
 }

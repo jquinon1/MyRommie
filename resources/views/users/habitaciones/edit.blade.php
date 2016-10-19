@@ -36,6 +36,13 @@
 						</div>
 
 						<div class="form-group">
+							{!! Form::label('universidades','Universidades Cercanas',['class'=>'col-md-4 control-label']) !!}
+							<div class="col-md-6">	
+									{!! Form::select('universidades[]',$universidades,$habitacion_universidades,['class'=>'form-control chosen-select','multiple','required']) !!}
+							</div>
+						</div>
+
+						<div class="form-group">
 							{!! Form::label('descripcion','Description',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
 								{!! Form::textarea('descripcion',$habitacion->descripcion,['class' => 'form-control']) !!}
@@ -53,4 +60,16 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('js')
+	<script>
+		$('.chosen-select').chosen({
+			placeholder_text_multiple: 'Seleccione universidades cercanas',
+			search_contains: true,
+			no_results_text: 'No se encontraron tags'
+		});
+
+	</script>
+
 @endsection

@@ -11,6 +11,7 @@
                     <a href="{{ route('habitaciones.create' )}}" class="btn btn-info">Agregar Habitacion</a>
                     <table class="table table-striped">
                         <thead>
+                            <th>Preview</th>
                             <th>Precio</th>
                             <th>Estado</th>
                             <th>Direccion</th>
@@ -20,6 +21,16 @@
                         <tbody>
                             @foreach($habitaciones as $habitacion)
                                 <tr>
+                                    <td>
+                                        <div class="row">
+                                          <div class="col-xs-6 col-md-3">
+                                            <a href="#" class="thumbnail">
+                                              <img src="..." alt="...">
+                                            </a>
+                                          </div>
+                                          ...
+                                        </div>
+                                    </td>
                                     <td>{{ $habitacion->precio }}</td>
                                     <td>{{ $habitacion->estado}}</td>
                                     <td>{{ $habitacion->direccion}}</td>

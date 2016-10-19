@@ -21,7 +21,11 @@ class UsersController extends Controller
 
 
     public function index(){
-        $habitaciones = Habitacion::orderBy('id','ASC')->paginate(6);
+        // $habitaciones = Habitacion::orderBy('id','ASC');
+        $habitaciones = Auth::user()->habitaciones()->paginate(6);
+        // $hab = Auth::user()->habitaciones;
+        // $hab = Habitacion::all();
+        // dd($habitaciones);
         // dd($habitaciones);
         // $user = User::find(Auth::user()->id);
         // $habitaciones = $user->habitaciones();
