@@ -5,7 +5,6 @@
 
 
 
-    <body>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-lg-5 " >
@@ -100,7 +99,7 @@
             </div>
         </div>
     </div>
-    </body>
+
         <!--<form class="form-horizontal" >
             {!! Form::open(['route'=> 'users.store', 'method'=>'POST','class'=>'form-horizontal']) !!}
 
@@ -168,7 +167,7 @@
 
             {!! Form::close() !!}
             </form>
-            </div>
+            </div>-->
 
 
 @endsection

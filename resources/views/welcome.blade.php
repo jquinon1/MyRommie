@@ -14,10 +14,6 @@
 &controls=0
 &rel=0
 " frameborder="0" allowfullscreen></iframe>
-        <script type="text/javascript">
-            myVid.muted=true;
-        </script>
-    </div>
 
 
     <div class="links">
@@ -29,4 +25,8 @@
 </div>
 
 
+        <script type="text/javascript">
+            myVid.muted=true;
+        </script>
+    </div>
 @endsection
