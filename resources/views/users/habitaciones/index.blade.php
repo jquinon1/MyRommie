@@ -6,10 +6,10 @@
 	<div class="container">
 		<table class="table table-striped">
 			<thead>
+				<th>Imagen</th>
 				<th>Precio</th>
 				<th>Propietario</th>
 				<th>Descripcion</th>
-				<th>Imagen</th>
 			</thead>
 			<tbody>
 				@foreach($habitaciones as $habitacion)

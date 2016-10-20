@@ -25,14 +25,14 @@ class UsersController extends Controller
         switch ($tipo_usuario) {
             case 'arrendador':
                 $habitaciones = Auth::user()->habitaciones()->paginate(6);
-                return view('users.arrendador.index')->with('habitaciones',$habitaciones);
+                return view('users.arrendadores.index')->with('habitaciones',$habitaciones);
                 break;
             case 'arrendatario':
-
+                return view('users.estudiantes.index');
                 break;
             case 'admin':
                 $users = User::orderBy('id','ASC');
-                return view('users.admin.index');
+                return view('users.admin.index')->with('users',$users);
                 break;
             default:
                 break;
