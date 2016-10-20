@@ -95,12 +95,14 @@ class ControladorFrontEnd extends Controller
       $foto=array();
       $prix=array();
       $desc=array();
+      $dirs=array();
       foreach ($hab as $key) {
         $foto[]=$key->foto;
         $prix[]=$key->precio;
         $desc[]=$key->descripcion;
+        $dirs[]=$key->direccion;
       }
-      return view('habitacion', ['fotos' => $foto, 'precios' => $prix, 'text' => $desc]);
+      return view('habitacion', ['fotos' => $foto, 'precios' => $prix, 'text' => $desc, 'dirs' => $dirs]);
     }
 
     public function habitacion2($id){

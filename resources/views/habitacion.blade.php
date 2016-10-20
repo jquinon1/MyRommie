@@ -92,7 +92,7 @@
           @foreach($fotos as $pos=>$val)
             <div class="img">
                 <div class="card-image">
-                    <img src="images/hab{{$pos}}.jpg" alt="hab1" width="600" height="400" >
+                    <a href="../map/<?= $dirs[$pos]; ?>"><img src="images/hab{{$pos}}.jpg" alt="hab1" width="600" height="400"></img></a>
                 </div>
                 <div class="desc" style="color: dimgrey;" href ="../map"><font size="5">Villas Eafit</font></div>
                 <div class="desc" style="color: dimgrey">Precio: <?= $precios[$pos]; ?></div>
