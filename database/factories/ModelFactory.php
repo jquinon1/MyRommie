@@ -20,23 +20,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'apellido' => $faker->lastname,
         'email' => $faker->unique()->email,
         'password' => bcrypt('myrommie'),
-        'tipo_id' => 'CC',
-        'numId' =>	'123456789',
-        'genero' => 'hombre',
-        'tipo_usuario' => 'arrendador'
+        'tipo_id' => $faker->randomElement($array = array('CC','CE')),
+        'numId' =>	$faker->creditCardNumber,
+        'genero' => $faker->randomElement($array = array ('hombre','mujer','lgbti')),
+        'tipo_usuario' => $faker->randomElement($array = array ('arrendador','arrendatario','admin'))
     ];
 });
 
 $factory->define(App\Ubicacion::class, function(Faker\Generator $faker){
 	return [
 		'pais'	=> $faker->country,
-		'ciudad' => $faker->city
+		'ciudad' => $faker->unique()->city
 	];
 });
 
 $factory->define(App\Universidad::class, function(Faker\Generator $faker){
 	return [
-		'nombre' => $faker->unique()->name,
+		'nombre' => $faker->unique()->company,
 		'lema' => $faker->text(90),
 		'escudo' => 'escudo',
 		'pagina' => $faker->url,

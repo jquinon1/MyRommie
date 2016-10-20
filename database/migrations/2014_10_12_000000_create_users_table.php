@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('numId');
             // Ya que puede ser cc, ce o cosas por el estilo
-            $table->string('tipo_id');
-            $table->string('genero');
+            $table->enum('tipo_id',['CC','CE']);
+            $table->enum('genero',['hombre','mujer','lgbti']);
             $table->enum('tipo_usuario',['arrendador','arrendatario','admin']);
             $table->double('calificacion',3,2)->nullable();
             $table->rememberToken();
