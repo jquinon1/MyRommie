@@ -34,6 +34,10 @@ class UsersController extends Controller
 
 
     public function create(){
+       
+        // ->pluck('id','nombre');
+        // ->pluck('nombre','id');
+        // dd($caracteristicas);
     	return view('auth.register');
     }
 

@@ -19,10 +19,10 @@ class CrearTablaHabitacion extends Migration
         $table->double('calificacion',3,2)->nullable();
         $table->enum('estado',['ocupado','desocupado'])->default('desocupado');
         $table->text('descripcion');
+        $table->string('direccion');
         $table->string('longitud')->nullable();
         $table->string('latitud')->nullable();
         $table->integer('user_id')->unsigned();
-        $table->string('direccion');
         $table->integer('ciudad')->unsigned();
 
 
@@ -31,6 +31,8 @@ class CrearTablaHabitacion extends Migration
 
         $table->timestamps();
       });
+
+      
     }
 
     /**

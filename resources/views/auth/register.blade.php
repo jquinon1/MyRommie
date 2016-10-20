@@ -44,7 +44,7 @@
                         <div class="form-group">
                             {!! Form::label('genero', 'Genero', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::select('genero',[' '=>'Elegir','hombre'=>'Hombre','mujer'=>'Mujer','lgbti'=>'Lgbti'],null,['class' => 'form-control'],'required','autofocus') !!}
+                                {!! Form::select('genero',['hombre'=>'Hombre','mujer'=>'Mujer','lgbti'=>'Lgbti'],null,['class' => 'form-control','required','autofocus','placeholder'=>'Elige']) !!}
                             </div>
                         </div>
                         <div class="form-group">
@@ -53,6 +53,7 @@
                                 {!! Form::select('tipo_usuario',['arrendatario'=>'Estudiante','arrendador'=>'Arrendador'],null,['class' => 'form-control','required','autofocus']) !!}
                             </div>
                         </div>
+
                         <div class="form-group">
                             {!! Form::label('email', 'Email', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
@@ -152,3 +153,4 @@
     </div>
 </div>
 @endsection
+

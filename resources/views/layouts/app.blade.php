@@ -172,6 +172,8 @@
     <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
     <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
 
+
+
     @yield('js')
 </body>
 </html>

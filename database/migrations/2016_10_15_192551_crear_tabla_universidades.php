@@ -47,6 +47,6 @@ class CrearTablaUniversidades extends Migration
     {
 
         Schema::dropIfExists('habitacion_universidad');
-        Schema::drop('universidades');
+        Schema::dropIfExists('universidades');
     }
 }

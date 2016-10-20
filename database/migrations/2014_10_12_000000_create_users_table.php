@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
+        
     }
 
 
@@ -39,6 +40,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        
         Schema::drop('users');
     }
 }

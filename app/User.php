@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token','numId'
     ];
 
-
     public function habitaciones(){
         return $this->hasMany('App\Habitacion');
     }
+
 }
