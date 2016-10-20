@@ -272,8 +272,8 @@
 
           var marker = new google.maps.Marker({
           map: resultsMap,
-          position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)}//,
-          //icon: '../images/universidad.png'
+          position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
+          icon: '../images/casa.png'
           });
           markers.push(marker);
           resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});

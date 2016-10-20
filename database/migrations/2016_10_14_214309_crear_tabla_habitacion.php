@@ -15,15 +15,16 @@ class CrearTablaHabitacion extends Migration
     {
       Schema::create('habitaciones', function (Blueprint $table) {
         $table->increments('id');
+        $table->string('direccion')->nullable();
+        $table->float('longitud', 25, 20);
+        $table->float('latitud', 25, 20);
         $table->string('precio');
         $table->double('calificacion',3,2)->nullable();
         $table->enum('estado',['ocupado','desocupado'])->default('desocupado');
-        $table->text('descripcion');
-        $table->string('direccion');
-        $table->string('longitud')->nullable();
-        $table->string('latitud')->nullable();
-        $table->integer('user_id')->unsigned();
-        $table->integer('ciudad')->unsigned();
+        $table->text('descripcion')->nullable();
+        $table->string('foto');
+        $table->integer('user_id')->unsigned()->nullable();
+        $table->integer('ciudad')->unsigned()->nullable();
 
 
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -32,7 +33,7 @@ class CrearTablaHabitacion extends Migration
         $table->timestamps();
       });
 
-      
+
     }
 
     /**
