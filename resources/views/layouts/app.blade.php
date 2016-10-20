@@ -15,7 +15,8 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/magnificPopup/dist/magnific-popup.css')}}">
 
 
 
@@ -171,6 +172,7 @@
     <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
     <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
+    <script src="{{asset('plugins/magnificPopup/dist/jquery.magnific-popup.js')}}"></script>
 
 
 

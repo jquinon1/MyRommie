@@ -1,6 +1,17 @@
 @extends('layouts.app')
 @section('title','Usuario')
 @section('content')
+
+<style >
+    .white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -9,6 +20,7 @@
 
                 <div class="panel-body">
                     <a href="{{ route('habitaciones.create' )}}" class="btn btn-info">Agregar Habitacion</a>
+                    <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info">Actualizar Datos</a>
                     <table class="table table-striped">
                         <thead>
                             <th>Preview</th>
@@ -55,5 +67,37 @@
 <center>
     
 {{ $habitaciones->render() }}
+
+<!-- <div id="test-popup" class="white-popup mfp-hide">
+  Popup content
+</div>
+
+<a href="#test-popup" class="open-popup-link">Show inline popup</a> -->
 </center>
+
+<!-- <button id="open-popup">Open popup</button> -->
+
+@endsection
+
+@section('js')
+    <script >
+
+    $('.open-popup-link').magnificPopup({
+  type:'inline',
+  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+});
+        $('#open-popup').magnificPopup({
+    items: [
+      {
+        src: '{{ asset('images/eafit.jpg') }}',
+        title: 'Peter & Paul fortress in SPB'
+      }
+    ],
+    gallery: {
+      enabled: true
+    },
+    type: 'image' // this is a default type
+});
+    </script>
+
 @endsection

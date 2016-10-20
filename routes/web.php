@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'ControladorFrontEnd@index');
+Route::get('/', [
+	'uses' => 'ControladorFrontEnd@index',
+	'as' => 'welcome'
+
+	]);
 
 Route::get('/map', 'ControladorFrontEnd@map');
 
@@ -40,6 +44,10 @@ Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 Route::get('/pm', 'ControladorFrontEnd@pm');
 
 Route::resource('users', 'UsersController');
+Route::get('users/{id}/destroy',[
+		'uses' => 'UsersController@destroy',
+		'as' => 'users.destroy'
+	]);
 
 Route::group(['prefix => users'], function(){
 	Route::resource('habitaciones','HabitacionesController');
