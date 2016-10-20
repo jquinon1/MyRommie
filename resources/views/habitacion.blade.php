@@ -89,15 +89,17 @@
     </div>
     <div id="cuerpo">
         <div id="lateral">
+          @foreach($fotos as $pos=>$val)
             <div class="img">
                 <div class="card-image">
-                    <img src="images/hab2.jpg" alt="hab1" width="600" height="400" >
+                    <img src="images/hab{{$pos}}.jpg" alt="hab1" width="600" height="400" >
                 </div>
                 <div class="desc" style="color: dimgrey;" href ="../map"><font size="5">Villas Eafit</font></div>
-                <div class="desc" style="color: dimgrey">500.000$ COP</div>
-                <div class="desc" style="color: dimgrey">Ubicado alfrente de eafit con habitacion pero sin cama </div>
+                <div class="desc" style="color: dimgrey">Precio: <?= $precios[$pos]; ?></div>
+                <div class="desc" style="color: dimgrey">Descripcion: <?= $text[$pos]; ?></div>
             </div>
-            <div class="img">
+            @endforeach
+            <!--div class="img">
                 <div class="card-image">
                     <img src="images/hab3.jpg" alt="hab1" width="600" height="400">
                 </div>
@@ -140,7 +142,7 @@
                 <div class="desc" style="color: dimgrey;"><font size="5">Villas Eafit</font></div>
                 <div class="desc" style="color: dimgrey">500.000$ COP</div>
                 <div class="desc" style="color: dimgrey">Ubicado alfrente de eafit con habitacion pero sin cama </div>
-            </div>
+            </div-->
         </div>
     <div id="pie">
         MYROMMIE
@@ -302,8 +304,3 @@
 </html>
 
 @endsection
-
-
-
-
-

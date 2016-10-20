@@ -91,7 +91,16 @@ class ControladorFrontEnd extends Controller
     }
 
     public function habitacion(){
-      return view('habitacion');
+      $hab = DB::select('select * from habitaciones');
+      $foto=array();
+      $prix=array();
+      $desc=array();
+      foreach ($hab as $key) {
+        $foto[]=$key->foto;
+        $prix[]=$key->precio;
+        $desc[]=$key->descripcion;
+      }
+      return view('habitacion', ['fotos' => $foto, 'precios' => $prix, 'text' => $desc]);
     }
 
     public function habitacion2($id){
