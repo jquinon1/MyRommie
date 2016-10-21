@@ -31,6 +31,6 @@ class Habitacion extends Model
         return $query
         ->join('habitacion_universidad','habitaciones.id','=','habitacion_universidad.habitacion_id')
         ->join('universidades','universidades.id','=','habitacion_universidad.universidad_id')
-        ->where('universidades.nombre','LIKE',"%$universidad%");
+        ->where('universidades.nombre','LIKE',"%$universidad%")->and('Habitacion.estado','=','desocupado');
     }
 }

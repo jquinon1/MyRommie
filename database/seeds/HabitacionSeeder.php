@@ -11,6 +11,6 @@ class HabitacionSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Habitacion::class,30)->create();
+        factory(App\Habitacion::class,40)->create();
     }
 }

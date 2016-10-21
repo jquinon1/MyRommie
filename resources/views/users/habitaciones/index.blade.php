@@ -4,37 +4,27 @@
 
 @section('content')
 	<div class="container">
-		<table class="table table-striped">
-			<thead>
-				<th>Imagen</th>
-				<th>Precio</th>
-				<th>Propietario</th>
-				<th>Descripcion</th>
-			</thead>
-			<tbody>
-				@foreach($habitaciones as $habitacion)
-						<tr>
-							<td>
-								<div class="row">
-								  <div class="col-xs-6 col-md-3">
-								    <a href="#" class="thumbnail">
-								      <img src="{{asset('images/480.jpg')}}" class="img-rounded pull-xs-left" width="80s0%" alt="...">
-								    </a>
-								  </div>
-								  ...
-								</div>
-							</td>
-							<td>{{$habitacion->precio}}</td>
-							<td>{{$habitacion->user->nombre}}</td>
-							<td>{{$habitacion->descripcion}}</td>
-						</tr>
-				@endforeach
-			</tbody>
-		</table>
-
-
+		
+	<div class="row">
+		@foreach($habitaciones as $habitacion)
+			
+			  <div class="col-sm-6 col-md-4">
+			    <div class="thumbnail">
+			      <img src="{{asset('images/480.jpg')}}" class="img-responsive" alt="...">
+			      <div class="caption">
+			        <h3>$ {{$habitacion->precio}} </h3>
+			        <p>...</p>
+			        <p><a href="{{route('habitaciones.show',$habitacion->id)}}" class="btn btn-primary" role="button">{{$habitacion->id}}</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+			      </div>
+			    </div>
+			  </div>
+		@endforeach
+	</div>
+	
 	</div>
 	<center>    
 	{{ $habitaciones->render() }}
 	</center>
 @endsection
+
+

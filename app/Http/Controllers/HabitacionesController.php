@@ -37,7 +37,7 @@ class HabitacionesController extends Controller
         if ($request->universidad) {
             $habitaciones = Habitacion::search($request->universidad)->orderBy('habitaciones.id','ASC')->paginate(10);
         }else{
-            $habitaciones = Habitacion::orderBy('id','ASC')->paginate(10);
+            $habitaciones = Habitacion::orderBy('id','ASC')->where('estado','=','desocupado')->paginate(10);
         }
         return view('users.habitaciones.index')->with('habitaciones',$habitaciones);
         
@@ -106,7 +106,14 @@ class HabitacionesController extends Controller
      */
     public function show($id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+        $habitacion->user;
+        $habitacion->ubicacion;
+        $habitacion->imagenes;
+        $habitacion->universidades;
+        // dd($habitacion);
+        // dd($habitacion->user->id);    
+        return view('users.habitaciones.show')->with('habitacion',$habitacion);
     }
 
     /**

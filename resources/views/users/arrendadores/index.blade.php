@@ -82,22 +82,26 @@
 @section('js')
     <script >
 
-    $('.open-popup-link').magnificPopup({
-  type:'inline',
-  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-});
         $('#open-popup').magnificPopup({
-    items: [
-      {
-        src: '{{ asset('images/eafit.jpg') }}',
-        title: 'Peter & Paul fortress in SPB'
-      }
-    ],
-    gallery: {
-      enabled: true
-    },
-    type: 'image' // this is a default type
-});
+            items: [
+             {
+                    src: '{{ asset('images/hab3.jpg') }}',
+                    title: 'Peter & Paul fortress in SPB'
+                  },
+                  {
+                    src: '{{ asset('images/hab4.jpg') }}',
+                    title: 'Peter & Paul fortress in SPB'
+                  },
+                  {
+                    src: '{{ asset('images/hab5.jpg') }}',
+                    title: 'Peter & Paul fortress in SPB'
+                  }
+            ],
+            gallery: {
+              enabled: true
+            },
+            type: 'image' // this is a default type
+        });
     </script>
 
 @endsection

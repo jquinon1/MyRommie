@@ -56,3 +56,6 @@ $factory->define(App\Habitacion::class, function(Faker\Generator $faker){
 	];
 });
 
+
+
+
