@@ -66,7 +66,7 @@ class UsersController extends Controller
          switch ($tipo_usuario) {
              case 'arrendador':
                 $user = Auth::user();
-                return view('users.arrendador.edit')->with('user',$user);
+                return view('users.arrendadores.edit')->with('user',$user);
                 break;
             case 'arrendatario':
 

@@ -34,11 +34,12 @@ class HabitacionesController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->universidad) {
-            $habitaciones = Habitacion::search($request->universidad)->orderBy('habitaciones.id','ASC')->paginate(10);
-        }else{
-            $habitaciones = Habitacion::orderBy('id','ASC')->where('estado','=','desocupado')->paginate(10);
-        }
+      
+            $habitaciones = Habitacion::search($request->universidad)->orderBy('habitacion_id','ASC')->paginate(11);
+            foreach ($habitaciones as $habitacion ) {
+                $habitacion->universidades;
+            }
+            // dd($habitaciones);
         return view('users.habitaciones.index')->with('habitaciones',$habitaciones);
         
     }
