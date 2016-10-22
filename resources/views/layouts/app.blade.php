@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/magnificPopup/dist/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/rate/jquery.rateyo.css') }}">
 
 
 
@@ -173,6 +174,7 @@
     <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
     <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
     <script src="{{asset('plugins/magnificPopup/dist/jquery.magnific-popup.js')}}"></script>
+    <script src="{{asset('plugins/rate/jquery.rateyo.js')}}"></script>
 
 
 

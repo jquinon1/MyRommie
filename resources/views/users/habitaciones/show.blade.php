@@ -50,6 +50,14 @@
   		<div style="width: 40%; float: right;">
   			<h1>${{$habitacion->precio}}</h1>
         <p>{{$habitacion->direccion}}</p>
+        <div id="rateYo"></div>
+        <hr>
+        @if(!Auth::guest())
+          @if(Auth::user()->id != $habitacion->user->id)
+            <a id="calificacion" class="btn btn-info">Calificar</a>
+          @endif
+        @endif
+        <hr>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3>Descripcion</h2>
@@ -67,7 +75,16 @@
 
 @section('js')
     <script >
-
+        
+        // Para la calificacion
+        $("#rateYo").rateYo({
+          rating: {{$valoracion}},
+          onSet: function (rating, rateYoInstance) {
+             var valor = rating;
+              var link =  {{$habitacion->id}}+"/"+valor;
+              document.getElementById("calificacion").setAttribute("href",link);
+          }
+        });
         $('#open-popup').magnificPopup({
             items: [
 
@@ -96,7 +113,7 @@
             type: 'image' // this is a default type
         });
 
-
+        // Popup para agregar imagen
         $('#form-popup').magnificPopup({
           items: [
           {

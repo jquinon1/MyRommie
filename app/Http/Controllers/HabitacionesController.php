@@ -119,9 +119,15 @@ class HabitacionesController extends Controller
         $habitacion->ubicacion;
         $habitacion->imagenes;
         $habitacion->universidades;
+        if ($habitacion->numero_votos > 0) {
+            $valoracion = $habitacion->calificacion/$habitacion->numero_votos;
+        }else{
+            $valoracion = $habitacion->calificacion;
+        }
+        // dd($valoracion)
         // dd($habitacion);
         // dd($habitacion->user->id);    
-        return view('users.habitaciones.show')->with('habitacion',$habitacion);
+        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion);
     }
 
     /**
@@ -168,5 +174,18 @@ class HabitacionesController extends Controller
         $habitacion->delete();
         Flash::error('La habitacion ha sido eliminado de forma exitosa');
         return redirect()->route('users.index');
+    }
+
+    public function calificar($id,$valor){
+        $habitacion = Habitacion::find($id);
+        $caliInicial = $habitacion->calificacion;
+        // dd($caliInicial);
+        $votos = $habitacion->numero_votos;
+        // dd($votos);
+        $habitacion->calificacion = $caliInicial + $valor;
+        $habitacion->numero_votos = $votos + 1;
+        $habitacion->save();
+        Flash::success('Gracias por calificar');
+        return redirect()->route('habitaciones.show',$id);
     }
 }

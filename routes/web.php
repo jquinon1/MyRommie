@@ -60,4 +60,9 @@ Route::group(['prefix => users'], function(){
 		'as' =>	'imagenes.store'
 	]);
 
+	Route::get('habitaciones/{id}/{valor}',[
+		'uses'	=> 'HabitacionesController@calificar',
+		'as'	=> 'habitaciones.calificar'
+	]);
+
 });
