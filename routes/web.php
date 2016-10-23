@@ -60,9 +60,26 @@ Route::group(['prefix => users'], function(){
 		'as' =>	'imagenes.store'
 	]);
 
-	Route::get('habitaciones/{id}/{valor}',[
+	Route::get('habitaciones/{id}/calificar/{valor}',[
 		'uses'	=> 'HabitacionesController@calificar',
 		'as'	=> 'habitaciones.calificar'
 	]);
 
+	// Route::GET('habitaciones/{id}/ofertas',[
+	// 	'uses'	=>	'OfertasController@index',
+	// 	'as'	=>	'ofertas.index'
+	// ]);
+	// Route::post('habitaciones/{id}/ofertas',[
+	// 	'uses'	=>	'OfertasController@store',
+	// 	'as'	=>	'ofertas.store'
+	// ]);
+	// Route::get('habitaciones/{id}/oferta',[
+	// 	'uses' => 'OfertasController@index',
+	// 	'as'	=> 'habitaciones.ofertas.index'
+	// ]);
+	Route::resource('habitaciones/{id}/ofertas','OfertasController');
+	// Route::get('habitaciones/{id}/ofertas',[
+	// 	'uses' => 'OfertasController@index',
+	// 	'as' =>	'habitaciones.ofertas.index'
+	// ]);
 });

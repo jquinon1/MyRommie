@@ -24,7 +24,11 @@ class UsersController extends Controller
         $tipo_usuario = Auth::user()->tipo_usuario;
         switch ($tipo_usuario) {
             case 'arrendador':
-                $habitaciones = Auth::user()->habitaciones()->paginate(6);
+                $habitaciones = Auth::user()->habitaciones;
+                // dd($habitaciones);
+                foreach ($habitaciones as $habitacion) {
+                    $habitacion->ofertas;
+                }
                 return view('users.arrendadores.index')->with('habitaciones',$habitaciones);
                 break;
             case 'arrendatario':

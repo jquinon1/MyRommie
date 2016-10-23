@@ -34,7 +34,6 @@ class HabitacionesController extends Controller
      */
     public function index(Request $request)
     {
-      
             $habitaciones = Habitacion::search($request->universidad)->orderBy('habitacion_id','ASC')->paginate(12);
         //Se reorganizan parametro que por alguna razon desconocida cambian en la consulta
             foreach ($habitaciones as $habitacion) {
@@ -177,6 +176,7 @@ class HabitacionesController extends Controller
     }
 
     public function calificar($id,$valor){
+        // dd($id." ".$valor);
         $habitacion = Habitacion::find($id);
         $caliInicial = $habitacion->calificacion;
         // dd($caliInicial);
