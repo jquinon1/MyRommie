@@ -65,21 +65,10 @@ Route::group(['prefix => users'], function(){
 		'as'	=> 'habitaciones.calificar'
 	]);
 
-	// Route::GET('habitaciones/{id}/ofertas',[
-	// 	'uses'	=>	'OfertasController@index',
-	// 	'as'	=>	'ofertas.index'
-	// ]);
-	// Route::post('habitaciones/{id}/ofertas',[
-	// 	'uses'	=>	'OfertasController@store',
-	// 	'as'	=>	'ofertas.store'
-	// ]);
-	// Route::get('habitaciones/{id}/oferta',[
-	// 	'uses' => 'OfertasController@index',
-	// 	'as'	=> 'habitaciones.ofertas.index'
-	// ]);
+	Route::get('habitaciones/{id}/users/calificar/{valor}',[
+		'uses'	=> 'UsersController@calificar',
+		'as'	=> 'users.calificar'
+	]);
 	Route::resource('habitaciones/{id}/ofertas','OfertasController');
-	// Route::get('habitaciones/{id}/ofertas',[
-	// 	'uses' => 'OfertasController@index',
-	// 	'as' =>	'habitaciones.ofertas.index'
-	// ]);
+	
 });

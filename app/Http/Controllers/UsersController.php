@@ -98,4 +98,15 @@ class UsersController extends Controller
         Flash::error('Usuario Eliminado');
         return redirect()->route('welcome');
     }
+
+    public function calificar($habitacion,$valor){
+        $user = Habitacion::find($habitacion)->user;
+        $calificacion = $user->calificacion;
+        $votos = $user->numero_votos;
+        $user->calificacion = $calificacion + $valor;
+        $user->numero_votos = $votos + 1;
+        $user->save();
+        Flash::success('Valoracion registrada existosamente');
+        return redirect()->route('habitaciones.show',$habitacion);
+    }
 }

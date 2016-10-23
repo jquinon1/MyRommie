@@ -123,10 +123,16 @@ class HabitacionesController extends Controller
         }else{
             $valoracion = $habitacion->calificacion;
         }
+        if ($habitacion->user->numero_votos > 0) {
+            $valoracionUser = $habitacion->user->calificacion/$habitacion->user->numero_votos;
+        }else{
+            $valoracionUser = $habitacion->user->calificacion;
+        }
+
         // dd($valoracion)
         // dd($habitacion);
         // dd($habitacion->user->id);    
-        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion);
+        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion)->with('valUser',$valoracionUser);
     }
 
     /**
