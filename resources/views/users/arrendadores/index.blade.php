@@ -2,20 +2,8 @@
 @section('title','Usuario')
 @section('content')
 
-<style >
-    .white-popup {
-  position: relative;
-  background: #FFF;
-  padding: 20px;
-  width: auto;
-  max-width: 500px;
-  margin: 20px auto;
-}
 </style>
 <div class="container">
-<center>
-  
-</center>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -27,8 +15,9 @@
                     <table class="table table-striped" width="90%">
                         <thead>
                             <th width="10%">Precio</th>
+                            <th width="10%">Ofertas</th>
                             <th width="15%">Estado</th>
-                            <th width="30%">Direccion</th>
+                            <th width="20%">Direccion</th>
                             <th width="25%">Descripcion</th>
                             <th width="25%">Accion</th>
                         </thead>
@@ -36,6 +25,7 @@
                             @foreach($habitaciones as $habitacion)
                                 <tr>
                                     <td>{{ $habitacion->precio }}</td>
+                                    <td style="text-align: center;"><a  href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge">{{$habitacion->ofertas->count() }}</a></td>
                                     <td>{{ $habitacion->estado}}</td>
                                     <td>{{ $habitacion->direccion}}</td>
                                     <td>{{ $habitacion->descripcion}}</td>
@@ -49,7 +39,7 @@
                     <a href="{{ route('habitaciones.show',$habitacion->id)}}" class="btn btn-info">
                         <span class="glyphicon glyphicon-wrench"></span>
                     </a>
-                    
+                        </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -59,44 +49,11 @@
         </div>
     </div>
 </div>
-<center>
-    
-{{ $habitaciones->render() }}
-
-<!-- <div id="test-popup" class="white-popup mfp-hide">
+{{-- <center>
+<div id="test-popup" class="white-popup mfp-hide">
   Popup content
 </div>
 
-<a href="#test-popup" class="open-popup-link">Show inline popup</a> -->
-</center>
-
-<!-- <button id="open-popup">Open popup</button> -->
-
-@endsection
-
-@section('js')
-    <script >
-
-        $('#open-popup').magnificPopup({
-            items: [
-             {
-                    src: '{{ asset('images/hab3.jpg') }}',
-                    title: 'Peter & Paul fortress in SPB'
-                  },
-                  {
-                    src: '{{ asset('images/hab4.jpg') }}',
-                    title: 'Peter & Paul fortress in SPB'
-                  },
-                  {
-                    src: '{{ asset('images/hab5.jpg') }}',
-                    title: 'Peter & Paul fortress in SPB'
-                  }
-            ],
-            gallery: {
-              enabled: true
-            },
-            type: 'image' // this is a default type
-        });
-    </script>
-
+<a href="#test-popup" class="open-popup-link">Show inline popup</a>
+</center> --}}
 @endsection

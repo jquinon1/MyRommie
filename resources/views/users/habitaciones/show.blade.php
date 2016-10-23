@@ -42,11 +42,8 @@
         @endforeach
           </div>
         </div>
-
-        
-            
-        
   		</div>
+
   		<div style="width: 40%; float: right;">
   			<h1>${{$habitacion->precio}}</h1>
         <p>{{$habitacion->direccion}}</p>
@@ -55,16 +52,24 @@
         @if(!Auth::guest())
           @if(Auth::user()->id != $habitacion->user->id)
             <a id="calificacion" class="btn btn-info">Calificar</a>
+            <div class="panel-body" style="margin-top: 1%;">
+            {!! Form::open(['route'=> ['ofertas.store',$habitacion->id], 'method' => 'POST', 'class'=>'form-horizontal']) !!}
+              <div class="form-group">
+                  {!! Form::submit('Ofertar',['class' => 'btn btn-primary']) !!}
+                <div class="col-md-8">
+                  {!! Form::text('oferta',null,['class'=>' form-control pull-right', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}
+                </div>
+              </div>
+            {!! Form::close() !!}
+          </div><hr>
           @endif
         @endif
-        <hr>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3>Descripcion</h2>
+            <h3>Descripcion</h3>
           </div>
           <div class="panel-body">
-           <p>{{$habitacion->descripcion}}</p>
-            
+           <p>{{$habitacion->descripcion}}</p>            
           </div>
         </div>
   		</div>
@@ -81,7 +86,7 @@
           rating: {{$valoracion}},
           onSet: function (rating, rateYoInstance) {
              var valor = rating;
-              var link =  {{$habitacion->id}}+"/"+valor;
+              var link =  {{$habitacion->id}} + "/calificar/" + valor;
               document.getElementById("calificacion").setAttribute("href",link);
           }
         });
