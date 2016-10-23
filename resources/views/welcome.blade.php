@@ -2,31 +2,40 @@
 @section('title','My Rommie')
 @section('content')
 
+
+<style>
+    #background {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background-size: cover;
+    }
+</style>
+
+<body>
 <div class="flex-center position-ref full-height" >
 
-    <div style="position: fixed-top; z-index: -99; width: 200%; height: 130%; volume: silent" >
-        <iframe width="138%" height="100%" src="http://www.youtube.com/embed/sK2e42jzohk?
-        &autoplay=1
-&loop=1
-&playlist=sK2e42jzohk
-&showinfo=0
-&autohide=1
-&controls=0
-&rel=0
-" frameborder="0" allowfullscreen></iframe>
+<video width="150%" height="100%" autoplay loop muted preload="none" id="background">
+    <source src="../video/Lapse.mp4" type="video/mp4" />
+</video>
 
-
-    <div class="links">
-        <a href="estudiante" style="color: whitesmoke" ><font size="20">ESTUDIANTE</font></a>
-        <a href="arrendador" style="color: whitesmoke" ><font size="20">ARRENDADOR</font></a>
-    </div>
-
-    </body>
+<div class="links" >
+    <a href="estudiante" style="color: whitesmoke"><font size="20">ESTUDIANTE</font></a>
+    <a href="arrendador" style="color: whitesmoke" ><font size="20">ARRENDADOR</font></a>
+</div>
 </div>
 
 
-        <script type="text/javascript">
-            myVid.muted=true;
-        </script>
-    </div>
+
+    </body>
+
+
+
 @endsection
