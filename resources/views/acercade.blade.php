@@ -1,9 +1,27 @@
 @extends('layouts.app')
 @section('title','Contactanos')
 @section('content')
-
-    <div class="container">
-        <div class="row">
+    <style>
+        #background {
+            position: fixed;
+            top: 58%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+        }
+    </style>
+    <body>
+    <div class="flex-center position-ref full-height" >
+        <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
+            <source src="../video/Lapse3.mp4" type="video/mp4" />
+        </video>
+        <div class="row" style="margin-bottom: 20%">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Acerca De</div>
@@ -16,4 +34,5 @@
             </div>
         </div>
     </div>
+    </body>
 @endsection
