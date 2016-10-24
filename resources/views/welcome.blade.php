@@ -2,7 +2,6 @@
 @section('title','My Rommie')
 @section('content')
 
-
 <style>
     #background {
         position: fixed;
@@ -20,22 +19,15 @@
 </style>
 
 <body>
-<div class="flex-center position-ref full-height" >
+    <div class="flex-center position-ref full-height" >
+        <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
+            <source src="../video/Lapse3.mp4" type="video/mp4" />
+        </video>
 
-<video width="150%" height="100%" autoplay loop muted preload="none" id="background">
-    <source src="../video/Lapse.mp4" type="video/mp4" />
-</video>
-
-<div class="links" >
-    <a href="estudiante" style="color: whitesmoke"><font size="20">ESTUDIANTE</font></a>
-    <a href="arrendador" style="color: whitesmoke" ><font size="20">ARRENDADOR</font></a>
-</div>
-</div>
-
-
-
-    </body>
-
-
-
+        <div class="links" >
+            <a href="estudiante" style="color: white"><font size="20">ESTUDIANTE</font></a>
+            <a href="arrendador" style="color: white" ><font size="20">ARRENDADOR</font></a>
+        </div>
+    </div>
+</body>
 @endsection

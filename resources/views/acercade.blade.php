@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Acerca de')
+@section('title','Contactanos')
 @section('content')
 
     <div class="container">
@@ -9,31 +9,7 @@
                     <div class="panel-heading">Acerca De</div>
                     <div class="panel-body">
                         <form class="form-horizontal" >
-                            <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Correo </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >myrommie@enterpise.com</output>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Telefono </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >1800myrommie</output>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Fax </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >754821630</output>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Direccion </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >Centro Comercial Eafit oficina 19-2</output>
-                                </div>
-                            </div>
-
+                            <h4>MyRommie empezó como una idea de 4 estudiantes de la Universidad de EAFIT, con el propósito de realizar un proyecto que buscara solucionar un problema que esté vigente en el mundo actualmente, fue así como Craig David Cartagena Castaño, Jhonatan Quiñonez Ávila, Juan Camilo Henao Salazar y Juan Diego Zuluaga Gallo. Pensaron en crear una página web que ayudara a los estudiantes de diferentes universidades a buscar un lugar donde hospedarse mientras estén realizando sus estudios. Teniendo en cuenta los detalles que hagan que sea una página con información completa y de fácil uso para los usuarios.</h4>
                         </form>
                     </div>
                 </div>
