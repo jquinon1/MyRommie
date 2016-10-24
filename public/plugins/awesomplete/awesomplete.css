@@ -90,11 +90,11 @@
 	}
 	
 		.awesomplete mark {
-			background: hsl(65, 100%, 50%);
+			/*background: hsl(65, 100%, 50%); Color del fondo cuando aparecen las coincidencias*/
 		}
 		
 		.awesomplete li:hover mark {
-			background: hsl(68, 100%, 41%);
+			/*background: hsl(68, 100%, 41%); color de fondo cuando se pone el mouse sobre alguna de las coincidencias*/
 		}
 		
 		.awesomplete li[aria-selected="true"] mark {
