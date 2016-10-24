@@ -7,16 +7,54 @@
   position: relative;
   background: #FFF;
   padding: 20px;
-  width: auto;
-  max-width: 500px;
-  max-height: 80%;
-  margin: 20px auto;
+  /*width: auto;*/
+  max-width: 40%;
+  max-height: 100%;
+  margin: auto;
 }
 </style>
 	<!-- </div> -->
   <div id="form" class="mfp-hide white-popup">
   Inline popup
   </div>
+  @if(!Auth::guest())
+  @if(Auth::user()->id != $habitacion->user->id)
+  {{-- Para ver informacion del arrendador --}}
+    <div id="contacto" class="mfp-hide white-popup"> 
+    <div class="container" >
+    <div class="row">
+        <div class="col-md-6">
+      {!! Form::open(['class'=>'form-horizontal']) !!}
+        <div class="form-group">
+          {!! Form::label('nombre', 'Nombre:', ['class' => 'col-md-4 control-label']) !!}
+          <div class="col-md-6">
+            {!! Form::label('nombre',$habitacion->user->nombre . $habitacion->user->apellido,['class' => 'form-control','required','autofocus']) !!}
+          </div>
+        </div>
+        <div class="form-group">
+          {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
+          <div class="col-md-6">
+            {!! Form::label('email',$habitacion->user->email,['class' => 'form-control','required','autofocus']) !!}
+          </div>
+        </div>
+        <div class="form-group">
+            <div id="calificaionUser" class="pull-left" style="margin-left: 20%;"></div>
+          <div class="col-md-6">
+            <a id="calificarUser" class="btn btn-info">Calificar</a>
+          </div>
+        </div>
+
+        
+       {!! Form::close() !!} 
+
+       </div>
+       </div>
+       </div>
+       </div>
+  @else
+    {{-- Formulario para registrar nuevas fotos --}}
+  @endif
+  @endif
 	<div class="container">
 		
 	<div class="jumbotron">
@@ -28,7 +66,7 @@
   				<a href="#" id="form-popup" class="btn btn-info"> Agregar imagen
   				</a>
           @else
-          <button class="btn btn-info">Contactar</button>
+          <a href="#" id="contact-popup" class="btn btn-info">Contactar</a>
   				@endif
   			@endif
         <hr>
@@ -81,7 +119,7 @@
 @section('js')
     <script >
         
-        // Para la calificacion
+        // Para la calificacion de la habitacion
         $("#rateYo").rateYo({
           rating: {{$valoracion}},
           onSet: function (rating, rateYoInstance) {
@@ -90,6 +128,17 @@
               document.getElementById("calificacion").setAttribute("href",link);
           }
         });
+
+        $('#calificaionUser').rateYo({
+          rating: {{$valUser}},
+          onSet: function (rating, rateYoInstance) {
+             var valor =  rating;
+              var link =  {{$habitacion->id}} + "/users/calificar/" + valor;
+              document.getElementById("calificarUser").setAttribute("href",link);
+          }
+        });
+
+        // Para ver las imagenes de la habitacion
         $('#open-popup').magnificPopup({
             items: [
 
@@ -123,6 +172,20 @@
           items: [
           {
             src: $('<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Agregue Imagen</h3></div><div class="panel-body">{!! Form::open(["route"=>["imagenes.store",$habitacion->id], "class"=>"form-horizontal","files"=>true]) !!}<div class="form-group">{!! Form::label("imagen","Imagen",["class"=>"col-md-4 control-label"]) !!}<div class="col-md-6">{!! Form::file("imagen") !!}</div></div><div class="form-group"><div class="col-md-8 col-md-offset-4">{!! Form::submit("Agregar",["class" => "btn btn-primary"]) !!}</div></div>{!! Form::close() !!}</div></div>'  ), // Dynamically created element
+            type: 'inline'
+          }
+          ],
+          gallery: {
+            enabled: true
+          },
+          type: 'inline'
+        });
+
+        // Popup para ver informacion del arrendatario
+        $('#contact-popup').magnificPopup({
+          items: [
+          {
+            src: '#contacto', // Dynamically created element
             type: 'inline'
           }
           ],

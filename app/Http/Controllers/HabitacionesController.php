@@ -34,7 +34,7 @@ class HabitacionesController extends Controller
      */
     public function index(Request $request)
     {
-            $habitaciones = Habitacion::search($request->universidad)->orderBy('habitacion_id','ASC')->paginate(12);
+            $habitaciones = Habitacion::search($request->universidad)->orderBy('habitacion_universidad.created_at','ASC')->paginate(12);
         //Se reorganizan parametro que por alguna razon desconocida cambian en la consulta
             foreach ($habitaciones as $habitacion) {
                 $habitacion->id = $habitacion->habitacion_id;
@@ -61,10 +61,6 @@ class HabitacionesController extends Controller
         $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
         // dd($universidades);
         return view('users.habitaciones.create')->with('ciudades',$ubicaciones)->with('universidades',$universidades);
-
-        // $ubicacion = Ubicacion::all();
-
-        // return view('habitaciones.create')->with('ciudades',$ubicacion);
     }
 
     /**
@@ -75,7 +71,9 @@ class HabitacionesController extends Controller
      */
     public function store(HabitacionRequest $request)
     {
-        // dd($request->universidades);
+        $habitacion = new Habitacion($request->all());
+        // $habitacion->ubicacion()->associate($request->ciudad);
+        // dd($habitacion);
         if($request->file('imagen')){            
            
 
@@ -85,14 +83,13 @@ class HabitacionesController extends Controller
             $file->move($path,$name);
             // dd($habitacion);           
         }
-        $habitacion = new Habitacion($request->all());
         // $habitacion->user_id = Auth::user()->id;
         // dd($habitacion);
         $habitacion->user()->associate(Auth::user());
-        $habitacion->ubicacion()->associate($request->ciudad);
         $habitacion->save();
-
         $habitacion->universidades()->sync($request->universidades);
+        // dd($habitacion);
+
 
         $imagen = new Imagen();
         $imagen->habitacion()->associate($habitacion);
@@ -123,10 +120,16 @@ class HabitacionesController extends Controller
         }else{
             $valoracion = $habitacion->calificacion;
         }
+        if ($habitacion->user->numero_votos > 0) {
+            $valoracionUser = $habitacion->user->calificacion/$habitacion->user->numero_votos;
+        }else{
+            $valoracionUser = $habitacion->user->calificacion;
+        }
+
         // dd($valoracion)
         // dd($habitacion);
         // dd($habitacion->user->id);    
-        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion);
+        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion)->with('valUser',$valoracionUser);
     }
 
     /**
@@ -138,6 +141,7 @@ class HabitacionesController extends Controller
     public function edit($id)
     {
         $habitacion = Habitacion::find($id);
+        $habitacion->ubicacion;
         $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
         $habitacion_universidades = $habitacion->universidades->pluck('id')->ToArray();
         return view('users.habitaciones.edit')->with('habitacion',$habitacion)->with('universidades',$universidades)->with('habitacion_universidades',$habitacion_universidades);

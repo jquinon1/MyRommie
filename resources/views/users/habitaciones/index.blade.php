@@ -9,7 +9,7 @@
 		@foreach($habitaciones as $habitacion)
 			
 			  <div class="col-sm-6 col-md-4">
-			    <div class="thumbnail" style="width: 80%">
+			    <div class="thumbnail" style="width: 77%; max-height: 100%">
 			      <img src="{{asset('images/480.jpg')}}" class="img-responsive" alt="...">
 			      <div class="caption">
 			        <h3>$ {{$habitacion->precio}} </h3>
