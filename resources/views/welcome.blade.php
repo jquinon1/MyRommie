@@ -6,7 +6,7 @@
 <style>
     #background {
         position: fixed;
-        top: 50%;
+        top: 58%;
         left: 50%;
         min-width: 100%;
         min-height: 100%;
@@ -23,7 +23,7 @@
 <div class="flex-center position-ref full-height" >
 
 <video width="150%" height="100%" autoplay loop muted preload="none" id="background">
-    <source src="../video/Lapse.mp4" type="video/mp4" />
+    <source src="../video/Lapse3.mp4" type="video/mp4" />
 </video>
 
 <div class="links" >
