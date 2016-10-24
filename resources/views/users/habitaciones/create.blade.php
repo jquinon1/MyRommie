@@ -12,7 +12,7 @@
 						<div class="form-group">
 							{!! Form::label('precio','Precio',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
-								{!! Form::text('precio',null,['class' => 'form-control']) !!}
+								{!! Form::number('precio',null,['class' => 'form-control','placeholder'=>'example: 500000']) !!}
 							</div>
 						</div>
 						<div class="form-group">

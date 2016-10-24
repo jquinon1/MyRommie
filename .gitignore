@@ -4,6 +4,8 @@
 /vendor
 /.idea
 /.phpintel
+/public/images/habitaciones/*
+/public/images/universidades/*
 Homestead.json
 Homestead.yaml
 .env

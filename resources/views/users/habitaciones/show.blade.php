@@ -116,7 +116,7 @@
               <div class="form-group">
                   {!! Form::submit('Ofertar',['class' => 'btn btn-primary']) !!}
                 <div class="col-md-8">
-                  {!! Form::text('oferta',null,['class'=>' form-control pull-right', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}
+                  {!! Form::number('oferta',null,['class'=>' form-control pull-right', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}
                 </div>
               </div>
             {!! Form::close() !!}
