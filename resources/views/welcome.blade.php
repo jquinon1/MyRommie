@@ -21,11 +21,11 @@
 <body>
     <div class="flex-center position-ref full-height" >
         <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
-            <source src="../video/Lapse3.mp4" type="video/mp4" />
+            <source src="../video/Lapse.mp4" type="video/mp4" />
         </video>
 
         <div class="links" >
-            <a href="estudiante" style="color: white"><font size="20">ESTUDIANTE</font></a>
+            <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
             <a href="arrendador" style="color: white" ><font size="20">ARRENDADOR</font></a>
         </div>
     </div>
