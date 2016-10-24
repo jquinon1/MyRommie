@@ -52,7 +52,28 @@
        </div>
        </div>
   @else
-    {{-- Formulario para registrar nuevas fotos --}}
+    <div id="imagen" class="mfp-hide white-popup"> 
+    <div class="container" >
+    <div class="row">
+        <div class="col-md-4">
+            <center><h3> Agregar imagen</h3><hr></center>  
+            {!! Form::open(["route"=>["imagenes.store",$habitacion->id], "class"=>"form-horizontal","files"=>true]) !!}
+              <div class="form-group">
+                {!! Form::label("imagen","Imagen",["class"=>"col-md-4 control-label"]) !!}
+                <div class="col-md-6">
+                  {!! Form::file("imagen") !!}
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                  {!! Form::submit("Agregar",["class" => "btn btn-primary"]) !!}
+                </div>
+              </div>
+            {!! Form::close() !!}
+          </div>
+        </div>
+      </div>
+   </div>
   @endif
   @endif
 	<div class="container">
@@ -72,7 +93,7 @@
         <hr>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Cercana a:</h3>
+            <h3 class="panel-title"><strong>Cercana a:</strong></h3>
           </div>
           <div class="panel-body">
             @foreach($habitacion->universidades as $universidad)
@@ -95,7 +116,7 @@
               <div class="form-group">
                   {!! Form::submit('Ofertar',['class' => 'btn btn-primary']) !!}
                 <div class="col-md-8">
-                  {!! Form::text('oferta',null,['class'=>' form-control pull-right', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}
+                  {!! Form::number('oferta',null,['class'=>' form-control pull-right', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}
                 </div>
               </div>
             {!! Form::close() !!}
@@ -171,7 +192,7 @@
         $('#form-popup').magnificPopup({
           items: [
           {
-            src: $('<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Agregue Imagen</h3></div><div class="panel-body">{!! Form::open(["route"=>["imagenes.store",$habitacion->id], "class"=>"form-horizontal","files"=>true]) !!}<div class="form-group">{!! Form::label("imagen","Imagen",["class"=>"col-md-4 control-label"]) !!}<div class="col-md-6">{!! Form::file("imagen") !!}</div></div><div class="form-group"><div class="col-md-8 col-md-offset-4">{!! Form::submit("Agregar",["class" => "btn btn-primary"]) !!}</div></div>{!! Form::close() !!}</div></div>'  ), // Dynamically created element
+            src: '#imagen', // Dynamically created element
             type: 'inline'
           }
           ],

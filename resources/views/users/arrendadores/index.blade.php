@@ -22,24 +22,32 @@
                         </thead>
                         <tbody>
                             @foreach($habitaciones as $habitacion)
-                                <tr>
-                                    <td>{{ $habitacion->precio }}</td>
-                                    <td style="text-align: center;"><a  href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge">{{$habitacion->ofertas->count() }}</a></td>
-                                    <td>{{ $habitacion->estado}}</td>
-                                    <td>{{ $habitacion->direccion}}</td>
-                                    <td>{{ $habitacion->descripcion}}</td>
-                                    <td>
-                    <a href="{{ route('habitaciones.edit',$habitacion)}}" class="btn btn-warning">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a> 
-                    <a href="{{ route('users.habitaciones.destroy', $habitacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
-                        <span class="glyphicon glyphicon-remove-circle"></span>
-                    </a>
-                    <a href="{{ route('habitaciones.show',$habitacion->id)}}" class="btn btn-info">
-                        <span class="glyphicon glyphicon-wrench"></span>
-                    </a>
-                        </td>
-                                </tr>
+                            <tr>
+                                <td>{{ $habitacion->precio }}</td>
+                                <td style="text-align: center;">
+                                    @if($habitacion->ofertas->count() > 0)
+                                    {{-- <div class="btn btn-success"> --}}
+                                        <a class="btn btn-success" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge ">{{$habitacion->ofertas->count() }}</a>
+                                    {{-- </div> --}}
+                                    @else
+                                    <a class="btn btn-warning" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge">{{$habitacion->ofertas->count() }}</a>
+                                    @endif
+                                </td>
+                                <td>{{ $habitacion->estado}}</td>
+                                <td>{{ $habitacion->direccion}}</td>
+                                <td>{{ $habitacion->descripcion}}</td>
+                                <td>
+                                    <a href="{{ route('habitaciones.edit',$habitacion)}}" class="btn btn-warning">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a> 
+                                    <a href="{{ route('users.habitaciones.destroy', $habitacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                    </a>
+                                    <a href="{{ route('habitaciones.show',$habitacion->id)}}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
