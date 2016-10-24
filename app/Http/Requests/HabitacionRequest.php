@@ -28,7 +28,7 @@ class HabitacionRequest extends FormRequest
             'estado' => 'min:3|required',
             'descripcion' => 'required',
             'direccion' => 'min:6|required',
-            'ubicacion_id' => 'required', 
+            'ubicacion' => 'required', 
             'imagen' => 'required',
             'universidades' => 'required'
         ];

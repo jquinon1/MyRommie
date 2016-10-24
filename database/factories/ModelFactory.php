@@ -41,7 +41,7 @@ $factory->define(App\Universidad::class, function(Faker\Generator $faker){
 		'escudo' => 'escudo',
 		'pagina' => $faker->url,
 		'direccion' => $faker->address,
-		'ciudad' => $faker->numberBetween(1,20)
+		'ciudad_id' => $faker->numberBetween(1,20)
 	];
 });
 
