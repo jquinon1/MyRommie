@@ -7,6 +7,7 @@ use Laracasts\Flash\Flash;
 use App\Http\Requests;
 use App\Universidad;
 use App\Ubicacion;
+use App\Http\Requests\UniversidadRequest;
 
 
 class UniversidadesController extends Controller
@@ -42,7 +43,7 @@ class UniversidadesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UniversidadRequest $request)
     {
         // dd($request->all());
         $universidad = new Universidad($request->all());

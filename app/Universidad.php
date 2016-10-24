@@ -26,4 +26,7 @@ class Universidad extends Model
         return $this->belongsToMany('App\Habitacion')->withTimestamps();
     }
 
+    public function scopeSearch($query,$nombre){
+        return $query->where('nombre','LIKE',"%$nombre%");
+    }
 }

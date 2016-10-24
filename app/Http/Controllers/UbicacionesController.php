@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Ubicacion;
+use App\Http\Requests\UbicacionRequest;
 use Laracasts\Flash\Flash;
 
 class UbicacionesController extends Controller
@@ -41,7 +42,7 @@ class UbicacionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UbicacionRequest $request)
     {
         $ubicacion = new Ubicacion($request->all());
         $ubicacion->save();
