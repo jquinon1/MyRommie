@@ -53,7 +53,7 @@
                         <div class="form-group">
                             {!! Form::label('email', 'Email', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::email('email',$user->email,['class' => 'form-control','required','autofocus']) !!}
+                                {!! Form::label('email',$user->email,['class' => 'form-control','required','autofocus']) !!}
                             </div>
                         </div>
                         

@@ -52,7 +52,7 @@ $factory->define(App\Habitacion::class, function(Faker\Generator $faker){
 		'descripcion' => $faker->text(90),
 		'direccion' => $faker->address,
 		'user_id' => $faker->numberBetween(1,80),
-		'ciudad' => $faker->numberBetween(1,20)
+		'ubicacion_id' => $faker->numberBetween(1,20)
 	];
 });
 

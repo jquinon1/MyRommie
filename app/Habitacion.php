@@ -9,7 +9,7 @@ class Habitacion extends Model
 {
     protected $table = 'habitaciones';
 
-    protected $fillable = ['direccion','longitud','latitud','precio','calificacion','estado','descripcion','foto','user_id','ciudad'];
+    protected $fillable = ['direccion','longitud','latitud','precio','calificacion','estado','descripcion','user_id','ubicacion_id'];
 
     public function user(){
     	return $this->belongsTo('App\User');

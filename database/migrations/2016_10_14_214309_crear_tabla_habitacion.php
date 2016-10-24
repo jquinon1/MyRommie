@@ -24,11 +24,11 @@ class CrearTablaHabitacion extends Migration
         $table->enum('estado',['ocupado','desocupado'])->default('desocupado');
         $table->text('descripcion')->nullable();
         $table->integer('user_id')->unsigned()->nullable();
-        $table->integer('ciudad')->unsigned()->nullable();
+        $table->integer('ubicacion_id')->unsigned()->nullable();
 
 
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        $table->foreign('ciudad')->references('id')->on('ubicaciones')->onDelete('cascade');
+        $table->foreign('ubicacion_id')->references('id')->on('ubicaciones')->onDelete('cascade');
 
         $table->timestamps();
       });

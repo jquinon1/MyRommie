@@ -30,9 +30,9 @@
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('ciudad','Ciudad',['class'=>'col-md-4 control-label']) !!}
+							{!! Form::label('ubicacion_id','Ciudad',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
-								{!! Form::select('ciudad',$ciudades,null,['class'=>'form-control','placeholder'=>'Ciudad','required']) !!}
+								{!! Form::select('ubicacion_id',$ciudades,null,['class'=>'form-control','placeholder'=>'Ciudad','required']) !!}
 							</div>
 						</div>
 
