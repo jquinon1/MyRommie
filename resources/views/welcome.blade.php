@@ -23,7 +23,7 @@
 <div class="flex-center position-ref full-height" >
 
 <video width="150%" height="100%" autoplay loop muted preload="none" id="background">
-    <source src="../video/zion.mp4" type="video/mp4" />
+    <source src="../video/Lapse.mp4" type="video/mp4" />
 </video>
 
 <div class="links" >
