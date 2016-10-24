@@ -6,9 +6,7 @@ use App\Habitacion;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
-use App\Http\Requests;
 use App\Http\Requests\EstudianteRequest;
 use App\User;
 

@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\Habitacion;
+use App\Ubicacion;
+use App\Universidad;
 use Auth;
 
 class UsersController extends Controller
@@ -35,8 +37,19 @@ class UsersController extends Controller
                 return view('users.estudiantes.index');
                 break;
             case 'admin':
-                $users = User::orderBy('id','ASC');
-                return view('users.admin.index')->with('users',$users);
+                $users = User::orderBy('id','ASC')->get();
+                foreach ($users as $user) {
+                    $user->habitaciones;
+                }
+                $ubicaciones = Ubicacion::orderBy('ciudad','ASC')->get();
+                $ciudades = Ubicacion::orderBy('ciudad','ASC')->pluck('ciudad','id');
+                $universidades = Universidad::all();
+                foreach($universidades as $universidad){
+                    $universidad->ubicacion;
+                    $universidad->habitaciones;
+                }
+                // dd($universidades);
+                return view('users.admin.index')->with('users',$users)->with('ubicaciones',$ubicaciones)->with('universidades',$universidades)->with('ciudades',$ciudades);
                 break;
             default:
                 break;
@@ -85,8 +98,10 @@ class UsersController extends Controller
     }
 
     public function update(Request $request,$id){
+        // dd($request->all());
         $user = User::find($id);
         $user->fill($request->all());
+        $user->save();
         Flash::info('Datos actualizados correctamente');
         return redirect()->route('users.index');
     }

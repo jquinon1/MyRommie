@@ -20,11 +20,11 @@ class CrearTablaUniversidades extends Migration
         $table->string('escudo');
         $table->string('pagina');
         $table->string('direccion')->nullable();
-        $table->integer('ciudad')->unsigned();
+        $table->integer('ciudad_id')->unsigned();
         $table->float('longitud',25,20)->nullable();
         $table->float('latitud', 25, 20)->nullable();
 
-        $table->foreign('ciudad')->references('id')->on('ubicaciones')->onDelete('cascade');
+        $table->foreign('ciudad_id')->references('id')->on('ubicaciones')->onDelete('cascade');
 
         $table->timestamps();
       });

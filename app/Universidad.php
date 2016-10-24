@@ -14,7 +14,7 @@ class Universidad extends Model
      * @var array
      */
     protected $fillable = [
-        'nombre', 'lema', 'escudo', 'pagina', 'direccion', 'ciudad', 'latitud', 'longitud'
+        'nombre', 'lema', 'escudo', 'pagina', 'direccion', 'ciudad_id', 'latitud', 'longitud'
     ];
 
 

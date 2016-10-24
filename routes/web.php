@@ -43,6 +43,8 @@ Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 
 Route::get('/pm', 'ControladorFrontEnd@pm');
 
+
+
 Route::resource('users', 'UsersController');
 Route::get('users/{id}/destroy',[
 		'uses' => 'UsersController@destroy',
@@ -70,5 +72,17 @@ Route::group(['prefix => users'], function(){
 		'as'	=> 'users.calificar'
 	]);
 	Route::resource('habitaciones/{id}/ofertas','OfertasController');
+
+	Route::resource('users/ubicaciones','UbicacionesController');
+	Route::get('users/ubicaciones/{id}/destroy',[
+		'uses'	=> 'UbicacionesController@destroy',
+		'as'	=>	'users.ubicaciones.destroy'
+	]);
+
+	Route::resource('users/universidades','UniversidadesController');
+	Route::get('users/universidades/{id}/destroy',[
+		'uses'	=>	'UniversidadesController@destroy',
+		'as'	=>	'users.universidades.destroy'
+	]);
 	
 });

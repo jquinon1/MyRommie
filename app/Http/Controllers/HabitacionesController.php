@@ -34,7 +34,7 @@ class HabitacionesController extends Controller
      */
     public function index(Request $request)
     {
-            $habitaciones = Habitacion::search($request->universidad)->orderBy('habitacion_universidad.created_at','ASC')->paginate(12);
+            $habitaciones = Habitacion::search($request->universidad)->orderBy('habitacion_universidad.created_at','DES')->paginate(12);
         //Se reorganizan parametro que por alguna razon desconocida cambian en la consulta
             foreach ($habitaciones as $habitacion) {
                 $habitacion->id = $habitacion->habitacion_id;
@@ -71,8 +71,12 @@ class HabitacionesController extends Controller
      */
     public function store(HabitacionRequest $request)
     {
+
+        // dd($request->all());
         $habitacion = new Habitacion($request->all());
-        // $habitacion->ubicacion()->associate($request->ciudad);
+        $ciudad = Ubicacion::find($request->ubicacion);
+        // dd($ciudad);
+        $habitacion->ubicacion()->associate($ciudad);
         // dd($habitacion);
         if($request->file('imagen')){            
            
