@@ -157,6 +157,7 @@ class HabitacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $habitacion = Habitacion::find($id);
         $habitacion->fill($request->all());
         $habitacion->save();
