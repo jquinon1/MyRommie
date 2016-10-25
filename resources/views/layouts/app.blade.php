@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/magnificPopup/dist/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/rate/jquery.rateyo.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/awesomplete/awesomplete.css')}}">
 
 
 
@@ -28,7 +29,7 @@
         ]); ?>
     </script>
     <style>
-
+    
         li {
             float: left;
         }
@@ -97,6 +98,7 @@
     </style>
 </head>
 <body>
+{{-- {{dd($universidades)}} --}}
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -121,12 +123,18 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                         {!! Form::open(['route'=>'habitaciones.index','method'=>'GET', 'class'=>'navbar-form navbar-left']) !!}
-                            <div class="form-group">
-                                {!! Form::text('universidad',null,['class'=>'form-control','placeholder'=>'Cerca de..']) !!}
-                            </div>
-                            {!! Form::submit('SEARCH',['class'=>'btn btn-default']) !!}
+                        <div class="form-group">
+                        {!! Form::text('universidad',null,['class'=>'form-control awesomplete','placeholder'=>'Cerca de..','list'=>'universidades']) !!}
+                        </div>
+                        {!! Form::submit('SEARCH',['class'=>'btn btn-default']) !!}
                         {!! Form::close() !!}
                     </ul>
+                    {{-- lista de universidades para asignar a awesomplete--}}
+                    <datalist id="universidades">
+                        @foreach($universidades as $universidad)
+                        <option>{{$universidad->nombre}}</option>
+                        @endforeach
+                    </datalist>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -175,6 +183,7 @@
     <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
     <script src="{{asset('plugins/magnificPopup/dist/jquery.magnific-popup.js')}}"></script>
     <script src="{{asset('plugins/rate/jquery.rateyo.js')}}"></script>
+    <script src="{{asset('plugins/awesomplete/awesomplete.js')}}"></script>
 
 
 

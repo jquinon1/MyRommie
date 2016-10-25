@@ -40,7 +40,7 @@ class HabitacionesController extends Controller
                 $habitaciones = $universidad->habitaciones()->paginate(12);
             }else{
                 // dd('entre');
-                $habitaciones = Habitacion::orderBy('created_at','DES')->paginate(12);
+                $habitaciones = Habitacion::where('estado','=','desocupado')->orderBy('created_at','DES')->paginate(12);
             }
         return view('users.habitaciones.index')->with('habitaciones',$habitaciones);
         
@@ -157,6 +157,7 @@ class HabitacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $habitacion = Habitacion::find($id);
         $habitacion->fill($request->all());
         $habitacion->save();

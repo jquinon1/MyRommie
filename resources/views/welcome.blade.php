@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','My Rommie')
 @section('content')
-
+{{-- {{ dd($universidades) }} --}}
 <style>
     #background {
         position: fixed;

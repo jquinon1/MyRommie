@@ -9,11 +9,11 @@
 		        <div class="panel-body">
 					{!! Form::open(['route'=> ['habitaciones.update', $habitacion->id],'method'=>'PUT','class'=>'form-horizontal']) !!}
 
-						<div class="form-group">
+						{{-- <div class="form-group">
 							<div class="col-md-6">
 								{!! Form::hidden('user_id',Auth::user()->id,['class' => 'form-control']) !!}
 							</div>
-						</div>
+						</div> --}}
 
 						<div class="form-group">
 							{!! Form::label('precio','Precio',['class'=>'col-md-4 control-label']) !!}
