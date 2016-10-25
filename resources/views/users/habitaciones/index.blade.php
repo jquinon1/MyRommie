@@ -15,13 +15,14 @@
 					<h3>$ {{$habitacion->precio}} </h3>
 					<!-- <p style="font-size: 1em;">{{ $habitacion->direccion }}</p> -->
 					<p>{{$habitacion->direccion}}</p>
-					<p><a href="{{route('habitaciones.show',$habitacion->id)}}" class="btn btn-info" role="button">Info</a> <a href="#" class="btn btn-default pull-right"><span class="glyphicon glyphicon-time"></span> {{$habitacion->created_at->diffForHumans()}}</a></p>
+					<p><a href="{{route('habitaciones.show',$habitacion->id)}}" class="btn btn-info" role="button">Info</a> <a href="#" class="btn btn-default pull-right">
+					<span class="glyphicon glyphicon-time"></span></a></p>
 				</div>
 			</div>
 		</div>
 		@endforeach
 	</div>
-	
+	{{--  {{$habitacion->created_at->diffForHumans()}} --}}
 </div>
 <center>    
 	{{ $habitaciones->render() }}
