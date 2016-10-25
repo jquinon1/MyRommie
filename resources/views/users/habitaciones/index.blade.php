@@ -16,7 +16,11 @@
 					<!-- <p style="font-size: 1em;">{{ $habitacion->direccion }}</p> -->
 					<p>{{$habitacion->direccion}}</p>
 					<p><a href="{{route('habitaciones.show',$habitacion->id)}}" class="btn btn-info" role="button">Info</a> <a href="#" class="btn btn-default pull-right">
+<<<<<<< HEAD
 					<span class="glyphicon glyphicon-time"></span></a></p>
+=======
+					</a></p>
+>>>>>>> 13ef3a0654a17b16dd08d9b7da05d292ebfc84b8
 				</div>
 			</div>
 		</div>
