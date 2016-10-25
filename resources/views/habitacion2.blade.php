@@ -94,25 +94,8 @@ input[type=submit]:hover {
     <div id="cuerpo">
         <div id="lateral">
 
-            <script>$(window).load(function() {
-                    $('.flexslider').flexslider({
-                        animation: "slide"
-                    });
-                });</script>
-            <div class="flexslider">
 
-
-                        <img src="../images/hab0.jpg" />
-
-                        <img src="../images/hab1.jpg" />
-
-                        <img src="../images/hab2.jpg" />
-
-                        <img src="../images/hab3.jpg" />
-
-
-            </div>
-           <!-- <div id="menu" class="w3-container">
+            <div id="menu" class="w3-container">
             <div class="w3-content w3-section" style="padding-left: 20%">
             <img class="mySlides w3-animate-fading" src="../images/hab3.jpg"  width="500" height="400">
             <img class="mySlides w3-animate-fading" src="../images/hab4.jpg"  width="500" height="400">
