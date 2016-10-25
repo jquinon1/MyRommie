@@ -34,16 +34,16 @@ $factory->define(App\Ubicacion::class, function(Faker\Generator $faker){
 	];
 });
 
-$factory->define(App\Universidad::class, function(Faker\Generator $faker){
-	return [
-		'nombre' => $faker->unique()->company,
-		'lema' => $faker->text(90),
-		'escudo' => 'escudo',
-		'pagina' => $faker->url,
-		'direccion' => $faker->address,
-		'ciudad_id' => $faker->numberBetween(1,20)
-	];
-});
+// $factory->define(App\Universidad::class, function(Faker\Generator $faker){
+// 	return [
+// 		'nombre' => $faker->unique()->company,
+// 		'lema' => $faker->text(90),
+// 		'escudo' => 'escudo',
+// 		'pagina' => $faker->url,
+// 		'direccion' => $faker->address,
+// 		'ciudad_id' => $faker->numberBetween(1,20)
+// 	];
+// });
 
 $factory->define(App\Habitacion::class, function(Faker\Generator $faker){
 	return [

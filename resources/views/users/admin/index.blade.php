@@ -93,7 +93,7 @@
 			  	<ul class="nav nav-tabs">
 				  <li role="presentation" ><a id="users" href="#"><p style="color: black;">Usuarios</p></a></li>
 				  <li role="presentation" ><a id="ubicaciones" href="#"><p style="color: black;">Ubicaciones</p></a></li>
-				  <li role="presentation" ><a id="universidades" href="#"><p style="color: black;">Universidades</p></a></li>
+				  <li role="presentation" ><a id="uni" href="#"><p style="color: black;">Universidades</p></a></li>
 				  <li role="presentation" ><a id="actualizar" href="#"><p style="color: black;">Actualizar</p></a></li>
 				</ul>
 			  </div>
@@ -253,6 +253,15 @@
 			$('#ubicacioneslist').fadeOut();
 			$('#actualizarInfo').fadeOut();
 		});
+
+		$('#uni').click(function(){
+			console.log('universidades');
+			$('#usuarios').fadeOut();
+			$('#ubicacioneslist').fadeOut();
+			$('#actualizarInfo').fadeOut();
+			$('#universidadeslist').fadeIn();
+		});
+
 		$('#users').click(function(){
 			console.log('usuarios');
 			$('#universidadeslist').fadeOut();
@@ -271,13 +280,7 @@
 			$('#ubicacioneslist').fadeIn()
 		});
 
-		$('#universidades').click(function(){
-			console.log('universidades');
-			$('#usuarios').fadeOut();
-			$('#ubicacioneslist').fadeOut();
-			$('#actualizarInfo').fadeOut();
-			$('#universidadeslist').fadeIn();
-		});
+
 		$('#actualizar').click(function(){
 			console.log('actualizar');
 			$('#usuarios').fadeOut();
