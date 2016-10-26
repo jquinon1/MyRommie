@@ -35,6 +35,7 @@
       <input id="address" type="textbox" value="<?= $dir; ?>">
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
+      <input id="id" type="hidden" value="<?= $id; ?>">
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
@@ -274,6 +275,13 @@
           map: resultsMap,
           position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
           icon: '../images/casa.png'
+          });
+          var content='<p>direccion: ' + document.getElementById('address').value + '<br><a href="../habitaciones/' + parseInt(document.getElementById('id').value) +'">habitación</a></p>';
+          var infowindow = new google.maps.InfoWindow({
+            content: content
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
           });
           markers.push(marker);
           resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});

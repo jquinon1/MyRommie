@@ -218,6 +218,13 @@ function geocodeAddress(resultsMap) {
     map: resultsMap,
     position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)}
     });
+    /*var content='<p>direccion: ' + document.getElementById('address').value + '<br><a href="../habitaciones/' + parseInt(document.getElementById('id').value) +'">habitación</a></p>';
+    var infowindow = new google.maps.InfoWindow({
+      content: content
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });*/
     markers.push(marker);
     resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
     resultsMap.setZoom(15);

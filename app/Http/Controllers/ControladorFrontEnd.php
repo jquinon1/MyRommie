@@ -47,6 +47,11 @@ class ControladorFrontEnd extends Controller
         $longitudes[]= $key->longitud;
       }
 
+      /*$ida= DB::select('select * from habitaciones where direccion = :dir', ['dir' => $dir]);
+      foreach ($ida as $key) {
+        $id=$key->id;
+      }*/
+
       $hab = DB::select('select * from habitaciones');
       $dirs=array();
       $lats=array();
@@ -57,7 +62,7 @@ class ControladorFrontEnd extends Controller
         $longs[]=$key->longitud;
       }
 
-      return view('map', ['dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);
+      return view('map', ['dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);//, 'id'=>$id]);
     }
 
     public function map2($dir){
@@ -77,6 +82,11 @@ class ControladorFrontEnd extends Controller
         $longitudes[]= $key->longitud;
       }
 
+      $ida= DB::select('select * from habitaciones where direccion = :dir', ['dir' => $dir]);
+      foreach ($ida as $key) {
+        $id=$key->id;
+      }
+
       $hab = DB::select('select * from habitaciones');
       $dirs=array();
       $lats=array();
@@ -87,7 +97,7 @@ class ControladorFrontEnd extends Controller
         $longs[]=$key->longitud;
       }
 
-      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);
+      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'id'=>$id]);
     }
 
     public function habitacion(){
