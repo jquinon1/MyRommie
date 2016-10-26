@@ -65,6 +65,7 @@
                 udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
       var markers=[];
       var uni="pm";
+      var posada={lat: 0, lng: 0};
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 6.2359, lng: -75.5751},
@@ -264,50 +265,55 @@
               p=y;
             }
           }
-          nam = "hab";
-          nam += p;
-          nam += "lat";
-          var nam2 = "hab";
-          nam2 += p;
-          nam2 += "lng";
+          if(p!=-1){
+            nam = "hab";
+            nam += p;
+            nam += "lat";
+            var nam2 = "hab";
+            nam2 += p;
+            nam2 += "lng";
 
-          var marker = new google.maps.Marker({
-          map: resultsMap,
-          position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
-          icon: '../images/casa.png'
-          });
-          var content='<p>direccion: ' + document.getElementById('address').value + '<br><a href="../habitaciones/' + parseInt(document.getElementById('id').value) +'">habitación</a></p>';
-          var infowindow = new google.maps.InfoWindow({
-            content: content
-          });
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-          markers.push(marker);
-          resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
-          resultsMap.setZoom(15);
-          /*geocoder.geocode({'address': address, componentRestrictions: {
-              country: 'CO',
-              locality: 'medellin'
-            }
-          }, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                var marker = new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location
-                });
-                markers.push(marker);
-                resultsMap.panTo(results[0].geometry.location);
-                resultsMap.setZoom(15);
-            } else {
-              if(status = "OVER_QUERY_LIMIT"){
-                alert("Lo sentimos intentelo de nuevo unos segundos mas tarde");
-                i=dirs.length;
-              }else{
-                alert('Geocode no pudo encontrar su dirección debido a: ' + status);
+            var marker = new google.maps.Marker({
+            map: resultsMap,
+            position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
+            icon: '../images/casa.png'
+            });
+            var content='<p>direccion: ' + document.getElementById('address').value + '<br><a href="../habitaciones/' + parseInt(document.getElementById('id').value) +'">habitación</a></p>';
+            var infowindow = new google.maps.InfoWindow({
+              content: content
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+            markers.push(marker);
+            resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
+            resultsMap.setZoom(15);
+            posada = {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)};
+          }else{
+            geocoder.geocode({'address': address, componentRestrictions: {
+                country: 'CO',
+                locality: 'medellin'
               }
-            }
-          });*/
+            }, function(results, status) {
+              if (status === google.maps.GeocoderStatus.OK) {
+                  var marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location
+                  });
+                  markers.push(marker);
+                  resultsMap.panTo(results[0].geometry.location);
+                  resultsMap.setZoom(15);
+                  posada=results[0].geometry.location;
+              } else {
+                if(status = "OVER_QUERY_LIMIT"){
+                  alert("Lo sentimos intentelo de nuevo unos segundos mas tarde");
+                  i=dirs.length;
+                }else{
+                  alert('Geocode no pudo encontrar su dirección debido a: ' + status);
+                }
+              }
+            });
+          }
         }
         for(i; i < parseInt(document.getElementById('hab'+i+'lat').value); i++){
           distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap);
@@ -328,11 +334,12 @@
         //alert(origen);
         //var uni = document.getElementById('address').value;
         var posEafit;
-        //if(uni == "universidad pontificia bolivariana"){
-        //  posEafit = us["upb"];
-        //}else{
+        if(uni != "pm"){
           posEafit = us[uni];
-        //}
+        }else{
+          posEafit = posada;
+        }
+        //alert(posEafit);
         var origen2 = new google.maps.LatLng(origen.lat, origen.lng);
         //alert(origen2);
         var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
@@ -374,7 +381,7 @@
       }
       function machete (map, pos, dist){
         //alert(dist);
-        if(dist < 2000.0){
+        if(dist < 2000.0 && dist !=0){
           var marker = new google.maps.Marker({
           map: map,
           position: pos,
