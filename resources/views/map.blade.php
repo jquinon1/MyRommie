@@ -62,12 +62,13 @@
               udea: {lat: parseFloat(document.getElementById('UDEAlat').value), lng: parseFloat(document.getElementById('UDEAlng').value)},
               unal: {lat: parseFloat(document.getElementById('UNALlat').value), lng: parseFloat(document.getElementById('UNALlng').value)},
               udem: {lat: parseFloat(document.getElementById('UDEMlat').value), lng: parseFloat(document.getElementById('UDEMlng').value)}};
-              var markers=[];
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 6.2359, lng: -75.5751},
-    zoom: 10
-  });
+    var markers=[];
+    var uni="pm";
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 6.2359, lng: -75.5751},
+        zoom: 10
+      });
   //var geocoder = new google.maps.Geocoder;
   document.getElementById('submit').addEventListener('click', function(){geocodeAddress(geocoder, map);});
   document.getElementById('address').addEventListener('keypress', function(e){
@@ -88,7 +89,8 @@ function geocodeAddress(resultsMap) {
     position: us["eafit"],
     icon: '../images/universidad.png'
     });
-    var ensayo = '<h2>Universidad '  + document.getElementById('EAFITname').value;
+    uni = "eafit";
+    var ensayo = '<h2>Universidad '  + document.getElementById('EAFITname').value
       + '</h2>' + '<img src="images/' + document.getElementById('EAFITescudo').value
       + '"> <p>Lema: "' + document.getElementById('EAFITlema').value
       + '".<br> le meilleure université du monde.<a href="'
@@ -109,6 +111,7 @@ function geocodeAddress(resultsMap) {
     position: us["upb"],
     icon: '../images/universidad.png'
     });
+    uni = "upb";
     var ensayo = '<h2>Universidad ' + document.getElementById('UPBname').value + '</h2>'
       + '<img src="images/' + document.getElementById('UPBescudo').value
       + '"> <p>Lema: "' + document.getElementById('UPBlema').value
@@ -126,8 +129,10 @@ function geocodeAddress(resultsMap) {
   }else if(address=="udem" || address == "UdeM" || address =="UDEM" || address =="universidad de medellin"){
     var marker = new google.maps.Marker({
     map: resultsMap,
-    position: us["udem"]
+    position: us["udem"],
+    icon: '../images/universidad.png'
     });
+    uni = "udem";
     var ensayo = '<h2>Universidad ' + document.getElementById('UDEMname').value +'</h2>'
     + '<img src="images/' + document.getElementById('UDEMescudo').value
     + '"> <p>Lema: "' + document.getElementById('UDEMlema').value
@@ -148,6 +153,7 @@ function geocodeAddress(resultsMap) {
       position: us["udea"],
       icon: '../images/universidad.png'
       });
+      uni = "udea";
       var ensayo = '<h2>Universidad ' + document.getElementById('UDEAname').value + '</h2>'
       + '<img src="images/' + document.getElementById('UDEAescudo').value
       + '"> <p>Lema: "' + document.getElementById('UDEAlema').value
@@ -168,6 +174,7 @@ function geocodeAddress(resultsMap) {
         position: us["unal"],
         icon: '../images/universidad.png'
         });
+        uni = "unal";
         var ensayo = '<h2>Universidad ' + document.getElementById('UNALname').value + '</h2>'
         + '<img src="images/' + document.getElementById('UNALescudo').value
         + '"> <p>Lema: "' + document.getElementById('UNALlema').value
@@ -188,6 +195,7 @@ function geocodeAddress(resultsMap) {
     position: us["ces"],
     icon: '../images/universidad.png'
     });
+    uni = "ces";
     var ensayo = '<h2>Universidad ' + document.getElementById('CESname').value + '</h2>'
     + '<img src="images/' + document.getElementById('CESescudo').value
     + '"></img><p>Lema: "' + document.getElementById('CESlema').value
@@ -235,13 +243,14 @@ function geocodeAddress(resultsMap) {
 }
 
 function distancia(origen, map){
-  var uni = document.getElementById('address').value;
+  /*var uni = document.getElementById('address').value;
   var posEafit;
   if(uni == "universidad pontificia bolivariana"){
     posEafit = us["upb"];
   }else{
     posEafit = us[uni];
-  }
+  }*/
+  var posEafit = us[uni];
   var origen2 = new google.maps.LatLng(origen.lat, origen.lng);
   var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
   var distan;
