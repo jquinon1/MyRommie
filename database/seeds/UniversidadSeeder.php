@@ -11,7 +11,7 @@ class UniversidadSeeder extends Seeder
      */
     public function run()
     {
-    	$universidades = array(array('EAFIT','Abierta al mundo','eafit.jpg','http://wwww.eafit.edu.co','Carrera 49 # 7 sur -50',1,'6.200299999999999','-75.57754599999998'),
+    	$universidades = array(array('EAFIT','Abierta al mundo','eafit.jpg','http://www.eafit.edu.co','Carrera 49 # 7 sur -50',1,'6.200299999999999','-75.57754599999998'),
     		array('CES','Un compromiso con la excelencia','ces.jpg','http://www.ces.edu.co','DIRECCION',1,'6.2084094','-75.5557789'),
     		array('UNAL','Busca la verdad en las aulas academicas','unal.jpg','http://www.medellin.unal.edu.co','DIRECCION',1,'6.259617555850852','-75.57885646820068'),
     		array('UDEA','Alma mater de la raza','udea.jpg','http://www.udea.edu.co','DIRECCION',1,'6.267352196455107', '-75.56699842214584')
