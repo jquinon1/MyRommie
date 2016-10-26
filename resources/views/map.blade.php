@@ -302,20 +302,34 @@ function machete (map, pos, dist, num){
   if(dist < 2000.0){
     if(dist==0){
       markers[0].setMap(null);
+            var marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+            icon: '../images/casa2.png'
+            });
+            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+              var infowindow = new google.maps.InfoWindow({
+                content: content
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            markers.push(marker);
+    }else{
+      var marker = new google.maps.Marker({
+      map: map,
+      position: pos,
+      icon: '../images/casa.png'
+      });
+      var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+      var infowindow = new google.maps.InfoWindow({
+        content: content
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+      markers.push(marker);
     }
-    var marker = new google.maps.Marker({
-    map: map,
-    position: pos,
-    icon: '../images/casa.png'
-    });
-    var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
-    var infowindow = new google.maps.InfoWindow({
-      content: content
-    });
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-    markers.push(marker);
   }
 }
 function setMapOnAll(map) {
