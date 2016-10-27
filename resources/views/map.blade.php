@@ -65,6 +65,7 @@
     var markers=[];
     var uni="pm";
     var posada={lat: 0, lng: 0};
+    var band=false;
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 6.2359, lng: -75.5751},
@@ -239,6 +240,7 @@ function geocodeAddress(geocoder, resultsMap) {
       resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
       resultsMap.setZoom(15);
       posada = {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)};
+      band=true;
     }else{
       geocoder.geocode({'address': address, componentRestrictions: {
                 country: 'CO',
@@ -263,14 +265,15 @@ function geocodeAddress(geocoder, resultsMap) {
                 }
               }
             });
+      band=false;
     }
   }
   for(i; i < parseInt(document.getElementById('hab'+i+'lat').value); i++){
-    distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap);
+    distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap, i);
   }
 }
 
-function distancia(origen, map){
+function distancia(origen, map, num){
   /*var uni = document.getElementById('address').value;
   var posEafit;
   if(uni == "universidad pontificia bolivariana"){
@@ -279,25 +282,54 @@ function distancia(origen, map){
     posEafit = us[uni];
   }*/
   var posEafit;
+  var a;
   if(uni != "pm"){
     posEafit = us[uni];
-  }else{
+    a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
+  }else if(band){
     posEafit = posada;
+    a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
+  }else{
+    a = posada;
   }
   var origen2 = new google.maps.LatLng(origen.lat, origen.lng);
-  var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
   var distan;
   distan = google.maps.geometry.spherical.computeDistanceBetween(a,origen2);
-  machete(map, origen, distan);
+  machete(map, origen, distan, num);
 }
-function machete (map, pos, dist){
-  if(dist < 2000.0 && dist !=0){
-    var marker = new google.maps.Marker({
-    map: map,
-    position: pos,
-    icon: '../images/casa.png'
-    });
-    markers.push(marker);
+function machete (map, pos, dist, num){
+  //alert(dist + " " + num);
+  if(dist < 2000.0){
+    if(dist==0){
+      markers[0].setMap(null);
+            var marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+            icon: '../images/casa2.png'
+            });
+            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+              var infowindow = new google.maps.InfoWindow({
+                content: content
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            markers.push(marker);
+    }else{
+      var marker = new google.maps.Marker({
+      map: map,
+      position: pos,
+      icon: '../images/casa.png'
+      });
+      var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+      var infowindow = new google.maps.InfoWindow({
+        content: content
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+      markers.push(marker);
+    }
   }
 }
 function setMapOnAll(map) {

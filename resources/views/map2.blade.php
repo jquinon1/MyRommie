@@ -66,6 +66,7 @@
       var markers=[];
       var uni="pm";
       var posada={lat: 0, lng: 0};
+      var band = false;
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 6.2359, lng: -75.5751},
@@ -276,7 +277,7 @@
             var marker = new google.maps.Marker({
             map: resultsMap,
             position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
-            icon: '../images/casa.png'
+            icon: '../images/casa2.png'
             });
             var content='<p>direccion: ' + document.getElementById('address').value + '<br><a href="../habitaciones/' + parseInt(document.getElementById('id').value) +'">habitación</a></p>';
             var infowindow = new google.maps.InfoWindow({
@@ -289,6 +290,7 @@
             resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
             resultsMap.setZoom(15);
             posada = {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)};
+            band=true;
           }else{
             geocoder.geocode({'address': address, componentRestrictions: {
                 country: 'CO',
@@ -313,10 +315,13 @@
                 }
               }
             });
+            band=false;
           }
         }
         for(i; i < parseInt(document.getElementById('hab'+i+'lat').value); i++){
-          distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap);
+          ///alert("psa aca");
+          distancia({lat: parseFloat(document.getElementById('hab'+i+'lat').value), lng: parseFloat(document.getElementById('hab'+i+'lng').value)}, resultsMap, i);
+          //alert("termina");
           /*geocoder.geocode({'address': dirs[i], componentRestrictions: {
               country: 'CO',
               locality: 'medellin'
@@ -330,23 +335,36 @@
         }
       }
 
-      function distancia(origen, map){
+      function distancia(origen, map, num){
         //alert(origen);
         //var uni = document.getElementById('address').value;
-        var posEafit;
+        /*var posEafit;
         if(uni != "pm"){
           posEafit = us[uni];
         }else{
           posEafit = posada;
+        }*/
+        var posEafit;
+        var a;
+        if(uni != "pm"){
+          posEafit = us[uni];
+          //alert("posEafit");
+          a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
+        }else if(band){
+          posEafit = posada;
+          //alert("posEafit");
+          a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
+        }else{
+          a = posada;
         }
-        //alert(posEafit);
+        //alert(a);
         var origen2 = new google.maps.LatLng(origen.lat, origen.lng);
         //alert(origen2);
-        var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
+        //var a = new google.maps.LatLng(posEafit.lat, posEafit.lng);
         var distan;
         distan = google.maps.geometry.spherical.computeDistanceBetween(a,origen2);
         //alert(distan);
-        machete(map, origen, distan);
+        machete(map, origen, distan, num);
         /*var geocoder = new google.maps.Geocoder;
         var dist;
         var service = new google.maps.DistanceMatrixService;
@@ -379,15 +397,39 @@
           }
         });*/
       }
-      function machete (map, pos, dist){
+      function machete (map, pos, dist, num){
         //alert(dist);
-        if(dist < 2000.0 && dist !=0){
-          var marker = new google.maps.Marker({
-          map: map,
-          position: pos,
-          icon: '../images/casa.png'
-          });
-          markers.push(marker);
+        if(dist < 2000.0){
+          if(dist==0){
+            markers[0].setMap(null);
+            var marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+            icon: '../images/casa2.png'
+            });
+            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+              var infowindow = new google.maps.InfoWindow({
+                content: content
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            markers.push(marker);
+          }else{
+            var marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+            icon: '../images/casa.png'
+            });
+            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+              var infowindow = new google.maps.InfoWindow({
+                content: content
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            markers.push(marker);
+          }
         }
       }
       function setMapOnAll(map) {
