@@ -92,7 +92,7 @@
                             </div>
 
 
-                            <a href="habitacion" target="_self"> <input class="form-control" type="button" name="boton" value="Aceptar" /> </a>
+                            <a href="habitaciones" target="_self"> <input class="form-control" type="button" name="boton" value="Aceptar" /> </a>
                         </form>
                     </div>
                 </div>
@@ -100,74 +100,7 @@
         </div>
     </div>
 
-        <!--<form class="form-horizontal" >
-            {!! Form::open(['route'=> 'users.store', 'method'=>'POST','class'=>'form-horizontal']) !!}
 
-            <div class="form-group">
-                {!! Form::label('ciudad','Ciudad',['class'=>'col-md-4 control-label']) !!}
-                <div class="form-group">
-                    <select name="ciudad" class="form-control">
-                        <option value="0">Ciudad</option>
-                        @foreach ($ciudades as $ciudad)
-
-                                <option>
-                                        value="{{$ciudad->id}}">{{$ciudad->ciudad .'-'. $ciudad->pais}}
-                                </option>
-
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('universidades','Universidades',['class'=>'col-md-4 control-label']) !!}
-                <div class="form-group">
-                    <select name="universidades" class="form-control">
-                        <option value="0">universidades</option>
-                        @foreach ($universidades as $universidad)
-
-                            <option>
-                                value="{{$universidad->id}}">{{$universidad->nombre}}
-                            </option>
-
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="row" >
-
-                    <i class="material-icons" style="color: whitesmoke">local_atm</i> <font color="#f5fffa"> Precio </font></li>
-                    {!! Form::text('precio',null,['class' => 'form-control','required','autofocus']) !!}
-
-            </div>
-
-            <div>
-                <i class="material-icons" style="color: whitesmoke">people</i> <font color="#f5fffa"> Genero </font></li>
-                    <select id="Genero" name="Genero">
-                        <option value="genmas">Masculino</option>
-                        <option value="genfem">Femenino</option>
-                    </select>
-            </div>
-
-            <div>
-                <i class="material-icons" style="color: whitesmoke">timer</i> <font color="#f5fffa"> Tiempo </font></li>
-                    <select id="Tiempo" name="Tiempo">
-                         <option value="seism">6 Meses</option>
-                         <option value="unoydos">Entre 1 a 2 Años</option>
-                        <option value="dosytres">Entre 2 a 3 Años</option>
-                        <option value="tresycuatro">Entre 3 a 4 Años</option>
-                        <option value="cuatroycinco">Entre 4 a 5 Años</option>
-                        <option value="cincomas">Mas de 5 Años</option>
-                </select>
-            </div>
-
-            <a href="habitacion" target="_self"> <input type="button" name="boton" value="Aceptar" /> </a>
-
-
-
-            {!! Form::close() !!}
-            </form>
-            </div>-->
 
 
 @endsection
