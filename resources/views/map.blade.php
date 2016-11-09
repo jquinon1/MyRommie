@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
     <title>MyRoomie's map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -39,10 +43,9 @@
 
       #pie{
         position: absolute;
-        background-color: transparent;
         bottom: 10px;
         left: 45%;
-        
+        size: 30px;
       }
 
 
@@ -372,10 +375,11 @@ function deleteMarkers() {
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXEKKADnb-QWZSmWrSPRR7CpkrPIRGM0&signed_in=true&callback=initMap&libraries=geometry"
         async defer></script>
 
-    <div class="links">
-    <a href="habitaciones" ><div id="pie"><button id="submit" type="button" value="volver" >Volver Pagina Principal</button></div></a>
-    <a href="habitaciones" ><div id="pie"><button id="submit" type="button" value="volver"  >Volver Habitacion</button></div></a>
-    </div>
+    <div class="links" id="pie">
+      <a class="waves-effect waves-light btn-large blue"  href=".." >Pagina Principal</a>
+     </div>
+
+
 
 
   </body>
