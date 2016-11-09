@@ -16,7 +16,16 @@
         transform: translateX(-50%) translateY(-50%);
         background-size: cover;
     }
+
+    #rcorners2 {
+        border-radius: 25px;
+        border: 3px solid whitesmoke;
+        padding: 20px;
+
+        height: 100px;
+    }
 </style>
+
 
 <body>
     <div class="flex-center position-ref full-height" >
@@ -24,11 +33,21 @@
             <source src="../video/Lapse.mp4" type="video/mp4" />
         </video>
 
-        <div class="links" >
+
+
+
+        <div class="links" id="rcorners2">
+            <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
+        </div>
+        <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p>
+        <div class="links" id="rcorners2">
             <a href="habitaciones" style="color: white" ><font size="20">HABITACIONES</font></a>
-            <br><br><br><br><br><br><br><br><br><br><a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
+        </div>
+        <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p>
+        <div class="links" id="rcorners2">
             <a href="arrendador" style="color: white" ><font size="20">ARRENDADOR</font></a>
         </div>
+
     </div>
 </body>
 @endsection

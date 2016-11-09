@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
     <title>MyRoomie's map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -17,7 +19,7 @@
 #floating-panel {
   position: absolute;
   top: 10px;
-  left: 25%;
+  left: 45%;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
@@ -35,16 +37,25 @@
   z-index: 5;
 }
 
+      #pie{
+        position: absolute;
+        background-color: transparent;
+        bottom: 10px;
+        left: 45%;
+        
+      }
+
+
     </style>
   </head>
   <body>
     <div id="floating-panel">
-      <input id="address" type="textbox" value="direccion">
+      <input id="address" type="textbox" value="Direccion" style="text-align: center" >
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
     </div>
     <div id = "volver">
-      <input id="botonVolver" type="image" onclick="location.href='./..'" value="portada" src = "../images/cerrar.png">
+      <!--<input id="botonVolver" type="image" onclick="location.href='./..'" value="portada" src = "../images/cerrar.png">-->
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
@@ -360,5 +371,12 @@ function deleteMarkers() {
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXEKKADnb-QWZSmWrSPRR7CpkrPIRGM0&signed_in=true&callback=initMap&libraries=geometry"
         async defer></script>
+
+    <div class="links">
+    <a href="habitaciones" ><div id="pie"><button id="submit" type="button" value="volver" >Volver Pagina Principal</button></div></a>
+    <a href="habitaciones" ><div id="pie"><button id="submit" type="button" value="volver"  >Volver Habitacion</button></div></a>
+    </div>
+
+
   </body>
 </html>
