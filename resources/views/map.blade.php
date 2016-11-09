@@ -30,16 +30,9 @@
 
 #volver{
  position: absolute;
-  top: 100px;
-  left: 10px;
+  top: 40px;
+  right: 10px;
   z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-  text-align: center;
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px; 
 }
 
     </style>
@@ -51,7 +44,7 @@
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
     </div>
     <div id = "volver">
-      <input id="botonVolver" type="button" onclick="location.href='./..'" value="volver">
+      <input id="botonVolver" type="image" onclick="location.href='./..'" value="portada" src = "../images/cerrar.png">
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
