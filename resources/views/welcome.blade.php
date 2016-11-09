@@ -25,7 +25,8 @@
         </video>
 
         <div class="links" >
-            <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
+            <a href="habitaciones" style="color: white" ><font size="20">HABITACIONES</font></a>
+            <br><br><br><br><br><br><br><br><br><br><a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
             <a href="arrendador" style="color: white" ><font size="20">ARRENDADOR</font></a>
         </div>
     </div>

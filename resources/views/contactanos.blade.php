@@ -28,28 +28,23 @@
                     <div class="panel-body">
                         <form class="form-horizontal" >
                             <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Correo </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >myrommie@enterpise.com</output>
-                                </div>
+                                <label for="nombre" class="col-md-4 control-label">Correo:        </label>
+                                <label id="nombre" type="email" class="form-control" name="nombre" >myrommie@enterpise.com</label>
+                                <!--div class="col-md-6">
+                                    <label id="nombre" type="email" class="form-control" name="nombre" >myrommie@enterpise.com</label>
+                                </div-->
                             </div>
                             <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Telefono </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >1800myrommie</output>
-                                </div>
+                                <label for="nombre" class="col-md-4 control-label">Telefono: </label>
+                                <label id="nombre" type="email" class="form-control" name="nombre" >018000myrommie</label>
                             </div>
                             <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Fax </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >754821630</output>
-                                </div>
+                                <label for="nombre" class="col-md-4 control-label">Fax: </label>
+                                <label id="nombre" type="email" class="form-control" name="nombre" >754821630</label>
                             </div>
                             <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Direccion </label>
-                                <div class="col-md-6">
-                                    <output id="nombre" type="email" class="form-control" name="nombre" >Centro Comercial Eafit oficina 19-2</output>
-                                </div>
+                                <label for="nombre" class="col-md-4 control-label">Direccion: </label>
+                                <label id="nombre" type="email" class="form-control" name="nombre" >Centro Comercial Eafit oficina 19-2</label>
                             </div>
 
                         </form>
