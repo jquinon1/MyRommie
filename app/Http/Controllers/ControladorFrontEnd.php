@@ -82,6 +82,8 @@ class ControladorFrontEnd extends Controller
         $longitudes[]= $key->longitud;
       }
 
+      //$dir= str_replace("#", "", $dir);
+
       $ida= DB::select('select * from habitaciones where direccion = :dir', ['dir' => $dir]);
       foreach ($ida as $key) {
         $id=$key->id;

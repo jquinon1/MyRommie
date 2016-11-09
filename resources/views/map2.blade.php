@@ -28,6 +28,20 @@
   padding-left: 10px;
 }
 
+#volver{
+ position: absolute;
+  top: 100px;
+  left: 10px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px; 
+}
+
     </style>
   </head>
   <body>
@@ -36,6 +50,9 @@
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
       <input id="id" type="hidden" value="<?= $id; ?>">
+    </div>
+    <div id = "volver">
+      <input id="botonVolver" type="button" onclick="location.href='../../habitaciones/{{$id}}'" value="volver">
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)

@@ -66,7 +66,7 @@ class UsersController extends Controller
     }
 
     public function store(UserRequest $request){
-    	$user = new User($request->all());
+    	$user = new User($request->all()); 
     	if ($request->repeat_password == $request->password) {
     		$user->password = bcrypt($request->password);
     		$user->save();

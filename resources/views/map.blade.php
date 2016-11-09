@@ -25,7 +25,21 @@
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
-  padding-left: 10px;
+  padding-left: 5px;
+}
+
+#volver{
+ position: absolute;
+  top: 100px;
+  left: 10px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px; 
 }
 
     </style>
@@ -35,6 +49,9 @@
       <input id="address" type="textbox" value="direccion">
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
+    </div>
+    <div id = "volver">
+      <input id="botonVolver" type="button" onclick="location.href='./..'" value="volver">
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)

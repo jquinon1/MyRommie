@@ -70,6 +70,9 @@ class HabitacionesController extends Controller
     {
 
         // dd($request->all());
+        echo '<script language="javascript">alert("si funciona");</script>'; 
+        //$request->direccion = str_replace("#", "_", $request->direccion);
+        //$request->direccion = str_replace(" ", "_", $request->direccion);
         $habitacion = new Habitacion($request->all());
         $ciudad = Ubicacion::find($request->ubicacion);
         // dd($ciudad);
