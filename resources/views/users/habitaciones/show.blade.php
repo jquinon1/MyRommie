@@ -80,6 +80,8 @@
 		
 	<div class="jumbotron">
   		<div style="width: 40%; float: left;">
+        <!--p>la ruta de este boton es si misma por que el id de la habitación no lo toma como ruta, por lo que al ir a si misma esá llendo solo a habitaciones</p-->
+        <a class="waves-effect waves-light btn blue" href="."><i class="material-icons left">dialpad</i>HABITACIONES</a>
   			<img class="mySlides w3-animate-fading" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup"  width="500" height="400">
         <hr>
         @if (!Auth::guest())
