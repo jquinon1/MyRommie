@@ -59,4 +59,11 @@ class OfertasController extends Controller
         return redirect()->route('users.index');
     }
 
+    public function changeEstate($oferta,$estado){
+        $oferta = Oferta::find($oferta);
+        $oferta->estado = $estado;
+        $oferta->save();
+        Flash::success('Oferta modificada');
+        return redirect()->route('users.index');
+    }
 }

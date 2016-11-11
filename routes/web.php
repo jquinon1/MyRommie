@@ -96,6 +96,11 @@ Route::group(['prefix => users'], function(){
 		'as'	=>	'ofertas.index'
 	]);
 
+	Route::get('ofertas/{oferta}/estado/{estado}',[
+		'uses'	=> 'OfertasController@changeEstate',
+		'as'	=>	'ofertas.state'
+	]);
+
 	Route::get('ofertas/{id}/edit',[ 
 		'uses'	=>	'OfertasController@edit',
 		'as'	=>	'users.ofertas.edit'

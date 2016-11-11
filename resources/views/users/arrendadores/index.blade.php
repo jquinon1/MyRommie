@@ -25,7 +25,7 @@
                             <tr>
                                 <td>{{ $habitacion->precio }}</td>
                                 <td style="text-align: center;">
-                                    @if($habitacion->ofertas->count() > 0)
+                                    @if($habitacion->ofertas->where('estado','=','espera')->count() > 0)
                                     {{-- <div class="btn btn-success"> --}}
                                         <a class="btn btn-success" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge ">{{$habitacion->ofertas->count() }}</a>
                                     {{-- </div> --}}

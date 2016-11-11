@@ -26,10 +26,10 @@
                                     <td>${{ intval($habitacion->precio) - intval($oferta->oferta)}}</td>
                                     <td>{{$oferta->created_at->diffForHumans()}}</td>
                                     <td>
-                    <a href="#" class="btn btn-success">
+                    <a href="{{route('ofertas.state',array($oferta->id,'aceptado'))}}" class="btn btn-success" onclick="return confirm('Quieres aceptar esta oferta?'); ">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a> 
-                    <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                    <a href="{{route('ofertas.state',array($oferta->id,'rechazado'))}}" class="btn btn-danger" onclick="return confirm('Quieres rechazar esta oferta?'); ">
                         <span class="glyphicon glyphicon-remove-circle"></span>
                     </a></td>
                     
