@@ -35,6 +35,8 @@
 
 
 
+
+
         <div class="links" id="rcorners2">
             <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
         </div>
@@ -44,7 +46,7 @@
         </div>
         <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p>
         <div class="links" id="rcorners2">
-            <a href="arrendador" style="color: white" ><font size="20">ARRENDADOR</font></a>
+            <a href="habitaciones/create" style="color: white" ><font size="20">ARRENDADOR</font></a>
         </div>
 
     </div>

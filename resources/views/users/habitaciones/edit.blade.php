@@ -21,12 +21,12 @@
 								{!! Form::text('precio',$habitacion->precio,['class' => 'form-control']) !!}
 							</div>
 						</div>
-						<div class="form-group">
+						<!--div class="form-group">
 							{!! Form::label('estado','Estado',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
 								{!! Form::select('estado',['.'=>'Selecione una opcion', 'ocupado'=>'Ocupado','desocupado'=>'Desocupado'],$habitacion->estado,['class' => 'form-control']) !!}
 							</div>
-						</div>
+						</div-->
 
 						<div class="form-group">
 							{!! Form::label('direccion','Direccion',['class'=>'col-md-4 control-label']) !!}

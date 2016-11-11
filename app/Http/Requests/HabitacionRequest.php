@@ -25,7 +25,6 @@ class HabitacionRequest extends FormRequest
     {
         return [
             'precio' => 'required',
-            'estado' => 'min:3|required',
             'descripcion' => 'required',
             'direccion' => 'min:6|required',
             'ubicacion' => 'required', 

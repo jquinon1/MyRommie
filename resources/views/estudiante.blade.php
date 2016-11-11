@@ -1,13 +1,32 @@
 @extends('layouts.app')
 @section('title','Estudiante')
 @section('content')
+<style>
+    #background {
+        position: fixed;
+        top: 58%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background-size: cover;
+    }
 
 
 
+</style>
 
+<div class="flex-center position-ref full-height">
+    <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
+        <source src="../video/Lapse3.mp4" type="video/mp4" />
+    </video>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 col-lg-5 " >
+            <div class="col-md-6 col-md-offset-4 col-lg-4 " style="margin-top: -17%">
                 <div class="panel panel-collapse" >
                     <div class="panel-heading">Estudiante</div>
                     <div class="panel-body" >
@@ -23,7 +42,7 @@
 
                                         @foreach ($ciudades as $ciudad)
 
-                                            <option>
+                                            <option
                                                 value="{{$ciudad->id}}">{{$ciudad->ciudad .'-'. $ciudad->pais}}
                                             </option>
 
@@ -40,7 +59,7 @@
                                         <option value="0"></option>
                                         @foreach ($universidades as $universidad)
 
-                                            <option>
+                                            <option
                                                 value="{{$universidad->id}}">{{$universidad->nombre}}
                                             </option>
 
@@ -99,7 +118,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 
 
