@@ -12,14 +12,14 @@ class ImagenesSeeder extends Seeder
     public function run()
     {
         $imagenes = array(
-        	array('hab1', 1),
-        	array('hab2', 2),
-        	array('hab3', 3),
-        	array('hab4', 4),
-        	array('hab5', 5),
-        	array('hab6', 6),
-        	array('hab7', 7),
-        	array('hab8', 8)
+        	array('hab1.jpg', 1),
+        	array('hab2.jpg', 2),
+        	array('hab3.jpg', 3),
+        	array('hab4.jpg', 4),
+        	array('hab5.jpg', 5),
+        	array('hab6.jpg', 6),
+        	array('hab7.jpg', 7),
+        	array('hab8.jpg', 8)
         );
 
 
