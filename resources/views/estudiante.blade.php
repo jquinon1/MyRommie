@@ -26,7 +26,7 @@
     </video>
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-md-offset-3 col-lg-5 " >
+            <div class="col-md-6 col-md-offset-4 col-lg-4 " style="margin-top: -17%">
                 <div class="panel panel-collapse" >
                     <div class="panel-heading">Estudiante</div>
                     <div class="panel-body" >
