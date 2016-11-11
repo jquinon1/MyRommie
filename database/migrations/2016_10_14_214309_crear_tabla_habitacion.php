@@ -21,7 +21,7 @@ class CrearTablaHabitacion extends Migration
         $table->string('precio');
         $table->double('calificacion',2,1)->default(0.0);
         $table->integer('numero_votos')->default(0);
-        $table->enum('estado',['ocupado','desocupado'])->default('desocupado');
+        //$table->enum('estado',['ocupado','desocupado'])->default('desocupado');
         $table->text('descripcion')->nullable();
         $table->integer('user_id')->unsigned();
         $table->integer('ubicacion_id')->unsigned();

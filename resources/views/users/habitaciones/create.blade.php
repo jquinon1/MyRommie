@@ -15,12 +15,12 @@
 								{!! Form::number('precio',null,['class' => 'form-control','placeholder'=>'example: 500000']) !!}
 							</div>
 						</div>
-						<div class="form-group">
+						<!--div class="form-group">
 							{!! Form::label('estado','Estado',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
 								{!! Form::select('estado',['ocupado'=>'Ocupado','desocupado'=>'Desocupado'],null,['class'=>'form-control','placeholder'=>'Elige','required']) !!}
 							</div>
-						</div>
+						</div-->
 
 						<div class="form-group">
 							{!! Form::label('direccion','Direccion',['class'=>'col-md-4 control-label']) !!}

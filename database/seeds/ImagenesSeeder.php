@@ -25,8 +25,8 @@ class ImagenesSeeder extends Seeder
 
         for ($i=0; $i < count($imagenes) ; $i++) { 
         	DB::table('imagenes')->insert([
-        		'name' => $habitaciones[$i][0],
-        		'habitacion_id' => $habitaciones[$i][1]
+        		'name' => $imagenes[$i][0],
+        		'habitacion_id' => $imagenes[$i][1]
         	]);
         }
     }
