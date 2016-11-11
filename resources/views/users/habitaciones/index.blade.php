@@ -17,7 +17,6 @@
 					<p>{{$habitacion->direccion}}</p>
 					<p><a href="{{route('habitaciones.show',$habitacion->id)}}" class="btn btn-info" role="button">Info</a> <a href="#" class="btn btn-default pull-right">
 					<span class="glyphicon glyphicon-time"></span></a></p>
-					</a></p>
 
 				</div>
 			</div>

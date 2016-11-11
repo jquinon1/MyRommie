@@ -23,7 +23,7 @@
 
                                         @foreach ($ciudades as $ciudad)
 
-                                            <option>
+                                            <option
                                                 value="{{$ciudad->id}}">{{$ciudad->ciudad .'-'. $ciudad->pais}}
                                             </option>
 
@@ -40,7 +40,7 @@
                                         <option value="0"></option>
                                         @foreach ($universidades as $universidad)
 
-                                            <option>
+                                            <option
                                                 value="{{$universidad->id}}">{{$universidad->nombre}}
                                             </option>
 
