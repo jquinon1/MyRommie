@@ -82,14 +82,14 @@
   		<div style="width: 40%; float: left;">
   			<img class="mySlides w3-animate-fading" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup"  width="500" height="400">
         <hr>
-  			@if (!Auth::guest())
-  				@if(Auth::user()->id == $habitacion->user->id)
-  				<a href="#" id="form-popup" class="btn btn-info"> Agregar imagen
-  				</a>
+        @if (!Auth::guest())
+          @if(Auth::user()->id == $habitacion->user->id)
+          <a href="#" id="form-popup" class="btn btn-info"> Agregar imagen
+          </a>
           @else
           <a href="#" id="contact-popup" class="btn btn-info">Contactar</a>
-  				@endif
-  			@endif
+          @endif
+        @endif
         <hr>
         <div class="panel panel-default">
           <div class="panel-heading">

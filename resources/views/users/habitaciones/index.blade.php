@@ -10,7 +10,7 @@
 		
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail" style="width: 77%; max-height: 100%">
-				<img src="{{asset('images/480.jpg')}}" class="img-responsive" alt="...">
+				<img src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" class="img-responsive" alt="...">
 				<div class="caption">
 					<h3>$ {{$habitacion->precio}} </h3>
 					<!-- <p style="font-size: 1em;">{{ $habitacion->direccion }}</p> -->
