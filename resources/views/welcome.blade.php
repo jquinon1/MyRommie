@@ -18,7 +18,7 @@
     }
 </style>
 
-<body>
+{{-- <body> --}}
     <div class="flex-center position-ref full-height" >
         <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
             <source src="../video/Lapse.mp4" type="video/mp4" />
@@ -29,5 +29,5 @@
             <a href="arrendador" style="color: white" ><font size="20">ARRENDADOR</font></a>
         </div>
     </div>
-</body>
+{{-- </body> --}}
 @endsection

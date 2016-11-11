@@ -23,7 +23,6 @@ Route::get('/contacto', 'ControladorFrontEnd@contacto');
 
 Route::get('/acerca', 'ControladorFrontEnd@acerca');
 
-Route::get('/map/{dir}', 'ControladorFrontEnd@map2');
 
 Auth::routes();
 
@@ -43,6 +42,10 @@ Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 
 Route::get('/pm', 'ControladorFrontEnd@pm');
 
+Route::get('/map/{dir}',[
+	'uses'	=>	'ControladorFrontEnd@map2',
+	'as'	=> 	'map.direccion'
+]);
 
 
 Route::resource('users', 'UsersController');

@@ -105,7 +105,7 @@
 
   		<div style="width: 40%; float: right;">
   			<h1>${{$habitacion->precio}}</h1>
-        <a href="../map/{{$habitacion->direccion}}"><p>{{$habitacion->direccion}}</p></a>
+        <a href="{{route('map.direccion',$habitacion->direccion)}}"><p>{{$habitacion->direccion}}</p></a>
         <div id="rateYo"></div>
         <hr>
         @if(!Auth::guest())
