@@ -51,4 +51,12 @@ class OfertasController extends Controller
         return redirect()->route('habitaciones.show',$id);
     }
 
+
+    public function destroy($id){
+        $oferta = Oferta::find($id);
+        $oferta->delete();
+        Flash::success("Oferta eliminada correctamente");
+        return redirect()->route('users.index');
+    }
+
 }

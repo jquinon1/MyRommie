@@ -37,21 +37,21 @@
                                    <a href="#" class="btn btn-success">
                                         <span class="glyphicon glyphicon-earphone"></span>
                                     </a> 
-                                    <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                    <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span>
                                     </a>
                                 @elseif($oferta->estado == 'espera')
                                     <a href="#" class="btn btn-info">
                                         <span class="glyphicon glyphicon-credit-card"></span>
                                     </a>
-                                    <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                    <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span>
                                     </a>
                                 @else
                                     <a href="#" class="btn btn-info">
                                         <span class="glyphicon glyphicon-credit-card"></span>
                                     </a>
-                                    <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                    <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span>
                                     </a>
                                 @endif

@@ -74,7 +74,10 @@ Route::group(['prefix => users'], function(){
 		'uses'	=> 'UsersController@calificar',
 		'as'	=> 'users.calificar'
 	]);
-	Route::resource('habitaciones/{id}/ofertas','OfertasController');
+	Route::post('habitaciones/{id}/ofertas',[
+		'uses'	=>	'OfertasController@store',
+		'as'	=>	'ofertas.store'
+	]);
 
 	Route::resource('users/ubicaciones','UbicacionesController');
 	Route::get('users/ubicaciones/{id}/destroy',[
@@ -86,6 +89,24 @@ Route::group(['prefix => users'], function(){
 	Route::get('users/universidades/{id}/destroy',[
 		'uses'	=>	'UniversidadesController@destroy',
 		'as'	=>	'users.universidades.destroy'
+	]);
+
+	Route::get('habitaciones/{id}/ofertas',[
+		'uses'	=>	'OfertasController@index',
+		'as'	=>	'ofertas.index'
+	]);
+
+	Route::get('ofertas/{id}/edit',[ 
+		'uses'	=>	'OfertasController@edit',
+		'as'	=>	'users.ofertas.edit'
+	]);
+	Route::put('ofertas/{id}',[
+		'uses'	=>	'OfertasController@update',
+		'as'	=>	'users.ofertas.update'
+	]);
+	Route::get('ofertas/{id}/destroy',[
+		'uses'	=> 'OfertasController@destroy',
+		'as'	=> 'users.ofertas.destroy'
 	]);
 	
 });

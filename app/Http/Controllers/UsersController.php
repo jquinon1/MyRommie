@@ -97,7 +97,9 @@ class UsersController extends Controller
                 break;
          }
     }
-
+    public function show($id){
+        dd('hola');
+    }
     public function update(Request $request,$id){
         // dd($request->all());
         $user = User::find($id);

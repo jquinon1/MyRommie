@@ -12,10 +12,11 @@
                 <div class="panel-body">
                     <table class="table table-striped" width="90%">
                         <thead>
-                            <th width="30%">Ofertante</th>
-                            <th width="20%">Valor</th>
-                            <th width="20%">Diferencia</th>
-                            <th width="25%">Accion</th>
+                            <th>Ofertante</th>
+                            <th>Valor</th>
+                            <th>Diferencia</th>
+                            <th>Tiempo</th>
+                            <th>Accion</th>
                         </thead>
                         <tbody>
                             @foreach($ofertas as $oferta)
@@ -23,6 +24,7 @@
                                     <td>{{ $oferta->user->nombre }}</td>
                                     <td>${{ $oferta->oferta}}</td>
                                     <td>${{ intval($habitacion->precio) - intval($oferta->oferta)}}</td>
+                                    <td>{{$oferta->created_at->diffForHumans()}}</td>
                                     <td>
                     <a href="#" class="btn btn-success">
                         <span class="glyphicon glyphicon-ok"></span>
