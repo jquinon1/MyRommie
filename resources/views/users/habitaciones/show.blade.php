@@ -80,7 +80,7 @@
 		
 	<div class="jumbotron">
   		<div style="width: 40%; float: left;">
-  			<img class="mySlides w3-animate-fading" src="../images/hab3.jpg" id="open-popup"  width="500" height="400">
+  			<img class="mySlides w3-animate-fading" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup"  width="500" height="400">
         <hr>
   			@if (!Auth::guest())
   				@if(Auth::user()->id == $habitacion->user->id)
@@ -165,11 +165,10 @@
 
             @foreach($habitacion->imagenes as $imagen)
               {
-                    src: '{{ asset('images/habitaciones/'.$imagen->name) }}',
-                    title: 'My Rommie 2016'
+                    src: '{{ asset('images/habitaciones/'.$imagen->name) }}'
                   },
             @endforeach
-                  {
+                  /*{
                     src: '{{ asset('images/hab3.jpg') }}',
                     title: 'Peter & Paul fortress in SPB'
                   },
@@ -180,7 +179,7 @@
                   {
                     src: '{{ asset('images/hab5.jpg') }}',
                     title: 'Peter & Paul fortress in SPB'
-                  },
+                  },*/
             ],
             gallery: {
               enabled: true
