@@ -66,7 +66,7 @@ class UsersController extends Controller
     }
 
     public function store(UserRequest $request){
-    	$user = new User($request->all());
+    	$user = new User($request->all()); 
     	if ($request->repeat_password == $request->password) {
     		$user->password = bcrypt($request->password);
     		$user->save();
@@ -81,12 +81,13 @@ class UsersController extends Controller
     public function edit($id){
          $tipo_usuario = Auth::user()->tipo_usuario;
          switch ($tipo_usuario) {
-             case 'arrendador':
+            case 'arrendador':
                 $user = Auth::user();
                 return view('users.arrendadores.edit')->with('user',$user);
                 break;
             case 'arrendatario':
-
+                $user = Auth::user();
+                return view('users.estudiantes.edit')->with('user',$user);
                 break;
             case 'admin':
                 $users = User::orderBy('id','ASC');

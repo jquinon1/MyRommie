@@ -95,7 +95,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <a href="habitacion" target="_self"> <input class="form-control" type="button" name="boton" value="Aceptar" /> </a>
+                            <a href="habitaciones" target="_self"> <input class="form-control" type="button" name="boton" value="Aceptar" /> </a>
                         </form>
                     </div>
                 </div>

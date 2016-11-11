@@ -16,6 +16,7 @@ class AddOfertasTable extends Migration
         Schema::create('ofertas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('oferta');
+            $table->enum('estado',['espera','aceptado','rechazado'])->default('espera');
             $table->integer('user_id')->unsigned();
             $table->integer('habitacion_id')->unsigned();
 

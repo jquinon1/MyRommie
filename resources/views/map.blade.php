@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
     <title>MyRoomie's map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -17,7 +23,7 @@
 #floating-panel {
   position: absolute;
   top: 10px;
-  left: 25%;
+  left: 45%;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
@@ -25,16 +31,34 @@
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
+
+#volver{
+ position: absolute;
+  top: 40px;
+  right: 10px;
+  z-index: 5;
+}
+
+      #pie{
+        position: absolute;
+        bottom: 10px;
+        left: 45%;
+        size: 30px;
+      }
+
 
     </style>
   </head>
   <body>
     <div id="floating-panel">
-      <input id="address" type="textbox" value="direccion">
+      <input id="address" type="textbox" value="Direccion" style="text-align: center" >
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
+    </div>
+    <div id = "volver">
+      <!--<input id="botonVolver" type="image" onclick="location.href='./..'" value="portada" src = "../images/cerrar.png">-->
     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
@@ -350,5 +374,13 @@ function deleteMarkers() {
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXEKKADnb-QWZSmWrSPRR7CpkrPIRGM0&signed_in=true&callback=initMap&libraries=geometry"
         async defer></script>
+
+    <div class="links" id="pie">
+      <a class="waves-effect waves-light btn-large blue"  href=".." >Pagina Principal</a>
+     </div>
+
+
+
+
   </body>
 </html>
