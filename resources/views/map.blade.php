@@ -34,19 +34,14 @@
   padding-left: 5px;
 }
 
-#volver{
- position: absolute;
-  top: 40px;
-  right: 10px;
-  z-index: 5;
-}
 
-      #pie{
-        position: absolute;
-        bottom: 10px;
-        left: 45%;
-        size: 30px;
-      }
+
+#pie{
+      position: absolute;
+      bottom: 10px;
+      left: 45%;
+      size: 30px;
+    }
 
 
     </style>
@@ -57,9 +52,9 @@
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
     </div>
-    <div id = "volver">
-      <!--<input id="botonVolver" type="image" onclick="location.href='./..'" value="portada" src = "../images/cerrar.png">-->
-    </div>
+    <div class="links" id="pie">
+      <a class="waves-effect waves-light btn blue"  href=".." >Pagina Principal</a>
+     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
       <div>
@@ -374,10 +369,6 @@ function deleteMarkers() {
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXEKKADnb-QWZSmWrSPRR7CpkrPIRGM0&signed_in=true&callback=initMap&libraries=geometry"
         async defer></script>
-
-    <div class="links" id="pie">
-      <a class="waves-effect waves-light btn-large blue"  href=".." >Pagina Principal</a>
-     </div>
 
 
 

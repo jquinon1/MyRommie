@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
     <title>MyRoomie's map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -29,11 +36,11 @@
 }
 
 #volver{
- position: absolute;
-  top: 40px;
-  right: 10px;
-  z-index: 5;
-}
+      position: absolute;
+      bottom: 10px;
+      left: 45%;
+      size: 30px;
+    }
 
     </style>
   </head>
@@ -44,9 +51,9 @@
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
       <input id="id" type="hidden" value="<?= $id; ?>">
     </div>
-    <div id = "volver">
-      <input id="botonVolver" type="image" onclick="location.href='../../habitaciones/{{$id}}'" value="portada" src = "../images/cerrar.png">
-    </div>
+    <div class="links" id="volver">
+      <a class="waves-effect waves-light btn blue"  href="../../habitaciones/{{$id}}" >Habitación</a>
+     </div>
     <div id="map"></div>
     @foreach($name as $es=>$valu)
       <div>
