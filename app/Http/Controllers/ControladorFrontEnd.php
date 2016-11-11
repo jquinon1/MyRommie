@@ -10,7 +10,7 @@ use App\Http\Requests;
 use DB;
 use App\Ubicacion;
 use App\Universidad;
-use App\Habitacion;
+//use App\Habitacion;
 
 class ControladorFrontEnd extends Controller
 {
@@ -57,7 +57,7 @@ class ControladorFrontEnd extends Controller
       $dirs=array();
       $lats=array();
       $longs=array();
-      foreach ($hab as $key=>$num) {
+      foreach ($hab as $key) {
         $dirs[]=$key->direccion;
         $lats[]=$key->latitud;
         $longs[]=$key->longitud;
@@ -94,10 +94,8 @@ class ControladorFrontEnd extends Controller
       $dirs=array();
       $lats=array();
       $longs=array();
-      foreach ($hab as $key=>$num) {
+      foreach ($hab as $key) {
         $dirs[]=$key->direccion;
-        //$dirs = Habitacion::orderBy('id','DES');
-        //$dirs = $dirs[$num]->direccion;
         $lats[]=$key->latitud;
         $longs[]=$key->longitud;
       }
