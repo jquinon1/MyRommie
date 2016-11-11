@@ -51,7 +51,7 @@
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('descripcion','Description',['class'=>'col-md-4 control-label']) !!}
+							{!! Form::label('descripcion','Descripcion',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-6">
 								{!! Form::textarea('descripcion',null,['class' => 'form-control']) !!}
 							</div>
