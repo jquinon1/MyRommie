@@ -17,11 +17,20 @@ Route::get('/', [
 
 	]);
 
-Route::get('/map', 'ControladorFrontEnd@map');
+Route::get('/map',[
+	'uses'	=> 'ControladorFrontEnd@map',
+	'as'	=>	'mapa'
+]);
 
-Route::get('/contacto', 'ControladorFrontEnd@contacto');
+Route::get('/contacto', [
+	'uses'	=>	'ControladorFrontEnd@contacto',
+	'as'	=>	'contacto'
+]);
 
-Route::get('/acerca', 'ControladorFrontEnd@acerca');
+Route::get('/acerca', [
+	'uses'	=>	'ControladorFrontEnd@acerca',
+	'as'	=> 	'acerca'
+]);
 
 
 Auth::routes();

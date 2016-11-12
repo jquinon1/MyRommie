@@ -147,8 +147,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
 
-                        <li><a href="contacto">Contactanos</a></li>
-                        <li><a href="acerca">Acerca de</a></li>
+                        <li><a href="{{route('contacto')}}">Contactanos</a></li>
+                        <li><a href="{{route('acerca')}}">Acerca de</a></li>
                         <li><a href="../map">Mapa</a></li>
 
                         @if (Auth::guest())

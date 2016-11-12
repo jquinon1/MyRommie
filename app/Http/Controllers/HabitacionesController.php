@@ -115,7 +115,7 @@ class HabitacionesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {       
         $habitacion = Habitacion::find($id);
         $habitacion->user;
         $habitacion->ubicacion;

@@ -18,28 +18,16 @@
                                 {!! Form::text('apellido',$user->apellido,['class' => 'form-control','required','autofocus']) !!}
                             </div>
                         </div>
-                        <!--div class="form-group">
-                            {!! Form::label('tipo_id', 'Tipo ID', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::label('tipo_id',$user->tipo_id,['class' => 'form-control','required','autofocus']) !!}
-                            </div>
-                        </div-->
                         <div class="form-group">
                             {!! Form::label('tipo_id', 'Tipo ID', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::select('tipo_id',['CC'=>'CC','CE'=>'CE'],$user->tipo_id,['class' => 'form-control','required','autofocus','placeholder'=>'Elige']) !!}
+                                {!! Form::label('numId',$user->tipo_id,['class' => 'form-control']) !!}
                             </div>
                         </div>
-                        <!--div class="form-group">
+                        <div class="form-group">
                             {!! Form::label('numId', 'Numero ID', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
                                 {!! Form::label('numId',$user->numId,['class' => 'form-control']) !!}
-                            </div>
-                        </div-->
-                        <div class="form-group">
-                            {!! Form::label('numId', 'Numero ID', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('numId',$user->numId,['class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,17 +36,10 @@
                                 {!! Form::select('genero',['hombre'=>'Hombre','mujer'=>'Mujer','lgbti'=>'Lgbti'],$user->genero,['class' => 'form-control','required','autofocus','placeholder'=>'Elige']) !!}
                             </div>
                         </div>
-
-                        <!--div class="form-group">
-                            {!! Form::label('email', 'Email', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::label('email',$user->email,['class' => 'form-control','required','autofocus']) !!}
-                            </div>
-                        </div-->
                         <div class="form-group">
                             {!! Form::label('email', 'Email', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('email',$user->email,['class' => 'form-control','required','autofocus']) !!}
+                                {!! Form::label('email',$user->email,['class' => 'form-control','required','autofocus']) !!}
                             </div>
                         </div>
                         
