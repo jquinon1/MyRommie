@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class HabitacionSeeder extends Seeder
 {
@@ -31,7 +32,9 @@ class HabitacionSeeder extends Seeder
         		'longitud' => $habitaciones[$i][2],
         		'precio' => $habitaciones[$i][3],
         		'user_id' => $habitaciones[$i][4],
-        		'ubicacion_id' => $habitaciones[$i][5]
+        		'ubicacion_id' => $habitaciones[$i][5],
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         	]);
         }
     }

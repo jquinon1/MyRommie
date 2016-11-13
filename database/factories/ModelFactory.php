@@ -45,16 +45,6 @@ $factory->define(App\Ubicacion::class, function(Faker\Generator $faker){
 // 	];
 // });
 
-$factory->define(App\Habitacion::class, function(Faker\Generator $faker){
-	return [
-		'precio' => $faker->numberBetween(),
-		'estado' => $faker->randomElement($array = array('ocupado','desocupado')),
-		'descripcion' => $faker->text(90),
-		'direccion' => $faker->address,
-		'user_id' => $faker->numberBetween(1,80),
-		'ubicacion_id' => $faker->numberBetween(1,20)
-	];
-});
 
 
 

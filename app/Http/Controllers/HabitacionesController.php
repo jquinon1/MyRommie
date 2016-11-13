@@ -34,14 +34,10 @@ class HabitacionesController extends Controller
      */
     public function index(Request $request)
     {
-            // dd($request->universidad);
             if(isset($request->universidad) && strlen($request->universidad) > 0){
                 $universidad = Universidad::search($request->universidad)->first();
                 $habitaciones = $universidad->habitaciones()->paginate(12);
             }else{
-                // dd('entre');
-                //$habitaciones = Habitacion::where('estado','=','desocupado')->orderBy('created_at','DES')->paginate(12);
-                
                 $habitaciones = Habitacion::orderBy('created_at','DES')->paginate(12);
             }
         return view('users.habitaciones.index')->with('habitaciones',$habitaciones);
@@ -72,9 +68,8 @@ class HabitacionesController extends Controller
     {
 
         // dd($request->all());
-        echo '<script language="javascript">alert("si funciona");</script>'; 
-        //$request->direccion = str_replace("#", "_", $request->direccion);
-        //$request->direccion = str_replace(" ", "_", $request->direccion);
+        $dir = str_replace((" "), "_", $request->direccion);
+        // dd($dir);
         $habitacion = new Habitacion($request->all());
         $ciudad = Ubicacion::find($request->ubicacion);
         // dd($ciudad);
@@ -92,6 +87,7 @@ class HabitacionesController extends Controller
         // $habitacion->user_id = Auth::user()->id;
         // dd($habitacion);
         $habitacion->user()->associate(Auth::user());
+        $habitacion->direccion = $dir;
         $habitacion->save();
         $habitacion->universidades()->sync($request->universidades);
         // dd($habitacion);
@@ -121,6 +117,7 @@ class HabitacionesController extends Controller
         $habitacion->ubicacion;
         $habitacion->imagenes;
         $habitacion->universidades;
+        $direccion = str_replace(("_")," ",$habitacion->direccion);
         if ($habitacion->numero_votos > 0) {
             $valoracion = $habitacion->calificacion/$habitacion->numero_votos;
         }else{
@@ -135,7 +132,7 @@ class HabitacionesController extends Controller
         // dd($valoracion)
         // dd($habitacion);
         // dd($habitacion->user->id);    
-        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion)->with('valUser',$valoracionUser);
+        return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion)->with('valUser',$valoracionUser)->with('direccion',$direccion);
     }
 
     /**

@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Precio Inicial: <strong>${{$habitacion->precio}}</strong>   |  Direccion: {{$habitacion->direccion}}</div>
+                <div class="panel-heading">Precio Inicial: <strong>${{$habitacion->precio}}</strong>   |  Direccion: {{ str_replace(("_")," ",$habitacion->direccion) }}</div>
 
                 <div class="panel-body">
                     <table class="table table-striped" width="90%">
