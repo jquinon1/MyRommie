@@ -11,6 +11,7 @@ use App\Habitacion;
 use App\Ubicacion;
 use App\Universidad;
 use Auth;
+use App\Caracteristica;
 
 class UsersController extends Controller
 {
@@ -56,20 +57,24 @@ class UsersController extends Controller
 
 
     public function create(){
-    	return view('auth.register');
+        $caracteristicas=Caracteristica::orderBy('id','ASC')->pluck('nombre','id');
+
+    	return view('auth.register')->with('caracteristicas',$caracteristicas);
     }
 
     public function store(UserRequest $request){
     	$user = new User($request->all()); 
+        
     	if ($request->repeat_password == $request->password) {
     		$user->password = bcrypt($request->password);
     		$user->save();
-    	} else {
+            $user->caracteristicas()->sync($request->caracteristicas);
+            Flash::success("Se ha registrado " . $user->name . " existosamente");
+            return view('welcome');
+        } else {
             Flash::warning("No se pudo registrar");
             return reditec()->route('users.create');
         }
-        Flash::success("Se ha registrado " . $user->name . " existosamente");
-        return view('welcome');
     }
 
     public function edit($id){

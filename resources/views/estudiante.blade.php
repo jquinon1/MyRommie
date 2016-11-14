@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title','Estudiante')
 @section('content')
+
+
 <style>
     #background {
         position: fixed;
@@ -140,8 +142,11 @@
                                 </div>
                             </div>
 
-
-                            <a href="habitaciones" target="_self"> <input class="form-control" type="button" name="boton" value="Aceptar" /> </a>
+                            <div class="form-group">
+                                <div class="col-md-7 col-md-offset-5">
+                                    {!! Form::submit('Buscar',['class' => 'btn btn-primary']) !!}
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
