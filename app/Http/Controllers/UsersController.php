@@ -11,6 +11,7 @@ use App\Habitacion;
 use App\Ubicacion;
 use App\Universidad;
 use Auth;
+use App\Caracteristica;
 
 class UsersController extends Controller
 {
@@ -56,7 +57,9 @@ class UsersController extends Controller
 
 
     public function create(){
-    	return view('auth.register');
+        $caracteristicas=Caracteristica::orderBy('id','ASC')->pluck('nombre','id');
+
+    	return view('auth.register')->with('caracteristicas',$caracteristicas);
     }
 
     public function store(UserRequest $request){

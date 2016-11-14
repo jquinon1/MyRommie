@@ -41,7 +41,7 @@
                         <div class="form-group">
                             {!! Form::label('tipo_usuario', 'Eres', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::select('tipo_usuario',['arrendatario'=>'Estudiante','arrendador'=>'Arrendador'],null,['class' => 'form-control','required','autofocus']) !!}
+                                {!! Form::select('tipo_usuario',['arrendatario'=>'Estudiante','arrendador'=>'Arrendador'],null,['class' => 'form-control','required','autofocus','placeholder'=>'Elige']) !!}
                             </div>
                         </div>
 
@@ -63,13 +63,28 @@
                                 {!! Form::password('repeat_password',['class' => 'form-control','required','autofocus']) !!}
                             </div>
                         </div>
-                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                {!! Form::submit('Register',['class' => 'btn btn-primary']) !!}
+
+                        <div class="form-group">
+                            {!! Form::label('universidades','Características',['class'=>'col-md-4 control-label']) !!}
+                            <div class="col-md-6">  
+                                    {!! Form::select('caracteristicas[]',$caracteristicas,null,['class'=>'form-control chosen-select','multiple','required']) !!}
                             </div>
                         </div>
+            
                        
-                    {!! Form::close() !!}
+
+                        
+
+                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                {!! Form::submit('Registrase',['class' => 'btn btn-primary']) !!}
+                            </div>
+                        </div>
+                      {!! Form::close() !!}
+
+                    
+                       
+                    
                     
                     <!-- <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
@@ -145,3 +160,15 @@
 </div>
 @endsection
 
+@section('js')
+    <script>
+        $('.chosen-select').chosen({
+            width: "60%",
+            placeholder_text_multiple: 'Seleccione las características que desee',
+            search_contains: true,
+            no_results_text: 'No se encontraron características'
+        });
+
+    </script>
+
+@endsection
