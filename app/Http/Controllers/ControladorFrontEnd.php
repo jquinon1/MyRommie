@@ -99,7 +99,7 @@ class ControladorFrontEnd extends Controller
         $lats[]=$key->latitud;
         $longs[]=$key->longitud;
       }
-
+      $dir=str_replace(("_"), "#", $dir);
       return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'id'=>$id]);
     }
 

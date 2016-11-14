@@ -70,6 +70,7 @@ class HabitacionesController extends Controller
 
         // dd($request->all());
         $dir = str_replace((" "), "_", $request->direccion);
+        $dir = str_replace(("#"), "_", $request->direccion);
         // dd($dir);
         $habitacion = new Habitacion($request->all());
         $ciudad = Ubicacion::find($request->ubicacion);
