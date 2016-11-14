@@ -141,8 +141,8 @@ class ControladorFrontEnd extends Controller
     }
 
     public function estudiante(){
-        $ubicacion = Ubicacion::all();
-        $universidad = Universidad::all();
+        $ubicacion = Ubicacion::orderBy('id','asc')->pluck('ciudad','id');
+        $universidad = Universidad::orderBy('id','asc')->pluck('nombre','id');
 
         return view('estudiante')->with('ciudades',$ubicacion)->with('universidades',$universidad);
     }

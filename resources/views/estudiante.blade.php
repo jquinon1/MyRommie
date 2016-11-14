@@ -26,7 +26,6 @@
     <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
         <source src="../video/Lapse3.mp4" type="video/mp4" />
     </video>
-
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-4 col-lg-5 " style="margin-top: -17%">
@@ -34,6 +33,7 @@
                     <div class="panel-heading">Estudiante</div>
                     <div class="panel-body" >
                         <form class="form-horizontal" role="form" method="POST" >
+                        {!! Form::open(['route'=>'ubicaciones.store', 'method'=>'POST','class'=>'form-horizontal','files'=>true]) !!}
 
                             <div class="form-group">
                                 {!! Form::label('ubicacion','Ciudad',['class'=>'col-md-4 control-label']) !!}
@@ -50,13 +50,7 @@
                                     <select name="ciudad" class="form-control">
                                         <option value="0"></option>
 
-                                        @foreach ($ciudades as $ciudad)
-
-                                            <option
-                                                value="{{$ciudad->id}}">{{$ciudad->ciudad .'-'. $ciudad->pais}}
-                                            </option>
-
-                                        @endforeach
+                                        
 
                                     </select>
                                 </div>
@@ -64,7 +58,7 @@
 
                             <div class="form-group">
                                 {!! Form::label('universidades','Universidades Cercanas',['class'=>'col-md-4 control-label']) !!}
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     {!! Form::select('universidades[]',$universidades,null,['class'=>'form-control chosen-select','multiple','required']) !!}
                                 </div>
                             </div>
@@ -74,14 +68,7 @@
                                 <div class="col-md-7">
                                     <select name="universidades" class="form-control">
                                         <option value="0"></option>
-                                        @foreach ($universidades as $universidad)
-
-                                            <option
-                                                value="{{$universidad->id}}">{{$universidad->nombre}}
-                                            </option>
-
-                                        @endforeach
-                                    </select>
+                                     
                                 </div>
                             </div>-->
 
@@ -156,5 +143,19 @@
 </div>
 
 
+
+@endsection
+
+
+@section('js')
+    <script>
+        $('.chosen-select').chosen({
+            width: "60%",
+            placeholder_text_multiple: 'Seleccione universidades',
+            
+            no_results_text: 'No se encontraron Universidades'
+        });
+
+    </script>
 
 @endsection
