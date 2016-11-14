@@ -14,6 +14,7 @@ class OfertasController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // administradores pueden ofertar?
     }
     /**
      * Display a listing of the resource.
@@ -22,14 +23,17 @@ class OfertasController extends Controller
      */
     public function index($habitacion)
     {   
-        // dd($habitacion);
-        $ofertas = Oferta::ofertas($habitacion)->orderBy('created_at','ASC')->paginate(5);
         $room = Habitacion::find($habitacion);
-        foreach ($ofertas as $oferta) {
-            $oferta->user;
-        }
+        if($room->user == Auth::user()){
+            $ofertas = Oferta::ofertas($habitacion)->orderBy('created_at','ASC')->paginate(5);
+            foreach ($ofertas as $oferta) {
+                $oferta->user;
+            }
         // dd($ofertas);
-        return view('users.arrendadores.ofertas.index')->with('ofertas',$ofertas)->with('habitacion',$room);
+            return view('users.arrendadores.ofertas.index')->with('ofertas',$ofertas)->with('habitacion',$room);
+        }else{
+            dd("que no");
+        }
     }
 
     /**
@@ -54,16 +58,24 @@ class OfertasController extends Controller
 
     public function destroy($id){
         $oferta = Oferta::find($id);
-        $oferta->delete();
-        Flash::success("Oferta eliminada correctamente");
-        return redirect()->route('users.index');
+        if($oferta->user == Auth::user()){
+            $oferta->delete();
+            Flash::success("Oferta eliminada correctamente");
+            return redirect()->route('users.index');
+        }else{
+            dd("no");
+        }
     }
 
     public function changeEstate($oferta,$estado){
         $oferta = Oferta::find($oferta);
+        if($oferta->user == Auth::user() || $oferta->habitacion->user == Auth::user()){
         $oferta->estado = $estado;
         $oferta->save();
         Flash::success('Oferta modificada');
         return redirect()->route('users.index');
+        }else{
+            dd("nooo");
+        }
     }
 }

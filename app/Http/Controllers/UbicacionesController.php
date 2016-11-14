@@ -15,6 +15,7 @@ class UbicacionesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +24,7 @@ class UbicacionesController extends Controller
      */
     public function index()
     {
-        return redirect()->route('users.index');
+        return redirect()->route('users.admin.index');
     }
 
     /**

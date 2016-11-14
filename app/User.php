@@ -34,4 +34,12 @@ class User extends Authenticatable
     public function ofertas(){
         return $this->hasMany('App\Oferta');
     }
+
+    public function isAdmin(){
+        return $this->tipo_usuario === 'admin';
+    }
+
+    public function isArrendador(){
+        return $this->tipo_usuario === 'arrendador';
+    }
 }

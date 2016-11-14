@@ -26,6 +26,7 @@ class HabitacionesController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['show','index']]);
+        $this->middleware('arrendador', ['except' =>  ['show','index','calificar']]);
     }
     /**
      * Display a listing of the resource.
@@ -144,10 +145,15 @@ class HabitacionesController extends Controller
     public function edit($id)
     {
         $habitacion = Habitacion::find($id);
-        $habitacion->ubicacion;
-        $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
-        $habitacion_universidades = $habitacion->universidades->pluck('id')->ToArray();
-        return view('users.habitaciones.edit')->with('habitacion',$habitacion)->with('universidades',$universidades)->with('habitacion_universidades',$habitacion_universidades);
+        // dd($habitacion->user);
+        if($habitacion->user == Auth::user()){
+            $habitacion->ubicacion;
+            $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
+            $habitacion_universidades = $habitacion->universidades->pluck('id')->ToArray();
+            return view('users.habitaciones.edit')->with('habitacion',$habitacion)->with('universidades',$universidades)->with('habitacion_universidades',$habitacion_universidades);
+        }else{
+            dd("por aqui no");
+        }
     }
 
     /**
@@ -161,11 +167,15 @@ class HabitacionesController extends Controller
     {
         // dd($request->all());
         $habitacion = Habitacion::find($id);
+        if($habitacion->user == Auth::user()){
         $habitacion->fill($request->all());
         $habitacion->save();
         $habitacion->universidades()->sync($request->universidades);
         Flash::success('Se actualizo correctamente');
         return redirect()->route('users.index');
+        }else{
+            dd("no");
+        }
     }
 
     /**
@@ -177,10 +187,13 @@ class HabitacionesController extends Controller
     public function destroy($id)
     {
         $habitacion = Habitacion::find($id);
-
-        $habitacion->delete();
-        Flash::error('La habitacion ha sido eliminado de forma exitosa');
-        return redirect()->route('users.index');
+        if($habitacion->user == Auth::user()){
+            $habitacion->delete();
+            Flash::error('La habitacion ha sido eliminado de forma exitosa');
+            return redirect()->route('users.index');
+        }else{
+            dd("noo");
+        }
     }
 
     public function calificar($id,$valor){

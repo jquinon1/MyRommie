@@ -60,7 +60,7 @@
 									<td>0</td>
 									@endif
 									<td>
-										<a href="{{ route('users.edit',$user)}}" class="btn btn-warning">
+										<a href="{{ route('users.edit',$user->id)}}" class="btn btn-warning">
 											<span class="glyphicon glyphicon-pencil"></span>
 										</a> 
 										<a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
