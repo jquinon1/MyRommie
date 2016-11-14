@@ -79,7 +79,7 @@ Route::group(['prefix => users'], function(){
 		'as'	=> 'habitaciones.calificar'
 	]);
 
-	Route::get('habitaciones/{id}/users/calificar/{valor}',[
+	Route::get('users/{id}/calificar/{valor}',[
 		'uses'	=> 'UsersController@calificar',
 		'as'	=> 'users.calificar'
 	]);

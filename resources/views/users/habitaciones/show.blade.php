@@ -6,10 +6,9 @@
   .white-popup {
     position: relative;
     background: #FFF;
-    padding: 20px;
     /*width: auto;*/
-    max-width: 40%;
-    max-height: 100%;
+    max-width: auto;
+    max-height: auto;
     margin: auto;
   }
 </style>
@@ -20,8 +19,9 @@
 @if(!Auth::guest())
 @if(Auth::user()->id != $habitacion->user->id)
 {{-- Para ver informacion del arrendador --}}
-<div id="contacto" class="mfp-hide white-popup"> 
-  @include('users.templates.show',$habitacion)
+<div id="contacto" class="mfp-hide white-popup">
+ <?php $user = $habitacion->user; ?>
+  @include('users.templates.show_info',$user)
 </div>
 @else
 <div id="imagen" class="mfp-hide white-popup"> 
@@ -36,7 +36,7 @@
     <div class="row">
       <div class="col-md-6">
         <a class="btn btn-primary waves-effect" href="{{route('habitaciones.index')}}"><span class="material-icons">view_module</span> HABITACIONES</a><hr>
-        <img class="mySlides w3-animate-fading img-responsive" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup" >
+        <img class="mySlides w3-animate-fading img-responsive" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup" width="500" height="500" >
         <hr>
         @if (!Auth::guest())
         @if(Auth::user()->id == $habitacion->user->id)
@@ -110,7 +110,7 @@
           rating: {{$valUser}},
           onSet: function (rating, rateYoInstance) {
            var valor =  rating;
-           var link =  {{$habitacion->id}} + "/users/calificar/" + valor;
+           var link =  "../users/"+{{$habitacion->user->id}}+"/calificar/" + valor;
            document.getElementById("calificarUser").setAttribute("href",link);
          }
        });
@@ -124,18 +124,6 @@
             src: '{{ asset('images/habitaciones/'.$imagen->name) }}'
           },
           @endforeach
-                  /*{
-                    src: '{{ asset('images/hab3.jpg') }}',
-                    title: 'Peter & Paul fortress in SPB'
-                  },
-                  {
-                    src: '{{ asset('images/hab4.jpg') }}',
-                    title: 'Peter & Paul fortress in SPB'
-                  },
-                  {
-                    src: '{{ asset('images/hab5.jpg') }}',
-                    title: 'Peter & Paul fortress in SPB'
-                  },*/
                   ],
                   gallery: {
                     enabled: true

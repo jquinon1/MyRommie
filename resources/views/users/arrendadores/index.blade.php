@@ -27,14 +27,14 @@
                                 <td style="text-align: center;">
                                     @if($habitacion->ofertas->where('estado','=','espera')->count() > 0)
                                     {{-- <div class="btn btn-success"> --}}
-                                        <a class="btn btn-success" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge ">{{$habitacion->ofertas->count() }}</a>
+                                        <a class="btn btn-success" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge ">{{$habitacion->ofertas->where('estado','=','espera')->count() }}</a>
                                     {{-- </div> --}}
                                     @else
-                                    <a class="btn btn-warning" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge">{{$habitacion->ofertas->count() }}</a>
+                                    <a class="btn btn-warning" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge">0</a>
                                     @endif
                                 </td>
                                 <td>{{ $habitacion->estado}}</td>
-                                <td>{{ $habitacion->direccion}}</td>
+                                <td>{{ str_replace(("_")," ",$habitacion->direccion) }}</td>
                                 <td>{{ $habitacion->descripcion}}</td>
                                 <td>
                                     <a href="{{ route('habitaciones.edit',$habitacion)}}" class="btn btn-warning">
