@@ -1,12 +1,37 @@
 @extends('layouts.app')
 @section('title','Registrar Habitacion')
 @section('content')
+	<style>
+		#background {
+			position: fixed;
+			top: 58%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -100;
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			background-size: cover;
+		}
+
+
+
+	</style>
+
+	<div class="flex-center position-ref full-height">
+		<video width="150%" height="10%" autoplay loop muted preload="none" id="background">
+			<source src="../video/Lapse3.mp4" type="video/mp4" />
+		</video>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 		        <div class="panel-heading">Crear Habitacion</div>
 		        <div class="panel-body">
+
 					{!! Form::open(['route'=>'habitaciones.store', 'method'=>'POST','class'=>'form-horizontal','files'=>true]) !!}
 
 						<div class="form-group">
