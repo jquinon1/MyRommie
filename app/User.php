@@ -35,6 +35,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Oferta');
     }
 
+    public function caracteristicas(){
+        return $this->belongsToMany('App\Caracteristica')->withTimestamps();
+    }
+
     public function isAdmin(){
         return $this->tipo_usuario === 'admin';
     }

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UniversidadSeeder::class);
         $this->call(HabitacionSeeder::class);
         $this->call(ImagenesSeeder::class);
+        $this->call(CaracteristicaSeeder::class);
         // $this->call(Habitacion_UniversidadSeeder::class);
     }
 }
