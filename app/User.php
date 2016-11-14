@@ -36,7 +36,7 @@ class User extends Authenticatable
     }
 
     public function caracteristicas(){
-        return $this->belongsToMany('App\Caracteristica')->withTimestamps();
+        // return $this->belongsToMany('App\Caracteristica')->withTimestamps();
     }
 
     public function isAdmin(){
