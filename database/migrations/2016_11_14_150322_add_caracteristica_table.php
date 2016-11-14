@@ -19,15 +19,15 @@ class AddCaracteristicaTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('caracteristica_user',function(Blueprint $table){
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('caracteristica_id')->unsigned();
+      //   Schema::create('caracteristica_user',function(Blueprint $table){
+      //       $table->increments('id');
+      //       $table->integer('user_id')->unsigned();
+      //       $table->integer('caracteristica_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('caracteristica_id')->references('id')->on('caracteristicas')->onDelete('cascade');
-            $table->timestamps();
-      });
+      //       $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+      //       $table->foreign('caracteristica_id')->references('id')->on('caracteristicas')->onDelete('cascade');
+      //       $table->timestamps();
+      // });
     }
 
     /**
@@ -37,7 +37,7 @@ class AddCaracteristicaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caracteristica_user');
+        // Schema::dropIfExists('caracteristica_user');
         Schema::dropIfExists('caracteristicas');
     }
 }

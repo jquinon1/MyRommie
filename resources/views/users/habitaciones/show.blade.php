@@ -87,6 +87,17 @@
            <p>{{$habitacion->descripcion}}</p>            
          </div>
        </div>
+
+       <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Caracteristicas</h3>
+          </div>
+          <div class="panel-body">
+           @foreach($habitacion->user->caracteristicas as $caracteristica)
+            <h4><span class="label label-default">{{$caracteristica->nombre}}</span></h4>
+            @endforeach            
+         </div>
+       </div>
      </div>
    </div>
  </div>

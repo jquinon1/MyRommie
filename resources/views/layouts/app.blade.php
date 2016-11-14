@@ -145,7 +145,7 @@
 
                         <li><a href="{{route('contacto')}}">Contactanos</a></li>
                         <li><a href="{{route('acerca')}}">Acerca de</a></li>
-                        <li><a href="../map">Mapa</a></li>
+                        <li><a href="{{route('mapa')}}">Mapa</a></li>
 
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
