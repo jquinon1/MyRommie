@@ -66,18 +66,18 @@
 
                         <div class="form-group">
                             {!! Form::label('universidades','Características',['class'=>'col-md-4 control-label']) !!}
-                            <div class="col-md-6">  
+                            <div class="col-md-8">  
                                     {!! Form::select('caracteristicas[]',$caracteristicas,null,['class'=>'form-control chosen-select','multiple','required']) !!}
                             </div>
                         </div>
             
-                       
+                        <br>
 
                         
 
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                {!! Form::submit('Registrase',['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit('Registrarse',['class' => 'btn btn-primary']) !!}
                             </div>
                         </div>
                       {!! Form::close() !!}
