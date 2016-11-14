@@ -25,7 +25,7 @@ class AddCaracteristicaTable extends Migration
             $table->integer('caracteristica_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('caracteristica_user')->references('id')->on('caracteristicas')->onDelete('cascade');
+            $table->foreign('caracteristica_id')->references('id')->on('caracteristicas')->onDelete('cascade');
             $table->timestamps();
       });
     }
