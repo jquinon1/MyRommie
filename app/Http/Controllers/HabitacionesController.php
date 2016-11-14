@@ -74,11 +74,11 @@ class HabitacionesController extends Controller
         // dd($dir);
         $habitacion = new Habitacion($request->all());
         $ciudad = Ubicacion::find($request->ubicacion);
-        // dd($ciudad);
-        $habitacion->ubicacion()->associate($ciudad);
+        // // dd($ciudad);
+        // $habitacion->ubicacion()->associate($ciudad);
         // dd($habitacion);
-        if($request->file('imagen')){            
-           
+        if($request->file('imagen') && ($request->file('imagen')->extension() == 'png' || $request->file('imagen')->extension() == 'jpg' || $request->file('imagen')->extension() == 'jpge')){            
+           dd($request->file('imagen')->extension());
 
             $file = $request->file('imagen');
             $name = 'myrommie_'.time() . '.'.$file->getClientOriginalExtension();
