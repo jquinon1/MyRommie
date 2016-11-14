@@ -89,8 +89,7 @@ class UsersController extends Controller
                 break;
             }
         }else{
-            dd("NOOOOOOOOOOOOO");
-            // mostrar pagina despues
+            abort(401);
         }
 }
     public function show($id){
@@ -119,8 +118,7 @@ class UsersController extends Controller
             Flash::error('Usuario Eliminado');
             return redirect()->route('welcome');
         }else{
-            dd("NOOOOOOOOO");
-            // mostrar pagina despues
+            abort(401);
         }
     }
 

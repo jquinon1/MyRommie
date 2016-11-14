@@ -19,7 +19,7 @@ class Admin
         if (Auth::user()->isAdmin()) {
             return $next($request);
         }else{
-            dd('noo');
+            abort(401);
         }
     }
 }

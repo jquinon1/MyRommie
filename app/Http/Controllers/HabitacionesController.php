@@ -152,7 +152,7 @@ class HabitacionesController extends Controller
             $habitacion_universidades = $habitacion->universidades->pluck('id')->ToArray();
             return view('users.habitaciones.edit')->with('habitacion',$habitacion)->with('universidades',$universidades)->with('habitacion_universidades',$habitacion_universidades);
         }else{
-            dd("por aqui no");
+            abort(401);
         }
     }
 
@@ -168,14 +168,13 @@ class HabitacionesController extends Controller
         // dd($request->all());
         $habitacion = Habitacion::find($id);
         if($habitacion->user == Auth::user()){
-        $habitacion->fill($request->all());
-        $habitacion->save();
-        $habitacion->universidades()->sync($request->universidades);
-        Flash::success('Se actualizo correctamente');
-        return redirect()->route('users.index');
+            $habitacion->fill($request->all());
+            $habitacion->save();
+            $habitacion->universidades()->sync($request->universidades);
+            Flash::success('Se actualizo correctamente');
+            return redirect()->route('users.index');
         }else{
-            dd("no");
-        }
+            abort(401);        }
     }
 
     /**
@@ -192,7 +191,7 @@ class HabitacionesController extends Controller
             Flash::error('La habitacion ha sido eliminado de forma exitosa');
             return redirect()->route('users.index');
         }else{
-            dd("noo");
+            abort(401);
         }
     }
 

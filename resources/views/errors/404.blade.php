@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Be right back.</title>
+        <title>Page Not Found.</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
         <style>
             html, body {
                 height: 100%;
@@ -32,7 +32,7 @@
             }
 
             .title {
-                font-size: 72px;
+                font-size: 65px;
                 margin-bottom: 40px;
             }
         </style>
@@ -40,8 +40,13 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <center>
+                    <a class="navbar-brand title" href="{{ url('/') }}">
+                        {{ config('My Rommie', 'MyRoomie') }}
+                    </a>
+                </center>
             </div>
+                <div class="title">The Page You're Looking For Can't Be Found.</div>
         </div>
     </body>
 </html>

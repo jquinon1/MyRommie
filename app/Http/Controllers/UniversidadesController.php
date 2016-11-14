@@ -35,7 +35,7 @@ class UniversidadesController extends Controller
      */
     public function create()
     {
-        return view('errors.503');
+        abort(404);
     }
 
     /**
@@ -72,7 +72,7 @@ class UniversidadesController extends Controller
      */
     public function show($id)
     {
-        return view('errors.503');
+        abort(404);
     }
 
     /**

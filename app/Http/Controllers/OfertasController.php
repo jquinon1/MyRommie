@@ -32,7 +32,7 @@ class OfertasController extends Controller
         // dd($ofertas);
             return view('users.arrendadores.ofertas.index')->with('ofertas',$ofertas)->with('habitacion',$room);
         }else{
-            dd("que no");
+            abort(401);
         }
     }
 
@@ -63,7 +63,7 @@ class OfertasController extends Controller
             Flash::success("Oferta eliminada correctamente");
             return redirect()->route('users.index');
         }else{
-            dd("no");
+            abort(401);
         }
     }
 
@@ -75,7 +75,7 @@ class OfertasController extends Controller
         Flash::success('Oferta modificada');
         return redirect()->route('users.index');
         }else{
-            dd("nooo");
+            abort(401);
         }
     }
 }

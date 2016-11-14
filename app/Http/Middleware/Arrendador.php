@@ -19,7 +19,7 @@ class Arrendador
         if (Auth::user()->isArrendador()) {
             return $next($request);
         }else{
-            dd('noo');
+            abort(401);
         }
     }
 }

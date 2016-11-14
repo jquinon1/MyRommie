@@ -34,7 +34,7 @@ class UbicacionesController extends Controller
      */
     public function create()
     {
-        return view('errors.503');
+        abort(404);
     }
 
     /**
@@ -59,7 +59,7 @@ class UbicacionesController extends Controller
      */
     public function show($id)
     {
-        return view('errors.503');
+       abort(404);
     }
 
     /**
