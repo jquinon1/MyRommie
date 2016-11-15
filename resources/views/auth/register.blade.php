@@ -23,7 +23,7 @@
                         <div class="form-group">
                             {!! Form::label('tipo_id', 'Tipo ID', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::select('tipo_id',['CC' => 'Cedula de Ciudadania', 'CE' => 'Cedula Extranjera'],null,['class' => 'form-control','required','autofocus']) !!}
+                                {!! Form::select('tipo_id',['CC' => 'Cedula de Ciudadania', 'CE' => 'Cedula Extranjera'],null,['class' => 'form-control','required','autofocus','placeholder'=>'Elige']) !!}
                             </div>
                         </div>
                         <div class="form-group">
