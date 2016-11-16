@@ -42,9 +42,9 @@
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('universidades','Universidades Cercanas',['class'=>'col-md-4 control-label']) !!}
+                                {!! Form::label('universidades','Universidad Cercana',['class'=>'col-md-4 control-label']) !!}
                                 <div class="col-md-8">
-                                    {!! Form::select('universidades[]',$universidades,null,['class'=>'form-control chosen-select','multiple','required']) !!}
+                                    {!! Form::select('universidad',$universidades,null,['class'=>'form-control','placeholder'=>'Universidad','required']) !!}
                                 </div>
                             </div>
 
@@ -90,19 +90,5 @@
 </div>
 
 
-
-@endsection
-
-
-@section('js')
-    <script>
-        $('.chosen-select').chosen({
-            width: "60%",
-            placeholder_text_multiple: 'Seleccione universidades',
-            
-            no_results_text: 'No se encontraron Universidades'
-        });
-
-    </script>
 
 @endsection

@@ -26,7 +26,7 @@ class HabitacionesController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['show','index']]);
-        $this->middleware('arrendador', ['except' =>  ['show','index','calificar']]);
+        $this->middleware('arrendador', ['except' =>  ['show','index','calificar','buscar']]);
     }
     /**
      * Display a listing of the resource.
@@ -194,19 +194,22 @@ class HabitacionesController extends Controller
     }
 
     public function buscar(Request $request){
-        // dd($request->universidades[0]);
-        $universidades = [];
-        for ($i=0; $i < count($request->universidades); $i++) { 
-            $universidades[$i] = $request->universidades[$i];
+        $datos = array('ubicacion' => $request->ubicacion, 'universidad' => $request->universidad, 'precio' => $request->precio , 'genero' => $request->genero , 'tiempo' => $request->tiempo );
+        // $habitaciones = Habitacion::buscar($datos);
+        $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
+        // dd($temp);
+        $i = 0;
+        $habitaciones = [];
+        foreach ($temp as $habitacion) {
+            foreach ($habitacion->universidades as $universidad) {
+                if ($universidad->id == $datos['universidad'] && $habitacion->user->genero == $datos['genero']) {
+                    $habitaciones[$i] = $habitacion;
+                }
+                $i++;
+            }
+
         }
-        // dd($data);
-        $filtro1 = [];
-        for ($i=0; $i < count($universidades) ; $i++) { 
-            $filtro1[$universidades[$i]] = Universidad::find($universidades[$i])->habitaciones->toArray();
-        }
-        dd($filtro1);
-        dd(count($request->universidades));
-        $datos = array('ubicacion' => $request->ubicacion, 'universidades' => [$request->universidades], 'precio' => $request->precio , 'genero' => $request->genero , 'tiempo' => $request->tiempo );
-        Habitacion::buscar($datos);
+        // dd(collect($habitaciones));
+        return view('users.habitaciones.index')->with('habitaciones',collect($habitaciones));
     }
 }

@@ -25,7 +25,7 @@
 	{{--  {{$habitacion->created_at->diffForHumans()}} --}}
 </div>
 <center>    
-	{{ $habitaciones->render() }}
+	
 </center>
 @endsection
 

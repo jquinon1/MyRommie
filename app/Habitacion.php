@@ -31,7 +31,11 @@ class Habitacion extends Model
     }
 
     public function scopeBuscar($query,$info){
-
+        // dd($info);
+        return $query->where('ubicacion_id','=',$info['ubicacion'])->where('precio','<=',$info['precio'])->join('habitacion_universidad','habitacion_universidad.habitacion_id','=','habitaciones.id')
+            ->where('habitacion_universidad.universidad_id','=',$info['universidad'])
+            ->join('users','users.id','=','habitaciones.user_id')
+            ->where('users.genero','=',$info['genero'])->get();
     }
 
 }
