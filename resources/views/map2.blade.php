@@ -90,6 +90,11 @@
           zoom: 10
         });
         var geocoder = new google.maps.Geocoder;
+        //alert(document.getElementById('address').value);
+        while(document.getElementById('address').value.includes("#")){
+          document.getElementById('address').value=document.getElementById('address').value.replace("#", " ");
+        }
+        //alert(document.getElementById('address').value);
         document.getElementById('submit').addEventListener('click', function(){geocodeAddress(geocoder, map);});
         document.getElementById('address').addEventListener('keypress', function(e){
           var kas = e.keyCode;
