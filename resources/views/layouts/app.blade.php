@@ -188,6 +188,9 @@
     <script src="{{asset('plugins/magnificPopup/dist/jquery.magnific-popup.js')}}"></script>
     <script src="{{asset('plugins/rate/jquery.rateyo.js')}}"></script>
     <script src="{{asset('plugins/awesomplete/awesomplete.js')}}"></script>
+    <script>
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>
 
 
 
