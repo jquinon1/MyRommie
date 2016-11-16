@@ -27,28 +27,24 @@
 </style>
 
 <div class="container">
-    <div class="flex-center position-ref full-height">
+<div class="row">
+    <div class="flex-center full-height">
         <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
             <source src="../video/Lapse.mp4" type="video/mp4" />
         </video>
-
-
-
-
-
-
-        <div class="links" id="rcorners2">
+        <div class="links" style="text-align: center;" id="rcorners2">
             <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
         </div>
         {{-- <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p> --}}
-        <div class="links" id="rcorners2">
+        <div class="links" style="text-align: center;" id="rcorners2">
             <a href="habitaciones" style="color: white" ><font size="20">HABITACIONES</font></a>
         </div>
         {{-- <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p> --}}
-        <div class="links" id="rcorners2">
+        <div class="links" style="text-align: center;" id="rcorners2">
             <a href="habitaciones/create" style="color: white" ><font size="20">ARRENDADOR</font></a>
         </div>
 
+    </div>
     </div>
 </div>
 {{-- </body> --}}
