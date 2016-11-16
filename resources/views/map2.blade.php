@@ -71,6 +71,8 @@
       <input id="hab{{$este}}dir" type="hidden" value={{$val}}>
       <input id="hab{{$este}}lat" type="hidden" value="<?= $lats[$este]; ?>">
       <input id="hab{{$este}}lng" type="hidden" value="<?= $longs[$este]; ?>">
+      <input id="hab{{$este}}prix" type="hidden" value="<?= $prixes[$este]; ?>">
+      <input id="hab{{$este}}img" type="hidden" value="<?= $imgs[$este]->name; ?>">
     </div>
     @endforeach
     <script>
@@ -90,11 +92,8 @@
           zoom: 10
         });
         var geocoder = new google.maps.Geocoder;
-        //alert(document.getElementById('address').value);
-        while(document.getElementById('address').value.includes("#")){
-          document.getElementById('address').value=document.getElementById('address').value.replace("#", " ");
-        }
-        //alert(document.getElementById('address').value);
+
+        
         document.getElementById('submit').addEventListener('click', function(){geocodeAddress(geocoder, map);});
         document.getElementById('address').addEventListener('keypress', function(e){
           var kas = e.keyCode;
@@ -103,6 +102,11 @@
           }
         }, false);//function(){geocodeAddress(geocoder, map);});
         geocodeAddress(geocoder, map);
+        //alert(document.getElementById('address').value);
+        while(document.getElementById('address').value.includes("_")){
+          document.getElementById('address').value=document.getElementById('address').value.replace("_", " ");
+        }
+        //alert(document.getElementById('address').value);
       }
 
       function geocodeAddress(geocoder, resultsMap) {
@@ -112,6 +116,7 @@
         /*for(var j=0; j <8;j++ ){
           alert(document.getElementById('hab'+j+'lng').value);
         }*/
+        //alert(address);
         var i =0;
         //var dirs = ['calle 4 sur # 43b -10', 'calle 7 sur # 6 43c-8', 'calle 11c sur # 48b-10', 'calle 47 # 20b-52', 'carrera 32a # 31-85', 'carrera 81 # 45d-  52', 'carrera 35 # 16a sur', 'carrera 39a # 18b sur-10'];
         if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
@@ -429,7 +434,7 @@
             position: pos,
             icon: '../images/casa2.png'
             });
-            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + (num+1)+'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
               var infowindow = new google.maps.InfoWindow({
                 content: content
               });
@@ -443,7 +448,7 @@
             position: pos,
             icon: '../images/casa.png'
             });
-            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + (num+1)+'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
               var infowindow = new google.maps.InfoWindow({
                 content: content
               });

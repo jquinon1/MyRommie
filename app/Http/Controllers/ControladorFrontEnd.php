@@ -57,13 +57,17 @@ class ControladorFrontEnd extends Controller
       $dirs=array();
       $lats=array();
       $longs=array();
+      $prixes=array();
+      $imgs=array();
       foreach ($hab as $key) {
         $dirs[]=$key->direccion;
         $lats[]=$key->latitud;
         $longs[]=$key->longitud;
+        $prixes[]=$key->precio;
+        $imgs[]=DB::table('imagenes')->select('name')->where('habitacion_id', $key->id)->first();
       }
 
-      return view('map', ['dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes]);//, 'id'=>$id]);
+      return view('map', ['dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'imgs'=>$imgs, 'prixes'=>$prixes]);//, 'id'=>$id]);
     }
 
     public function map2($dir){
@@ -94,13 +98,17 @@ class ControladorFrontEnd extends Controller
       $dirs=array();
       $lats=array();
       $longs=array();
+      $prixes=array();
+      $imgs=array();
       foreach ($hab as $key) {
         $dirs[]=$key->direccion;
         $lats[]=$key->latitud;
         $longs[]=$key->longitud;
+        $prixes[]=$key->precio;
+        $imgs[]=DB::table('imagenes')->select('name')->where('habitacion_id', $key->id)->first();//('select name from imagenes where habitacion_id = :id', ['id' => $key->id], 1);
       }
-      $dir=str_replace(("_"), "#", $dir);
-      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'id'=>$id]);
+      //$dir=str_replace(("_"), "#", $dir);
+      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'id'=>$id, 'imgs'=>$imgs, 'prixes'=>$prixes]);
     }
 
     public function habitacion(){

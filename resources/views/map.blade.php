@@ -72,6 +72,8 @@
       <input id="hab{{$este}}dir" type="hidden" value={{$val}}>
       <input id="hab{{$este}}lat" type="hidden" value="<?= $lats[$este]; ?>">
       <input id="hab{{$este}}lng" type="hidden" value="<?= $longs[$este]; ?>">
+      <input id="hab{{$este}}prix" type="hidden" value="<?= $prixes[$este]; ?>">
+      <input id="hab{{$este}}img" type="hidden" value="<?= $imgs[$este]->name; ?>">
     </div>
     @endforeach
     <script>
@@ -326,7 +328,7 @@ function machete (map, pos, dist, num){
             position: pos,
             icon: '../images/casa2.png'
             });
-            var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + (num+1)+'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
               var infowindow = new google.maps.InfoWindow({
                 content: content
               });
@@ -340,7 +342,7 @@ function machete (map, pos, dist, num){
       position: pos,
       icon: '../images/casa.png'
       });
-      var content='<p>direccion: ' + document.getElementById('hab'+num+'dir').value + '<br><a href="../habitaciones/' + (num+1)+'">habitación</a></p>';
+      var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + (num+1)+'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
       var infowindow = new google.maps.InfoWindow({
         content: content
       });
