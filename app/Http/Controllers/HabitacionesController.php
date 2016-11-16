@@ -209,7 +209,9 @@ class HabitacionesController extends Controller
             }
 
         }
-        // dd(collect($habitaciones));
+        if (count($habitaciones) == 0) {
+            Flash::warning('No Existen Habitaciones Con Las Caracteristicas Deseadas');
+        }
         return view('users.habitaciones.index')->with('habitaciones',collect($habitaciones));
     }
 }
