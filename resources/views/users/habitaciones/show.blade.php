@@ -61,7 +61,7 @@
 
       <div class="col-md-6">
         <h1>${{$habitacion->precio}}</h1>
-        <a href="{{route('map.direccion',$habitacion->direccion)}}"><p>{{$direccion}}</p></a>
+        <a href="{{route('map.direccion',$habitacion->direccion)}}"><p>MAPA</p></a>
         <div id="rateYo"></div>
         <hr>
         @if(!Auth::guest())
