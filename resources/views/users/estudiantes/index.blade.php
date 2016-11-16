@@ -12,16 +12,17 @@
     margin: auto;
   }
 </style>
-
+<?php $cont=0;?>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Bievenido {{ Auth::user()->nombre ." ". Auth::user()->apellido }} <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info">Actualizar Datos</a> <hr>Mis ofertas <br>
-                parce que alguien acomode esto jajaja <br>	 
-				<span class="glyphicon glyphicon-earphone">Contactar </span>
-				<span class="glyphicon glyphicon-credit-card">Ofertar </span>
-				<span class="glyphicon glyphicon-remove-circle">Eliminar </span>				
+                <div class="panel-heading">Bievenido {{ Auth::user()->nombre ." ". Auth::user()->apellido }} &nbsp; &nbsp; &nbsp; <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info">Actualizar Datos</a> 
+                <br>
+                <br>
+                <br>
+                <big>Mis ofertas</big>				
+                <br>
                 </div>
 
                 <div class="panel-body">
@@ -52,22 +53,19 @@
                                    <a href="#" id="contact-popup" class="btn btn-success">
                                         <span class="glyphicon glyphicon-earphone"></span> Contactar
                                     </a>
-                                    <a href="#" class="btn btn-info">
+                                    <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
                                         <span class="glyphicon glyphicon-usd"></span> Ofertar
                                     </a> 
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @elseif($oferta->estado == 'espera')
-                                    <a href="#" class="btn btn-info">
-                                        <span class="glyphicon glyphicon-credit-card"></span> información
-                                    </a>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @else
-                                    <a href="#" class="btn btn-danger">
-                                        <span class="glyphicon glyphicon-credit-card"></span>
+                                    <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-usd"></span> Ofertar
                                     </a>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
@@ -115,5 +113,18 @@
             },
             type: 'inline'
     });
+
+    /*$('#ofertar').magnificPopup({
+        items: [
+                {
+                    src: '#oferta', // Dynamically created element
+                    type: 'inline'
+                }
+            ],
+            gallery: {
+                enabled: true
+            },
+            type: 'inline'
+    });*/
     </script>
 @endsection
