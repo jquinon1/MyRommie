@@ -43,7 +43,7 @@
         <a href="#" id="form-popup" class="btn btn-info"> Agregar imagen
         </a>
         @else
-        <a href="#" id="contact-popup" class="btn btn-info">Contactar</a>
+        <a href="#" id="contact-popup" class="btn btn-info"  style="background-color: lightseagreen">Contactar</a>
         @endif
         @endif
         <hr>
@@ -66,7 +66,7 @@
         <hr>
         @if(!Auth::guest())
         @if(Auth::user()->id != $habitacion->user->id)
-        <a id="calificacion" class="btn btn-info">Calificar</a>
+        <a id="calificacion" class="btn btn-info "  style="background-color: lightseagreen">Calificar</a>
         <div class="panel-body container">
           {!! Form::open(['route'=> ['ofertas.store',$habitacion->id], 'method' => 'POST']) !!}
           <div class="form-group row">

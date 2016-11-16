@@ -40,10 +40,12 @@
         <div class="links" id="rcorners2">
             <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
         </div>
+        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
         {{-- <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p> --}}
         <div class="links" id="rcorners2">
             <a href="habitaciones" style="color: white" ><font size="20">HABITACIONES</font></a>
         </div>
+        &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
         {{-- <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p> --}}
         <div class="links" id="rcorners2">
             <a href="habitaciones/create" style="color: white" ><font size="20">ARRENDADOR</font></a>
