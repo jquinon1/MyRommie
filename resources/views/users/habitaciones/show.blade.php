@@ -21,7 +21,7 @@
 {{-- Para ver informacion del arrendador --}}
 <div id="contacto" class="mfp-hide white-popup">
  <?php $user = $habitacion->user; ?>
-  @include('users.templates.show_info',$user)
+ @include('users.templates.show_info',$user)
 </div>
 @else
 <div id="imagen" class="mfp-hide white-popup"> 
@@ -87,20 +87,21 @@
            <p>{{$habitacion->descripcion}}</p>            
          </div>
        </div>
-
+       @if(Auth::check())
        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3>Caracteristicas</h3>
-          </div>
-          <div class="panel-body">
-           @foreach($habitacion->user->caracteristicas as $caracteristica)
-            <h4><span class="label label-default">{{$caracteristica->nombre}}</span></h4>
-            @endforeach            
-         </div>
+        <div class="panel-heading">
+          <h3>Caracteristicas</h3>
+        </div>
+        <div class="panel-body">
+         @foreach($habitacion->user->caracteristicas as $caracteristica)
+         <h4><span class="label label-default">{{$caracteristica->nombre}}</span></h4>
+         @endforeach            
        </div>
      </div>
+     @endif
    </div>
  </div>
+</div>
 </div>
 @endsection
 
@@ -135,10 +136,10 @@
             src: '{{ asset('images/habitaciones/'.$imagen->name) }}'
           },
           @endforeach
-                  ],
-                  gallery: {
-                    enabled: true
-                  },
+          ],
+          gallery: {
+            enabled: true
+          },
             type: 'image' // this is a default type
           });
 
