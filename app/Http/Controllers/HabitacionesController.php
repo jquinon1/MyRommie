@@ -76,8 +76,8 @@ class HabitacionesController extends Controller
         $ciudad = Ubicacion::find($request->ubicacion);
         // dd($ciudad);
         $habitacion->ubicacion()->associate($ciudad);
-        // dd($request->file('imagen')->extension());
-        if($request->file('imagen') && ($request->file('imagen')->extension() == 'png' || $request->file('imagen')->extension() == 'jpg' || $request->file('imagen')->extension() == 'jpge' )){
+        //dd($request->file('imagen')->extension());
+        if($request->file('imagen') && ($request->file('imagen')->extension() == 'png' || $request->file('imagen')->extension() == 'jpg' || $request->file('imagen')->extension() == 'jpeg' )){
             $file = $request->file('imagen');
             $name = 'myrommie_'.time() . '.'.$file->getClientOriginalExtension();
             $path = public_path() . '/images/habitaciones';
