@@ -8,7 +8,7 @@ class Oferta extends Model
 {
     protected $table = "ofertas";
 
-    protected $fillable = ['oferta','user_id','habitacion_id'];
+    protected $fillable = ['oferta','user_id','habitacion_id','estado'];
 
     public function user(){
     	return $this->belongsTo('App\User');
@@ -18,7 +18,8 @@ class Oferta extends Model
     	return $this->belongsTo('App\Habitacion');
     }
 
-    public function scopeOfertas($query,$id_habitacion){
-    	return $query->where('habitacion_id','=',$id_habitacion);
+    public function waiting(){
+        return $this->estado === 'espera';
     }
+
 }

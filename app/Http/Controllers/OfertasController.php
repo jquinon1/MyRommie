@@ -25,7 +25,8 @@ class OfertasController extends Controller
     {   
         $room = Habitacion::find($habitacion);
         if($room->user == Auth::user()){
-            $ofertas = Oferta::ofertas($habitacion)->orderBy('created_at','ASC')->paginate(5);
+            // $ofertas = Oferta::ofertas($habitacion)->orderBy('created_at','ASC')->paginate(5);
+            $ofertas = $room->ofertas;
             foreach ($ofertas as $oferta) {
                 $oferta->user;
             }

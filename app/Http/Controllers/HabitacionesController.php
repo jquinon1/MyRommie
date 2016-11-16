@@ -76,30 +76,20 @@ class HabitacionesController extends Controller
         $ciudad = Ubicacion::find($request->ubicacion);
         // dd($ciudad);
         $habitacion->ubicacion()->associate($ciudad);
-        // dd($habitacion);
-        if($request->file('imagen') && ($request->file()->extension() == 'png' || $request->file()->extension() == 'jpg' || $request->file()->extension() == 'jpge' )){            
-           
-
+        // dd($request->file('imagen')->extension());
+        if($request->file('imagen') && ($request->file('imagen')->extension() == 'png' || $request->file('imagen')->extension() == 'jpg' || $request->file('imagen')->extension() == 'jpge' )){
             $file = $request->file('imagen');
             $name = 'myrommie_'.time() . '.'.$file->getClientOriginalExtension();
             $path = public_path() . '/images/habitaciones';
             $file->move($path,$name);
-            // dd($habitacion);           
         }
-        // $habitacion->user_id = Auth::user()->id;
-        // dd($habitacion);
         $habitacion->user()->associate(Auth::user());
         $habitacion->direccion = $dir;
         $habitacion->save();
         $habitacion->universidades()->sync($request->universidades);
-        // dd($habitacion);
-
-
         $imagen = new Imagen();
         $imagen->habitacion()->associate($habitacion);
-        // $imagen->habitacion_id = $habitacion->id;
         $imagen->name = $name;
-        // dd($imagen);
         $imagen->save();
         
         Flash::success('Se ha agreagado existosamente');
@@ -130,10 +120,6 @@ class HabitacionesController extends Controller
         }else{
             $valoracionUser = $habitacion->user->calificacion;
         }
-
-        // dd($valoracion)
-        // dd($habitacion);
-        // dd($habitacion->user->id);    
         return view('users.habitaciones.show')->with('habitacion',$habitacion)->with('valoracion',$valoracion)->with('valUser',$valoracionUser)->with('direccion',$direccion);
     }
 
@@ -197,16 +183,30 @@ class HabitacionesController extends Controller
     }
 
     public function calificar($id,$valor){
-        // dd($id." ".$valor);
         $habitacion = Habitacion::find($id);
         $caliInicial = $habitacion->calificacion;
-        // dd($caliInicial);
         $votos = $habitacion->numero_votos;
-        // dd($votos);
         $habitacion->calificacion = $caliInicial + $valor;
         $habitacion->numero_votos = $votos + 1;
         $habitacion->save();
         Flash::success('Gracias por calificar');
         return redirect()->route('habitaciones.show',$id);
+    }
+
+    public function buscar(Request $request){
+        // dd($request->universidades[0]);
+        $universidades = [];
+        for ($i=0; $i < count($request->universidades); $i++) { 
+            $universidades[$i] = $request->universidades[$i];
+        }
+        // dd($data);
+        $filtro1 = [];
+        for ($i=0; $i < count($universidades) ; $i++) { 
+            $filtro1[$universidades[$i]] = Universidad::find($universidades[$i])->habitaciones->toArray();
+        }
+        dd($filtro1);
+        dd(count($request->universidades));
+        $datos = array('ubicacion' => $request->ubicacion, 'universidades' => [$request->universidades], 'precio' => $request->precio , 'genero' => $request->genero , 'tiempo' => $request->tiempo );
+        Habitacion::buscar($datos);
     }
 }

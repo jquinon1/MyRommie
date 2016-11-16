@@ -69,6 +69,10 @@ Route::group(['prefix => users'], function(){
 		'uses'	=>	'HabitacionesController@destroy',
 		'as'	=> 'users.habitaciones.destroy'
 		]);
+	Route::post('habitaciones/find',[
+		'uses'	=>	'HabitacionesController@buscar',
+		'as'	=>	'habitaciones.buscar'
+	]);
 	Route::post('habitaciones/{id}/imagenes',[
 		'uses' => 'ImagenesController@store',
 		'as' =>	'imagenes.store'

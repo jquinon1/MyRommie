@@ -78,7 +78,7 @@ class UsersController extends Controller
     }
 
     public function edit($id){
-        if (Auth::user()->id == $id || User::find($id)->isAdmin()) {
+        if (Auth::user()->id == $id || Auth::user()->isAdmin()) {
             $user = User::find($id);
             switch ($user->tipo_usuario) {
                 case 'arrendador':

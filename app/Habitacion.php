@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use DB;
 
 class Habitacion extends Model
 {
@@ -29,6 +28,10 @@ class Habitacion extends Model
 
     public function ofertas(){
         return $this->hasMany('App\Oferta');
+    }
+
+    public function scopeBuscar($query,$info){
+
     }
 
 }
