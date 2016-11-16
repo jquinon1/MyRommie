@@ -59,7 +59,7 @@
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @elseif($oferta->estado == 'espera')
-                                    <a href="#" class="btn btn-info" id="contact-popup">
+                                    <a href="#" class="btn btn-info">
                                         <span class="glyphicon glyphicon-credit-card"></span> información
                                     </a>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
@@ -90,8 +90,12 @@
     <script>
         // Para la calificacion de la habitacion
         $('#calificaionUser').rateYo({
-          rating: {{$oferta->habitacion->user->valUser}},
-          onSet: function (rating, rateYoInstance) {
+            @if($oferta->habitacion->user->numero_votos > 0)
+               rating: {{$oferta->habitacion->user->calificacion / $oferta->habitacion->user->numero_votos}},
+            @else
+            rating:0.0,
+            @endif
+            onSet: function (rating, rateYoInstance) {
            var valor =  rating;
            var link =  "../users/"+{{$oferta->habitacion->user->id}}+"/calificar/" + valor;
            document.getElementById("calificarUser").setAttribute("href",link);
