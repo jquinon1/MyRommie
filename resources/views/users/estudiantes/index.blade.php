@@ -2,6 +2,17 @@
 @section('title','Estudiante')
 @section('content')
 
+<style >
+  .white-popup {
+    position: relative;
+    background: #FFF;
+    /*width: auto;*/
+    max-width: auto;
+    max-height: auto;
+    margin: auto;
+  }
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -26,6 +37,10 @@
                         </thead>
                         <tbody>
                             @foreach(Auth::user()->ofertas as $oferta)
+                            <div id="contacto" class="mfp-hide white-popup">
+                                <?php $user=$oferta->habitacion->user; ?>
+                                @include('users.templates.show_info',$user)
+                            </div>
 							<tr>
                                 <td>{{ $oferta->habitacion->direccion}}</td>
                                 <td>${{ $oferta->habitacion->precio}}</td>
@@ -33,26 +48,29 @@
                                 <td>{{$oferta->created_at->diffForHumans()}}</td>
                                 <td>{{ucwords($oferta->estado)}}</td>
                                 <td>
-                                @if($oferta->estado == 'aceptado')
-                                   <a href="#" class="btn btn-success">
-                                        <span class="glyphicon glyphicon-earphone"></span>
+                                @if($oferta->estado == 'aceptado')    
+                                   <a href="#" id="contact-popup" class="btn btn-success">
+                                        <span class="glyphicon glyphicon-earphone"></span> Contactar
+                                    </a>
+                                    <a href="#" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-usd"></span> Ofertar
                                     </a> 
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
-                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @elseif($oferta->estado == 'espera')
-                                    <a href="#" class="btn btn-info">
-                                        <span class="glyphicon glyphicon-credit-card"></span>
+                                    <a href="#" class="btn btn-info" id="contact-popup">
+                                        <span class="glyphicon glyphicon-credit-card"></span> información
                                     </a>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
-                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @else
-                                    <a href="#" class="btn btn-info">
+                                    <a href="#" class="btn btn-danger">
                                         <span class="glyphicon glyphicon-credit-card"></span>
                                     </a>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
-                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @endif
                                 </td>
@@ -66,5 +84,32 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('js')
+    <script>
+        // Para la calificacion de la habitacion
+        $('#calificaionUser').rateYo({
+          rating: {{$oferta->habitacion->user->valUser}},
+          onSet: function (rating, rateYoInstance) {
+           var valor =  rating;
+           var link =  "../users/"+{{$oferta->habitacion->user->id}}+"/calificar/" + valor;
+           document.getElementById("calificarUser").setAttribute("href",link);
+         }
+       });
+
+    // Popup para ver informacion del arrendatario
+    $('#contact-popup').magnificPopup({
+        items: [
+                {
+                    src: '#contacto', // Dynamically created element
+                    type: 'inline'
+                }
+            ],
+            gallery: {
+                enabled: true
+            },
+            type: 'inline'
+    });
+    </script>
 @endsection

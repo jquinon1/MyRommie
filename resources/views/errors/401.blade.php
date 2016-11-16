@@ -43,11 +43,11 @@
             <div class="content">
                 <center>
                     <a class="navbar-brand title" href="{{ url('/') }}">
-                        {{ config('My Rommie', 'MyRoomie') }}
+                        {{ config('My Rommie', 'volver a pagina principal') }}
                     </a>
                 </center>
             </div>
-                <div class="title">Authentication Error</div>
+                <div class="title">Error de autenticación</div>
         </div>
     </body>
 </html>

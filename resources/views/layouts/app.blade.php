@@ -143,6 +143,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
 
+                        <li><a href="{{route('habitaciones.index')}}">Habitaciones</a></li>
                         <li><a href="{{route('contacto')}}">Contactanos</a></li>
                         <li><a href="{{route('acerca')}}">Acerca de</a></li>
                         <li><a href="{{route('mapa')}}">Mapa</a></li>
