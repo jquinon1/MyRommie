@@ -28,8 +28,8 @@
     </video>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-4 col-lg-5 " style="margin-top: -17%">
-                <div class="panel panel-collapse" >
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default" >
                     <div class="panel-heading">Estudiante</div>
                     <div class="panel-body" >
                         {!! Form::open(['route'=>'habitaciones.buscar', 'method'=>'POST','class'=>'form-horizontal']) !!}
@@ -43,7 +43,7 @@
 
                             <div class="form-group">
                                 {!! Form::label('universidades','Universidad Cercana',['class'=>'col-md-4 control-label']) !!}
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     {!! Form::select('universidad',$universidades,null,['class'=>'form-control','placeholder'=>'Universidad','required']) !!}
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-7 col-md-offset-5">
+                                <div class="col-md-6 col-md-offset-4">
                                     {!! Form::submit('Buscar',['class' => 'btn btn-primary']) !!}
                                 </div>
                             </div>
