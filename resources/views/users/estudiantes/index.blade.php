@@ -87,18 +87,20 @@
 @section('js')
     <script>
         // Para la calificacion de la habitacion
+        @if(Auth::user()->ofertas->count() > 0)
         $('#calificaionUser').rateYo({
-            @if($oferta->habitacion->user->numero_votos > 0)
-               rating: {{$oferta->habitacion->user->calificacion / $oferta->habitacion->user->numero_votos}},
-            @else
-            rating:0.0,
-            @endif
-            onSet: function (rating, rateYoInstance) {
-           var valor =  rating;
-           var link =  "../users/"+{{$oferta->habitacion->user->id}}+"/calificar/" + valor;
-           document.getElementById("calificarUser").setAttribute("href",link);
+         @if($oferta->habitacion->user->numero_votos > 0)
+         rating: {{$oferta->habitacion->user->calificacion / $oferta->habitacion->user->numero_votos}},
+         @else
+         rating:0.0,
+         @endif
+         onSet: function (rating, rateYoInstance) {
+             var valor =  rating;
+             var link =  "../users/"+@{{$oferta->habitacion->user->id}}+"/calificar/" + valor;
+             document.getElementById("calificarUser").setAttribute("href",link);
          }
-       });
+     });
+        @endif
 
     // Popup para ver informacion del arrendatario
     $('#contact-popup').magnificPopup({
