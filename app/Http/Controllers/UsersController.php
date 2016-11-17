@@ -81,7 +81,7 @@ class UsersController extends Controller
             return view('welcome');
         } else {
             Flash::warning("No se pudo registrar");
-            return reditec()->route('users.create');
+            return back();
         }
     }
 
