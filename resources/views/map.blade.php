@@ -279,7 +279,7 @@ function geocodeAddress(geocoder, resultsMap) {
                   position: results[0].geometry.location,
                   icon: '../images/casa2.png'
                   });
-                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
+                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
                   var infowindow = new google.maps.InfoWindow({
                     content: content
                   });

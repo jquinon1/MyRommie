@@ -102,6 +102,8 @@ class ControladorFrontEnd extends Controller
         $pais=DB::table('ubicaciones')->select('pais')->where('id', $key->ubicacion_id)->first();
       }
 
+      //$dir=str_replace("_", " ", $dir);
+
       $hab = DB::select('select * from habitaciones');
       $dirs=array();
       $lats=array();
@@ -110,7 +112,7 @@ class ControladorFrontEnd extends Controller
       $ids=array();
       $imgs=array();
       foreach ($hab as $key) {
-        $dirs[]=$key->direccion;
+        $dirs[]=$key->direccion;//str_replace("_", " ", $key->direccion);
         $lats[]=$key->latitud;
         $longs[]=$key->longitud;
         $prixes[]=$key->precio;
@@ -178,5 +180,13 @@ class ControladorFrontEnd extends Controller
         }
         Flash::success("Se ha registrado " . $user->name . " existosamente");
         return view('welcome');
+    }
+
+    public function arreglar($cadena){
+      $cadena=str_replace("_", " ", $cadena);
+      while(!(ctype_digit(substr($cadena, -1))) && !(ctype_alpha(substr($cadena, -1)))){
+        $cadena=substr($cadena, 0, -1);
+      }
+      return $cadena;
     }
 }

@@ -17,11 +17,11 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Bievenido {{ Auth::user()->nombre ." ". Auth::user()->apellido }} &nbsp; &nbsp; &nbsp; <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info" style="margin-left: 12.8%">Actualizar Datos</a>
+                <div class="panel-heading">Bievenido {{ Auth::user()->nombre ." ". Auth::user()->apellido }} &nbsp; &nbsp; &nbsp; <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info" >Actualizar Datos</a>
                 <br>
                 <br>
                 <br>
-                    <h4 style="margin-left: 46%">Mis Ofertas</h4></li>
+                    <h4 >Mis Ofertas</h4></li>
                 <br>
                 </div>
 

@@ -116,6 +116,9 @@
       function geocodeAddress(geocoder, resultsMap) {
         deleteMarkers();
         var address = document.getElementById('address').value;
+        while(address.includes(" ")){
+          address=address.replace(" ", "_");
+        }
         //alert(document.getElementById('hab7dir').value);
         /*for(var j=0; j <8;j++ ){
           alert(document.getElementById('hab'+j+'lng').value);
@@ -290,15 +293,17 @@
           var p=-1;
           var nam="";
           //alert(document.getElementById('address').value);
+          //alert(address);
           for(var y=0; y<document.getElementById('tam').value;y++){
             nam = "hab";
             nam+=y;
             nam+="dir";
             //alert(document.getElementById(nam).value);
-            if(document.getElementById(nam).value == document.getElementById('address').value){
+            if(document.getElementById(nam).value == address){
               p=y;
             }
           }
+          //alert(p);
           if(p!=-1 && p<=(parseInt(document.getElementById(tam)).value - 8)){
             nam = "hab";
             nam += p;
@@ -335,7 +340,8 @@
                   position: results[0].geometry.location,
                   icon: '../images/casa2.png'
                   });
-                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
+                  //alert(document.getElementById('hab'+p+'img').value);
+                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
                   var infowindow = new google.maps.InfoWindow({
                     content: content
                   });
