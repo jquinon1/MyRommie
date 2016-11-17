@@ -29,7 +29,7 @@
                         <form class="form-horizontal" >
                             <div class="form-group">
                                 <label for="nombre" class="col-md-4 control-label ">Correo: </label>
-                                <label id="nombre" type="email"  name="nombre " class="control-label" >myrommie@enterpise.com</label>
+                                <label id="nombre" type="email"  name="nombre " class="control-label" >myrommie@gmail.com</label>
                             </div>
                             <div class="form-group">
                                 <label for="nombre" class="col-md-4 control-label">Telefono: </label>
