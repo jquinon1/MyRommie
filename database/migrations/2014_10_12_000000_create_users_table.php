@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->enum('tipo_id',['CC','CE']);
             $table->enum('genero',['hombre','mujer','lgbti']);
             $table->enum('tipo_usuario',['arrendador','arrendatario','admin']);
+            $table->string('token')->index();
+            $table->boolean('activated')->default(false);
             $table->double('calificacion',2,1)->default(0.0);
             $table->integer('numero_votos')->default(0);
             $table->rememberToken();

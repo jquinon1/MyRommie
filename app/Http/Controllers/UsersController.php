@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Mail;
 use App\User;
 use App\Habitacion;
 use App\Ubicacion;
@@ -18,7 +19,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create','store']]);
+        $this->middleware('auth', ['except' => ['create','store','userActivation']]);
     }
 
     public function index(){
@@ -64,12 +65,19 @@ class UsersController extends Controller
 
     public function store(UserRequest $request){
     	$user = new User($request->all()); 
-        
+        $data = $request->all();
     	if ($request->repeat_password == $request->password) {
     		$user->password = bcrypt($request->password);
+            $token = str_random(30);
+            $user->token = $token;
+            $data["token"] = $token;
+            Mail::send('emails.activation', $data, function ($message) use ($data) {
+                $message->to($data['email'], $data['nombre'])->subject('Mail confirmation');
+            });
+
     		$user->save();
             $user->caracteristicas()->sync($request->caracteristicas);
-            Flash::success("Se ha registrado " . $user->name . " existosamente");
+            Flash::success(ucfirst($user->name)." Please check your email");
             return view('welcome');
         } else {
             Flash::warning("No se pudo registrar");
@@ -136,5 +144,21 @@ class UsersController extends Controller
         $user->save();
         Flash::success('Valoracion registrada existosamente');
         return redirect()->route('users.show',$user);
+    }
+
+    public function userActivation($token){
+        $check = User::where('token','=',$token)->first();
+        if(!is_null($check)){
+            $user = User::find($check->id);
+            if($user->activeAccount()){
+                Flash::warning('User are already actived');
+                return redirect()->route('login');                
+            }
+            $user->update(['activated' => 1]);
+            Flash::success('User active successfully');
+            return redirect()->route('login');
+        }
+        Flash::warning('Your token is invalid');
+        return redirect()->route('login');
     }
 }

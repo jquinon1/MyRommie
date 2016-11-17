@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email', 'password','apellido','numId','tipo_id','genero','tipo_usuario'
+        'nombre', 'email', 'password','apellido','numId','tipo_id','genero','tipo_usuario','token','activated'
     ];
 
     /**
@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','numId'
+        'password', 'remember_token','numId','token','activated'
     ];
 
     public function habitaciones(){
@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function isArrendador(){
         return $this->tipo_usuario === 'arrendador';
     }
+
+    public function activeAccount(){
+        return $this->activated;
+    }
+
 }

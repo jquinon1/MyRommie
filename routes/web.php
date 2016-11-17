@@ -56,7 +56,7 @@ Route::get('/map/{dir}',[
 	'as'	=> 	'map.direccion'
 ]);
 
-
+Route::get('users/activation/{token}','UsersController@userActivation');
 Route::resource('users', 'UsersController');
 Route::get('users/{id}/destroy',[
 		'uses' => 'UsersController@destroy',

@@ -23,7 +23,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'tipo_id' => $faker->randomElement($array = array('CC','CE')),
         'numId' =>	$faker->creditCardNumber,
         'genero' => $faker->randomElement($array = array ('hombre','mujer','lgbti')),
-        'tipo_usuario' => $faker->randomElement($array = array ('arrendador','arrendatario','admin'))
+        'tipo_usuario' => $faker->randomElement($array = array ('arrendador','arrendatario','admin')),
+        'token' => str_random(30),
+        'activated' => true
     ];
 });
 
