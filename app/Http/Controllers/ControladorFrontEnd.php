@@ -88,10 +88,15 @@ class ControladorFrontEnd extends Controller
       }
 
       //$dir= str_replace("#", "", $dir);
+      $ubic=array();
+      $pais=array();
 
       $ida= DB::select('select * from habitaciones where direccion = :dir', ['dir' => $dir]);
+      //dd($dir);
       foreach ($ida as $key) {
         $id=$key->id;
+        $ubic=DB::table('ubicaciones')->select('ciudad')->where('id', $key->ubicacion_id)->first();
+        $pais=DB::table('ubicaciones')->select('pais')->where('id', $key->ubicacion_id)->first();
       }
 
       $hab = DB::select('select * from habitaciones');
@@ -108,7 +113,7 @@ class ControladorFrontEnd extends Controller
         $imgs[]=DB::table('imagenes')->select('name')->where('habitacion_id', $key->id)->first();//('select name from imagenes where habitacion_id = :id', ['id' => $key->id], 1);
       }
       //$dir=str_replace(("_"), "#", $dir);
-      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'id'=>$id, 'imgs'=>$imgs, 'prixes'=>$prixes]);
+      return view('map2', ['dir' => $dir, 'dirs' => $dirs, 'lats' => $lats, 'longs' => $longs, 'name' => $names, 'lema' => $lemas, 'escudo' => $escudos, 'pagina' => $paginas, 'lat' => $latitudes, 'lng' => $longitudes, 'id'=>$id, 'imgs'=>$imgs, 'prixes'=>$prixes, 'ubic'=>$ubic, 'pais'=>$pais]);
     }
 
     public function habitacion(){

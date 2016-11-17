@@ -102,8 +102,8 @@ class HabitacionesController extends Controller
     {
 
         // dd($request->all());
-        $dir = str_replace((" "), "_", $request->direccion);
-        $dir = str_replace(("#"), "_", $request->direccion);
+        $dir = str_replace(" ", "_", $request->direccion);
+        $dir = str_replace("#", "_", $dir);
         // dd($dir);
         $habitacion = new Habitacion($request->all());
         $ciudad = Ubicacion::find($request->ubicacion);
@@ -186,9 +186,12 @@ class HabitacionesController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
+        $dir = str_replace(" ", "_", $request->direccion);
+        $dir = str_replace("#", "_", $dir);
         $habitacion = Habitacion::find($id);
         if($habitacion->user == Auth::user()){
             $habitacion->fill($request->all());
+            $habitacion->direccion = $dir;
             $habitacion->save();
             $habitacion->universidades()->sync($request->universidades);
             Flash::success('Se actualizo correctamente');

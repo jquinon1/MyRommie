@@ -50,6 +50,8 @@
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
       <input id="id" type="hidden" value="<?= $id; ?>">
+      <input id="ubic" type="hidden" value="<?= $ubic->ciudad; ?>">
+      <input id="pais" type="hidden" value="<?= $pais->pais; ?>">
     </div>
     <div class="links" id="volver">
       <a class="waves-effect waves-light btn blue"  href="../../habitaciones/{{$id}}" >Habitación</a>
@@ -105,6 +107,7 @@
         //alert(document.getElementById('address').value);
         while(document.getElementById('address').value.includes("_")){
           document.getElementById('address').value=document.getElementById('address').value.replace("_", " ");
+          //alert("entra");
         }
         //alert(document.getElementById('address').value);
       }
@@ -285,10 +288,12 @@
         }else{
           var p=-1;
           var nam="";
-          for(var y=0; y<8;y++){
+          //alert(document.getElementById('address').value);
+          for(var y=0; y<document.getElementById('tam').value;y++){
             nam = "hab";
             nam+=y;
             nam+="dir";
+            //alert(document.getElementById(nam).value);
             if(document.getElementById(nam).value == document.getElementById('address').value){
               p=y;
             }
@@ -300,7 +305,6 @@
             var nam2 = "hab";
             nam2 += p;
             nam2 += "lng";
-
             var marker = new google.maps.Marker({
             map: resultsMap,
             position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
@@ -320,8 +324,8 @@
             band=true;
           }else{
             geocoder.geocode({'address': address, componentRestrictions: {
-                country: 'CO',
-                locality: 'medellin'
+                country: document.getElementById('pais').value,
+                locality: document.getElementById('ubic').value
               }
             }, function(results, status) {
               if (status === google.maps.GeocoderStatus.OK) {
