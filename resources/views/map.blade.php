@@ -88,20 +88,22 @@
     var uni="pm";
     var posada={lat: 0, lng: 0};
     var band=false;
+
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 6.2359, lng: -75.5751},
         zoom: 10
       });
-  var geocoder = new google.maps.Geocoder;
-  document.getElementById('submit').addEventListener('click', function(){geocodeAddress(geocoder, map);});
-  document.getElementById('address').addEventListener('keypress', function(e){
-    var kas = e.keyCode;
-    if(kas == 13){
-      geocodeAddress(geocoder, map);
+      var geocoder = new google.maps.Geocoder;
+      document.getElementById('submit').addEventListener('click', function(){geocodeAddress(geocoder, map);});
+      document.getElementById('address').addEventListener('keypress', function(e){
+        var kas = e.keyCode;
+        if(kas == 13){
+          geocodeAddress(geocoder, map);
+        }
+      }, false);
+      //mostrar(geocoder);
     }
-  }, false);
-}
 
 function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
@@ -255,7 +257,7 @@ function geocodeAddress(geocoder, resultsMap) {
             position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
             icon: '../images/casa2.png'
             });
-            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
             var infowindow = new google.maps.InfoWindow({
               content: content
             });
@@ -269,8 +271,8 @@ function geocodeAddress(geocoder, resultsMap) {
             band=true;
           }else if (p>=0){
             geocoder.geocode({'address': address, componentRestrictions: {
-                country: document.getElementById('pais').value,
-                locality: document.getElementById('ubic').value
+                country: 'CO',
+                locality: 'medellin'
               }
             }, function(results, status) {
               if (status === google.maps.GeocoderStatus.OK) {
@@ -279,7 +281,7 @@ function geocodeAddress(geocoder, resultsMap) {
                   position: results[0].geometry.location,
                   icon: '../images/casa2.png'
                   });
-                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
+                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
                   var infowindow = new google.maps.InfoWindow({
                     content: content
                   });
@@ -405,6 +407,62 @@ function deleteMarkers() {
   clearMarkers();
   markers = [];
 }
+
+/*function mostrar(geocoder){
+  alert("entra almenos");
+  for(var p=0; p < (document.getElementById('tam').value - 8);p++){
+    var address=document.getElementById('hab'+p+'dir').value;
+    geocoder.geocode({'address': address, componentRestrictions: {
+              country: 'CO',
+              locality: 'medellin'
+            }
+          }, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location,
+                icon: '../images/casa2.png'
+                });
+                var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
+                var infowindow = new google.maps.InfoWindow({
+                  content: content
+                });
+                marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+                });
+                markers.push(marker);
+            } else {
+              if(status = "OVER_QUERY_LIMIT"){
+                alert("Lo sentimos intentelo de nuevo unos segundos mas tarde");
+              }else{
+                alert('Geocode no pudo encontrar su dirección debido a: ' + status);
+              }
+            }
+          });
+  }
+  alert("pasa");
+  for(var p = (document.getElementById('tam').value - 8); p < document.getElementById('tam').value; p++){
+    nam = "hab";
+    nam += p;
+    nam += "lat";
+    var nam2 = "hab";
+    nam2 += p;
+    nam2 += "lng";
+    var marker = new google.maps.Marker({
+    map: resultsMap,
+    position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
+    icon: '../images/casa2.png'
+    });
+    var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
+    var infowindow = new google.maps.InfoWindow({
+      content: content
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    markers.push(marker);
+  }
+}*/
 
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXEKKADnb-QWZSmWrSPRR7CpkrPIRGM0&signed_in=true&callback=initMap&libraries=geometry"

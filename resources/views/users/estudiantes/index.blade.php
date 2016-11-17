@@ -50,7 +50,7 @@
                                 <td>{{ucwords($oferta->estado)}}</td>
                                 <td>
                                 @if($oferta->estado == 'aceptado')    
-                                   <a href="#" id="contact-popup" class="btn btn-success">
+                                   <a href="habitaciones/{{$oferta->habitacion->id}}" id="contact-popup" class="btn btn-success">
                                         <span class="glyphicon glyphicon-earphone"></span> Contactar
                                     </a>
                                     <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
