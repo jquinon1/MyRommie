@@ -74,6 +74,7 @@
       <input id="hab{{$este}}lat" type="hidden" value="<?= $lats[$este]; ?>">
       <input id="hab{{$este}}lng" type="hidden" value="<?= $longs[$este]; ?>">
       <input id="hab{{$este}}prix" type="hidden" value="<?= $prixes[$este]; ?>">
+      <input id="hab{{$este}}id" type="hidden" value="<?= $ids[$este]; ?>">
       <input id="hab{{$este}}img" type="hidden" value="<?= $imgs[$este]->name; ?>">
     </div>
     @endforeach
@@ -298,7 +299,7 @@
               p=y;
             }
           }
-          if(p!=-1){
+          if(p!=-1 && p<=(parseInt(document.getElementById(tam)).value - 8)){
             nam = "hab";
             nam += p;
             nam += "lat";
@@ -310,7 +311,7 @@
             position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
             icon: '../images/casa2.png'
             });
-            var content='<p>direccion: ' + document.getElementById('address').value + '<br><a href="../habitaciones/' + parseInt(document.getElementById('id').value) +'">habitación</a></p>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
             var infowindow = new google.maps.InfoWindow({
               content: content
             });
@@ -321,6 +322,39 @@
             resultsMap.panTo({lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)});
             resultsMap.setZoom(15);
             posada = {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)};
+            band=true;
+          }else if (p>=0){
+            geocoder.geocode({'address': address, componentRestrictions: {
+                country: document.getElementById('pais').value,
+                locality: document.getElementById('ubic').value
+              }
+            }, function(results, status) {
+              if (status === google.maps.GeocoderStatus.OK) {
+                  var marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location,
+                  icon: '../images/casa2.png'
+                  });
+                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
+                  var infowindow = new google.maps.InfoWindow({
+                    content: content
+                  });
+                  marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                  });
+                  markers.push(marker);
+                  resultsMap.panTo(results[0].geometry.location);
+                  resultsMap.setZoom(15);
+                  posada=results[0].geometry.location;
+              } else {
+                if(status = "OVER_QUERY_LIMIT"){
+                  alert("Lo sentimos intentelo de nuevo unos segundos mas tarde");
+                  i=dirs.length;
+                }else{
+                  alert('Geocode no pudo encontrar su dirección debido a: ' + status);
+                }
+              }
+            });
             band=true;
           }else{
             geocoder.geocode({'address': address, componentRestrictions: {
@@ -438,7 +472,7 @@
             position: pos,
             icon: '../images/casa2.png'
             });
-            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + (num+1)+'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
               var infowindow = new google.maps.InfoWindow({
                 content: content
               });
@@ -452,7 +486,7 @@
             position: pos,
             icon: '../images/casa.png'
             });
-            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + (num+1)+'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
+            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
               var infowindow = new google.maps.InfoWindow({
                 content: content
               });
