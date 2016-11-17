@@ -257,7 +257,8 @@ function geocodeAddress(geocoder, resultsMap) {
             position: {lat: parseFloat(document.getElementById(nam).value), lng: parseFloat(document.getElementById(nam2).value)},
             icon: '../images/casa2.png'
             });
-            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
+            var direc = document.getElementById('hab'+p+'dir').value.split("_").join(" ");
+            var content='<big>direccion: <font color="purple">' + direc + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+p+'img').value +'></img>';
             var infowindow = new google.maps.InfoWindow({
               content: content
             });
@@ -281,7 +282,8 @@ function geocodeAddress(geocoder, resultsMap) {
                   position: results[0].geometry.location,
                   icon: '../images/casa2.png'
                   });
-                  var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+p+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
+                  var direc = document.getElementById('hab'+p+'dir').value.split("_").join(" ");
+                  var content='<big>direccion: <font color="purple">' + direc + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+p+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+p+'id').value +'" >ir a habitación</a><br></big><img src = ../images/habitaciones/' + document.getElementById('hab'+p+'img').value +'></img>';
                   var infowindow = new google.maps.InfoWindow({
                     content: content
                   });
@@ -368,7 +370,8 @@ function machete (map, pos, dist, num){
             position: pos,
             icon: '../images/casa2.png'
             });
-            var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
+            var direc = document.getElementById('hab'+num+'dir').value.split("_").join(" ");
+            var content='<big>direccion: <font color="purple">' + direc + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
               var infowindow = new google.maps.InfoWindow({
                 content: content
               });
@@ -382,7 +385,8 @@ function machete (map, pos, dist, num){
       position: pos,
       icon: '../images/casa.png'
       });
-      var content='<big>direccion: <font color="purple">' + document.getElementById('hab'+num+'dir').value + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
+      var direc = document.getElementById('hab'+num+'dir').value.split("_").join(" ");
+      var content='<big>direccion: <font color="purple">' + direc + '</font><br>precio: <font color="lime">' + document.getElementById('hab'+num+'prix').value +'</font><br><a class="waves-effect waves-light btn green"  href="../habitaciones/' + document.getElementById('hab'+num+'id').value +'" >ir a habitación</a><br></big><img src = ../images/' + document.getElementById('hab'+num+'img').value +'></img>';
       var infowindow = new google.maps.InfoWindow({
         content: content
       });
