@@ -81,7 +81,7 @@
         @endif
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3>Descripcion</h3>
+            <h3>Descripción</h3>
           </div>
           <div class="panel-body">
            <p>{{$habitacion->descripcion}}</p>            
@@ -90,7 +90,7 @@
        @if(Auth::check())
        <div class="panel panel-default">
         <div class="panel-heading">
-          <h3>Caracteristicas</h3>
+          <h3>Características</h3>
         </div>
         <div class="panel-body">
          @foreach($habitacion->user->caracteristicas as $caracteristica)

@@ -142,7 +142,7 @@ class UsersController extends Controller
         $user->calificacion = $calificacion + $valor;
         $user->numero_votos = $votos + 1;
         $user->save();
-        Flash::success('Valoracion registrada existosamente');
+        Flash::success('Valoración registrada existosamente');
         return redirect()->route('users.show',$user);
     }
 

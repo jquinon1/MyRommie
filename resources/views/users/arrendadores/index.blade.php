@@ -9,16 +9,16 @@
                 <div class="panel-heading">Bievenido {{ Auth::user()->nombre ." ". Auth::user()->apellido }}</div>
 
                 <div class="panel-body">
-                    <a href="{{ route('habitaciones.create' )}}" class="btn btn-info">Agregar Habitacion</a>
+                    <a href="{{ route('habitaciones.create' )}}" class="btn btn-info">Agregar Habitación</a>
                     <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info">Actualizar Datos</a>
                     <table class="table table-striped" width="90%">
                         <thead>
                             <th width="10%">Precio</th>
                             <th width="10%">Ofertas</th>
                             <th width="15%">Estado</th>
-                            <th width="20%">Direccion</th>
-                            <th width="25%">Descripcion</th>
-                            <th width="25%">Accion</th>
+                            <th width="20%">Dirección</th>
+                            <th width="25%">Descripción</th>
+                            <th width="25%">Acción</th>
                         </thead>
                         <tbody>
                             @foreach($habitaciones as $habitacion)

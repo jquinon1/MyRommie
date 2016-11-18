@@ -20,7 +20,7 @@ class ActiveAccount
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'activated' => true])) {
             return $next($request);
         }else{
-            Flash::info('Active su cuenta a travez del email que le enviamos');
+            Flash::info('Active su cuenta a través del email que le enviamos');
             return back();
         }
     }
