@@ -26,7 +26,7 @@ class ActiveAccount
                 return back();
             }
         }else{
-            Flash::danger("La cuenta ".$request->email." no existe en nuestros registros");
+            Flash::warning("La cuenta ".$request->email." no existe en nuestros registros");
             return back();
         }
     }
