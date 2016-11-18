@@ -117,7 +117,9 @@
         deleteMarkers();
         var address = document.getElementById('address').value;
         address = address.split("_").join(" ");
-        address = address.split("  ").join(" ");
+        while(address.includes("  ")){
+          address = address.split("  ").join(" ");
+        }
         /*while(address.includes(" ")){
           address=address.replace(" ", "_");
         }*/

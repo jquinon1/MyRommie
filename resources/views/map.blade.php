@@ -109,7 +109,9 @@ function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
   address = address.split("_").join(" ");
-  address = address.split("  ").join(" ");
+  while(address.includes("  ")){
+    address = address.split("  ").join(" ");
+  }
   var i =0;
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
     var marker = new google.maps.Marker({
