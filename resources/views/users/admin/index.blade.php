@@ -28,11 +28,11 @@
 
 <div class="container">
 	<div class="row">
-		<!-- <div class="col-md-10 col-md-offset-1"> -->
+		<div class="col-md-12 col-md-offset-1">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
 				<div class="panel-heading">
-					<ul class="nav nav-tabs">
+					<ul class="nav nav-tabs nav-justified">
 						<li role="presentation" ><a id="users" href="#"><p style="color: black;">Usuarios</p></a></li>
 						<li role="presentation" ><a id="ubicaciones" href="#"><p style="color: black;">Ubicaciones</p></a></li>
 						<li role="presentation" ><a id="uni" href="#"><p style="color: black;">Universidades</p></a></li>
@@ -41,7 +41,7 @@
 				</div>
 				{{-- Lista con los usuarios --}}
 				<div class="panel-body table-responsive">
-						<table id="usuarios" class="table table-striped">
+						<table id="usuarios" class="table table-hover table-striped">
 							<thead>
 								<th>Nombre</th>
 								<th>Correo</th>
@@ -74,9 +74,9 @@
 								@endforeach
 							</tbody>
 						</table>
-					<div class="col-md-12" id="ubicacioneslist" >
+					<div id="ubicacioneslist" >
 						<a href="#" id="ubicacion-popup" class="btn btn-info">Agregar Ubicacion</a>
-						<table class="table table-striped">
+						<table class="table table-hover table-striped">
 
 							<thead>
 								<th>Pais</th>
@@ -101,9 +101,9 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-12" id="universidadeslist">
+					<div id="universidadeslist">
 						<a href="#" id="universidad-popup" class="btn btn-info">Agregar Universidad</a>
-						<table class="table table-striped">
+						<table class="table table-hover table-striped">
 							<thead>
 								<th>Ciudad</th>
 								<th>Nombre</th>
@@ -138,7 +138,7 @@
 				</div>
 			</div>
 		</div>
-	<!-- </div> -->
+	</div>
 </div>
 
 
