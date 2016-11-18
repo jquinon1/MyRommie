@@ -62,7 +62,7 @@
 									<td>
 										<a href="{{ route('users.edit',$user->id)}}" class="btn btn-warning">
 											<span class="glyphicon glyphicon-pencil"></span>
-										</a> 
+										</a>
 										<a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
 											<span class="glyphicon glyphicon-remove-circle"></span>
 										</a>
@@ -89,7 +89,7 @@
 									<td>
 										<a href="{{ route('ubicaciones.edit',$ubicacion)}}" class="btn btn-warning">
 											<span class="glyphicon glyphicon-pencil"></span>
-										</a> 
+										</a>
 										<a href="{{ route('users.ubicaciones.destroy', $ubicacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
 											<span class="glyphicon glyphicon-remove-circle"></span>
 										</a>
@@ -123,7 +123,7 @@
 									<td>
 										<a href="{{ route('universidades.edit',$universidad)}}" class="btn btn-warning">
 											<span class="glyphicon glyphicon-pencil"></span>
-										</a> 
+										</a>
 										<a href="{{ route('users.universidades.destroy', $universidad->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
 											<span class="glyphicon glyphicon-remove-circle"></span>
 										</a>

@@ -16,10 +16,10 @@
             background-size: cover;
         }
     </style>
-    <div class="flex-center position-ref full-height" >
-        <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
-            <source src="../video/Lapse3.mp4" type="video/mp4" />
-        </video>
+    <!-- <div class="flex-center position-ref full-height" > -->
+      <video width="100%" height="100%" autoplay loop muted preload="none" id="background">
+        <source src="../video/Lapse3.mp4" type="video/mp4" />
+      </video>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -35,7 +35,7 @@
                                 <label for="nombre" class="col-md-4 control-label">Teléfono: </label>
                                 <label id="nombre" type="email"  name="nombre" class="control-label">3137668717</label>
                             </div>
-                           
+
                             <div class="form-group">
                                 <label for="nombre" class="col-md-4 control-label">Dirección: </label>
                                 <label id="nombre" type="email"  name="nombre" class="control-label">Universidad Eafit oficina 19-2</label>
@@ -47,5 +47,5 @@
             </div>
         </div>
     </div>
-    </div>
+    <!-- </div> -->
 @endsection

@@ -20,8 +20,8 @@
 
 	</style>
 
-	<div class="flex-center position-ref full-height">
-		<video width="150%" height="10%" autoplay loop muted preload="none" id="background">
+	<!-- <div class="row"> -->
+		<video width="100%" height="100%" autoplay loop muted preload="none" id="background">
 			<source src="../video/Lapse3.mp4" type="video/mp4" />
 		</video>
 
@@ -63,7 +63,7 @@
 
 						<div class="form-group">
 							{!! Form::label('universidades','Universidades Cercanas',['class'=>'col-md-4 control-label']) !!}
-							<div class="col-md-6">	
+							<div class="col-md-6">
 									{!! Form::select('universidades[]',$universidades,null,['class'=>'form-control chosen-select','multiple','required']) !!}
 							</div>
 						</div>
@@ -86,13 +86,13 @@
 							<div class="col-md-8 col-md-offset-4">
 								{!! Form::submit('Agregar',['class' => 'btn btn-primary']) !!}
 							</div>
-						</div>					
+						</div>
 					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 @endsection
 
 @section('js')
