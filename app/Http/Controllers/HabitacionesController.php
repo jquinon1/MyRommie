@@ -232,18 +232,112 @@ class HabitacionesController extends Controller
     public function buscar(Request $request){
         $datos = array('ubicacion' => $request->ubicacion, 'universidad' => $request->universidad, 'precio' => $request->precio , 'genero' => $request->genero , 'tiempo' => $request->tiempo );
         // $habitaciones = Habitacion::buscar($datos);
-        $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
-        // dd($temp);
-        $i = 0;
         $habitaciones = [];
-        foreach ($temp as $habitacion) {
-            foreach ($habitacion->universidades as $universidad) {
-                if ($universidad->id == $datos['universidad'] && $habitacion->user->genero == $datos['genero']) {
-                    $habitaciones[$i] = $habitacion;
+        $i = 0;
+        if($datos['universidad'] != "" && $datos['genero'] != "" && $datos['precio'] != ""){
+            $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
+            // dd($temp);
+            foreach ($temp as $habitacion) {
+                foreach ($habitacion->universidades as $universidad) {
+                    if ($universidad->id == $datos['universidad'] && $habitacion->user->genero == $datos['genero']) {
+                        $habitaciones[$i] = $habitacion;
+                    }
+                    $i++;
                 }
-                $i++;
+
+            }
+        }else if($datos['precio'] == "" && ($datos['genero'] != "" || $datos['universidad'] != "")){
+            if($datos['universidad'] != "" && $datos['genero'] != ""){
+                $temp = Habitacion::where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    foreach ($habitacion->universidades as $universidad) {
+                        if ($universidad->id == $datos['universidad'] && $habitacion->user->genero == $datos['genero']) {
+                            $habitaciones[$i] = $habitacion;
+                        }
+                        $i++;
+                    }
+
+                }
+            }else if($datos['universidad'] == "" && $datos['genero'] != ""){
+                $temp = Habitacion::where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    if ($habitacion->user->genero == $datos['genero']) {
+                        $habitaciones[$i] = $habitacion;
+                    }
+                    $i++;
+                }
+            }else if($datos['genero'] == "" && $datos['universidad'] != ""){
+                $temp = Habitacion::where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    foreach ($habitacion->universidades as $universidad) {
+                            if ($universidad->id == $datos['universidad']) {
+                                $habitaciones[$i] = $habitacion;
+                            }
+                            $i++;
+                    }
+                }
+            }
+        }else if($datos['universidad'] == "" && ($datos['genero'] != "" || $datos['precio'] != "")){
+            if($datos['genero'] != "" && $datos['precio'] == ""){
+                $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    if ($habitacion->user->genero == $datos['genero']) {
+                        $habitaciones[$i] = $habitacion;
+                    }
+                    $i++;
+                }
+            }else if($datos['genero'] == "" && $datos['precio'] != ""){
+                $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    $habitaciones[$i] = $habitacion;
+                    $i++;
+                }
+            }else if($datos['precio'] == "" && $datos['genero'] != ""){
+                $temp = Habitacion::where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    if ($habitacion->user->genero == $datos['genero']) {
+                        $habitaciones[$i] = $habitacion;
+                    }
+                    $i++;
+                }
+            }
+        }else if($datos['genero'] == "" && ($datos['precio'] != "" || $datos['universidad'] != "")){
+            if($datos['universidad'] != "" && $datos['precio'] != ""){
+                $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    foreach ($habitacion->universidades as $universidad) {
+                        if ($universidad->id == $datos['universidad'] ) {
+                            $habitaciones[$i] = $habitacion;
+                        }
+                        $i++;
+                    }
+
+                }
+            }else if($datos['universidad'] == "" && $datos['precio'] != ""){
+                $temp = Habitacion::where('precio','<=',$datos['precio'])->where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    $habitaciones[$i] = $habitacion;
+                    $i++;
+                }
+            }else if($datos['universidad'] != "" && $datos['precio'] == ""){
+                $temp = Habitacion::where('ubicacion_id','=',$datos['ubicacion'])->get();
+                foreach ($temp as $habitacion) {
+                    foreach ($habitacion->universidades as $universidad) {
+                        if ($universidad->id == $datos['universidad'] ) {
+                            $habitaciones[$i] = $habitacion;
+                        }
+                        $i++;
+                    }
+
+                }
             }
 
+        }else{
+            $temp = Habitacion::where('ubicacion_id','=',$datos['ubicacion'])->get();
+            foreach ($temp as $habitacion) {
+                $habitaciones[$i] = $habitacion;
+                $i++;
+            }
         }
         if (count($habitaciones) == 0) {
             Flash::warning('No Existen Habitaciones Con Las Caracteristicas Deseadas');
