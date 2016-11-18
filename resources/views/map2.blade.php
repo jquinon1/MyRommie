@@ -116,9 +116,11 @@
       function geocodeAddress(geocoder, resultsMap) {
         deleteMarkers();
         var address = document.getElementById('address').value;
-        while(address.includes(" ")){
+        address = address.split("_").join(" ");
+        address = address.split("  ").join(" ");
+        /*while(address.includes(" ")){
           address=address.replace(" ", "_");
-        }
+        }*/
         //alert(document.getElementById('hab7dir').value);
         /*for(var j=0; j <8;j++ ){
           alert(document.getElementById('hab'+j+'lng').value);
@@ -299,7 +301,12 @@
             nam+=y;
             nam+="dir";
             //alert(document.getElementById(nam).value);
-            if(document.getElementById(nam).value == address){
+            var solo = document.getElementById(nam).value;
+            solo = solo.split("_").join(" ");
+            while(solo.includes("  ")){
+              solo = solo.split("  ").join(" ");
+            }
+            if(solo == address){
               p=y;
             }
           }

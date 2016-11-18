@@ -108,6 +108,8 @@
 function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
+  address = address.split("_").join(" ");
+  address = address.split("  ").join(" ");
   var i =0;
   if(address=="eafit" || address == "Eafit" || address =="EAFIT" || address =="universidad EAFIT" || address =="universidad eafit"  || address =="universidad Eafit"){
     var marker = new google.maps.Marker({
@@ -239,12 +241,18 @@ function geocodeAddress(geocoder, resultsMap) {
   }else{
     var p=-1;
     var nam="";
-    for(var y=0; y<8;y++){
+    for(var y=0; y<document.getElementById('tam').value;y++){
       nam = "hab" + y + "dir";
-      if(document.getElementById(nam).value == document.getElementById('address').value){
+      var solo = document.getElementById(nam).value;
+      solo = solo.split("_").join(" ");
+      while(solo.includes("  ")){
+        solo = solo.split("  ").join(" ");
+      }
+      if(address == solo){
         p=y;
       }
     }
+    alert(p);
     if(p!=-1 && p<=(parseInt(document.getElementById(tam)).value - 8)){
             nam = "hab";
             nam += p;
