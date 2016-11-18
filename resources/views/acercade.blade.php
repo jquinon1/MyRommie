@@ -16,11 +16,11 @@
             background-size: cover;
         }
     </style>
-    <body>
-    <div class="flex-center position-ref full-height" >
-        <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
-            <source src="../video/Lapse3.mp4" type="video/mp4" />
-        </video>
+    <!-- <body> -->
+    <!-- <div class="flex-center position-ref full-height" > -->
+    <video width="100%" height="100%" autoplay loop muted preload="none" id="background">
+      <source src="../video/Lapse3.mp4" type="video/mp4" />
+    </video>
         <div class="row" style="margin-bottom: 20%">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -33,6 +33,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </body>
+    <!-- </div> -->
+    <!-- </body> -->
 @endsection
