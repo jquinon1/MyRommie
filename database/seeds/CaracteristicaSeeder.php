@@ -11,7 +11,7 @@ class CaracteristicaSeeder extends Seeder
      */
     public function run()
     {
-        $caracteristicas = array(array('fuma'),array('bebe'),array('mascotas'),array('rumbea'));
+        $caracteristicas = array(array('Fumo'),array('Bebo'),array('Tengo Mascotas'),array('Rumbeo'),array('Soltero(a)'),array('Trasnocho'));
 
 
         for ($i=0; $i < count($caracteristicas); $i++) { 
