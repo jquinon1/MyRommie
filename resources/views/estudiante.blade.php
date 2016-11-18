@@ -44,21 +44,21 @@
                             <div class="form-group">
                                 {!! Form::label('universidades','Universidad Cercana',['class'=>'col-md-4 control-label']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::select('universidad',$universidades,null,['class'=>'form-control','placeholder'=>'Universidad','required']) !!}
+                                    {!! Form::select('universidad',$universidades,null,['class'=>'form-control','placeholder'=>'Universidad']) !!}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('precio','Precio',['class'=>'col-md-4 control-label']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::number('precio',null,['class' => 'form-control','placeholder'=>'example: 500000','required']) !!}
+                                    {!! Form::number('precio',null,['class' => 'form-control','placeholder'=>'example: 500000']) !!}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('genero', 'Genero', ['class' => 'col-md-4 control-label']) !!}
                                 <div class="col-md-6">
-                                    {!! Form::select('genero',['hombre'=>'Hombre','mujer'=>'Mujer','lgbti'=>'Lgbti'],null,['class' => 'form-control','required','autofocus','placeholder'=>'Elige']) !!}
+                                    {!! Form::select('genero',['hombre'=>'Hombre','mujer'=>'Mujer','lgbti'=>'Lgbti'],null,['class' => 'form-control','autofocus','placeholder'=>'Elige']) !!}
                                 </div>
                             </div>
 
