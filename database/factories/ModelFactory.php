@@ -25,7 +25,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'genero' => $faker->randomElement($array = array ('hombre','mujer','lgbti')),
         'tipo_usuario' => $faker->randomElement($array = array ('arrendador','arrendatario')),
         'token' => str_random(30),
-        'activated' => true
+        'activated' => true,
+        'created_at' => Carbon\Carbon::now(),
+        'updated_at'  => Carbon\Carbon::now()
     ];
 });
 

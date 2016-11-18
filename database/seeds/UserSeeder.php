@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -21,7 +22,9 @@ class UserSeeder extends Seeder
     		'genero' => 'hombre',
     		'tipo_usuario' => 'admin',
     		'token' => str_random(30),
-    		'activated' => true
+    		'activated' => true,
+        'created_at' => Carbon::now(),
+        'updated_at'  => Carbon::now()
     		]);
     	factory(App\User::class,80)->create();
     }
