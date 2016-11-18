@@ -16,6 +16,7 @@
 	@-moz-document url-prefix() {
   fieldset { display: table-cell; }
 }
+.panel-heading {background-color: #fff !important}
 </style>
 {{-- Form para agregar ubicaciones --}}
 <div id="addUbicacion" class="mfp-hide white-popup">
@@ -26,9 +27,10 @@
 	@include('users.admin.universidades.create')
 </div>
 
+
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
 				<div class="panel-heading">
@@ -40,7 +42,7 @@
 					</ul>
 				</div>
 				{{-- Lista con los usuarios --}}
-				<div class="panel-body table-responsive">
+				<div class="panel-body table-responsive" id="body">
 						<table id="usuarios" class="table table-hover table-striped">
 							<thead>
 								<th>Nombre</th>
@@ -150,23 +152,27 @@
 		$('#usuarios').fadeOut();
 		$('#universidadeslist').fadeOut();
 		$('#ubicacioneslist').fadeOut();
+		$('#body').fadeOut();
 	});
 
 	$('#uni').click(function(){
-		console.log('universidades');
+		// console.log('universidades');
+		$('#body').fadeIn();
 		$('#usuarios').fadeOut();
 		$('#ubicacioneslist').fadeOut();
 		$('#universidadeslist').fadeIn();
 	});
 
 	$('#users').click(function(){
-		console.log('usuarios');
+		// console.log('usuarios');
+		$('#body').fadeIn();
 		$('#universidadeslist').fadeOut();
 		$('#ubicacioneslist').fadeOut();
 		$('#usuarios').fadeIn();
 	});
 	$('#ubicaciones').click(function(){
-		console.log('ubicaciones');
+		// console.log('ubicaciones');
+		$('#body').fadeIn();
 		$('#usuarios').fadeOut();
 		$('#universidadeslist').fadeOut();
 		$('#ubicacioneslist').fadeIn()
