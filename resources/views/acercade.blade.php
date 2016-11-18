@@ -27,7 +27,7 @@
                     <div class="panel-heading">Acerca De</div>
                     <div class="panel-body">
                         <form class="form-horizontal" >
-                            <h4>MyRommie empezó como una idea de 4 estudiantes de la Universidad de EAFIT, con el propósito de realizar un proyecto que buscara solucionar un problema que esté vigente en el mundo actualmente, fue así como Craig David Cartagena Castaño, Jhonatan Quiñonez Ávila, Juan Camilo Henao Salazar y Juan Diego Zuluaga Gallo. Pensaron en crear una página web que ayudara a los estudiantes de diferentes universidades a buscar un lugar donde hospedarse mientras estén realizando sus estudios. Teniendo en cuenta los detalles que hagan que sea una página con información completa y de fácil uso para los usuarios.</h4>
+                            <h4>MyRommie empezó como una idea de 4 estudiantes de la Universidad de EAFIT, con el propósito de realizar un proyecto que buscara solucionar un problema que está vigente en el mundo actualmente, fue así como Craig David Cartagena Castaño, Jhonatan Quiñonez Ávila, Juan Camilo Henao Salazar y Juan Diego Zuluaga Gallo, que pensaron en crear una página web que ayudara a los estudiantes de diferentes universidades a buscar un lugar donde hospedarse mientras están realizando sus estudios universitarios, Teniendo en cuenta aquellos detalles que hacen que sea una buena página como lo son la información completa y el fácil uso para los usuarios.</h4>
                         </form>
                     </div>
                 </div>

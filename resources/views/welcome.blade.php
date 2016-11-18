@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','My Rommie')
+@section('title','My Roomie')
 @section('content')
 {{-- {{ dd($universidades) }} --}}
 <style>
