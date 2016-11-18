@@ -69,6 +69,10 @@ class HabitacionesController extends Controller
     public function index(Request $request)
     {
             if(isset($request->universidad) && strlen($request->universidad) > 0){
+              if (Universidad::search($request->universidad)->count() == 0) {
+                Flash::warning($request->universidad.' no es una unversidad registrada');
+                return back();
+              }
                 $universidad = Universidad::search($request->universidad)->first();
                 $habitaciones = $universidad->habitaciones()->paginate(12);
                 if(count($habitaciones) == 0){
@@ -78,7 +82,7 @@ class HabitacionesController extends Controller
                 $habitaciones = Habitacion::orderBy('created_at','DES')->paginate(12);
             }
         return view('users.habitaciones.index')->with('habitaciones',$habitaciones);
-        
+
     }
 
     /**
@@ -89,7 +93,7 @@ class HabitacionesController extends Controller
     public function create()
     {
 
-        $ubicaciones = Ubicacion::orderBy('id','ASC')->pluck('ciudad','id'); 
+        $ubicaciones = Ubicacion::orderBy('id','ASC')->pluck('ciudad','id');
         $universidades = Universidad::orderBy('id','ASC')->pluck('nombre','id');
         // dd($universidades);
         return view('users.habitaciones.create')->with('ciudades',$ubicaciones)->with('universidades',$universidades);
@@ -127,7 +131,7 @@ class HabitacionesController extends Controller
         $imagen->habitacion()->associate($habitacion);
         $imagen->name = $name;
         $imagen->save();
-        
+
         Flash::success('Se ha agreagado existosamente');
         return redirect()->route('users.index');
     }
@@ -139,7 +143,7 @@ class HabitacionesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {       
+    {
         $habitacion = Habitacion::find($id);
         $habitacion->user;
         $habitacion->ubicacion;
