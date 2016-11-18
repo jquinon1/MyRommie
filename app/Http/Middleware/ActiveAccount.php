@@ -18,7 +18,7 @@ class ActiveAccount
      */
     public function handle($request, Closure $next)
     {
-        if(User::where('email','=',$request0->email)->count() > 0){
+        if(User::where('email','=',$request->email)->count() > 0){
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'activated' => true])) {
                 return $next($request);
             }else{
