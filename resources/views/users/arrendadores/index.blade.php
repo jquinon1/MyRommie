@@ -52,6 +52,69 @@
                         </tbody>
                     </table>
                 </div>
+                <br>
+                    <h4 >Mis Ofertas</h4></li>
+                <br>
+                </div>
+
+                <div class="panel-body">
+                    <center>
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Habitacion</th>
+                            <th>Precio</th>
+                            <th>Oferta</th>
+                            <th>Tiempo</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </thead>
+                        <tbody>
+                            @foreach(Auth::user()->ofertas as $oferta)
+                            <div id="contacto" class="mfp-hide white-popup">
+                                <?php $user=$oferta->habitacion->user; ?>
+                                @include('users.templates.show_info',$user)
+                            </div>
+                            <tr>
+                                <td>{{ $oferta->habitacion->direccion}}</td>
+                                <td>${{ $oferta->habitacion->precio}}</td>
+                                <td>${{ $oferta->oferta}}</td>
+                                <td>{{$oferta->created_at->diffForHumans()}}</td>
+                                
+                                @if($oferta->estado == 'aceptado')    
+                                    <td><font color="green">{{ucwords($oferta->estado)}}</font></td>
+                                    <td>
+                                   <a href="habitaciones/{{$oferta->habitacion->id}}" id="contact-popup" class="btn btn-success">
+                                        <span class="glyphicon glyphicon-earphone"></span> Contactar
+                                    </a>
+                                    <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-usd"></span> Ofertar
+                                    </a> 
+                                    <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
+                                    </a>
+                                @elseif($oferta->estado == 'espera')
+                                    <td><font color="blue">{{ucwords($oferta->estado)}}</font></td>
+                                    <td>
+                                    <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
+                                    </a>
+                                @else
+                                    <td><font color="red">{{ucwords($oferta->estado)}}</font></td>
+                                    <td>
+                                    <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-usd"></span> Ofertar
+                                    </a>
+                                    <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
+                                    </a>
+                                @endif
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    </center>
+                </div>
             </div>
         </div>
     </div>
