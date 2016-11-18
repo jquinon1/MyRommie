@@ -43,6 +43,13 @@
       size: 30px;
     }
 
+#selec{
+  position: absolute;
+      bottom: 100px;
+      left: 45%;
+      size: 30px;
+}
+
 
     </style>
   </head>
@@ -52,6 +59,15 @@
       <input id="submit" type="button" value="Buscar">
       <input id="tam" type="hidden" value="<?= count($dirs); ?>">
     </div>
+
+    <div id="selec">
+      <select name="transporte" size="2">
+        <option>Coche</option>
+        <option>Avión</option>
+        <option>Tren</option>
+      </select>
+    </div>
+
     <div class="links" id="pie">
       <a class="waves-effect waves-light btn blue"  href=".." >Pagina Principal</a>
      </div>
@@ -109,6 +125,7 @@ function geocodeAddress(geocoder, resultsMap) {
   deleteMarkers();
   var address = document.getElementById('address').value;
   address = address.split("_").join(" ");
+  address = address.split("-").join(" ");
   while(address.includes("  ")){
     address = address.split("  ").join(" ");
   }
@@ -247,6 +264,7 @@ function geocodeAddress(geocoder, resultsMap) {
       nam = "hab" + y + "dir";
       var solo = document.getElementById(nam).value;
       solo = solo.split("_").join(" ");
+      solo = solo.split("-").join(" ");
       while(solo.includes("  ")){
         solo = solo.split("  ").join(" ");
       }
@@ -254,7 +272,7 @@ function geocodeAddress(geocoder, resultsMap) {
         p=y;
       }
     }
-    alert(p);
+    //alert(p);
     if(p!=-1 && p<=(parseInt(document.getElementById(tam)).value - 8)){
             nam = "hab";
             nam += p;

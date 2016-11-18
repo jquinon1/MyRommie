@@ -117,6 +117,7 @@
         deleteMarkers();
         var address = document.getElementById('address').value;
         address = address.split("_").join(" ");
+        address = address.split("-").join(" ");
         while(address.includes("  ")){
           address = address.split("  ").join(" ");
         }
@@ -144,7 +145,7 @@
           ensayo += document.getElementById('EAFITescudo').value;
           ensayo += '"> <p>Lema: "';
           ensayo += document.getElementById('EAFITlema').value;
-          ensayo += '".<br> le meilleure université du monde.<a href="';
+          ensayo += '".<br> la meilleure université du monde.<a href="';
           ensayo += document.getElementById('EAFITpagina').value;
           ensayo += '"> sitio oficial</a></p>';
           var infowindow = new google.maps.InfoWindow({
@@ -305,6 +306,7 @@
             //alert(document.getElementById(nam).value);
             var solo = document.getElementById(nam).value;
             solo = solo.split("_").join(" ");
+            solo = solo.split("-").join(" ");
             while(solo.includes("  ")){
               solo = solo.split("  ").join(" ");
             }

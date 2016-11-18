@@ -47,9 +47,10 @@
                                 <td>${{ $oferta->habitacion->precio}}</td>
                                 <td>${{ $oferta->oferta}}</td>
                                 <td>{{$oferta->created_at->diffForHumans()}}</td>
-                                <td>{{ucwords($oferta->estado)}}</td>
-                                <td>
+                                
                                 @if($oferta->estado == 'aceptado')    
+                                    <td><font color="green">{{ucwords($oferta->estado)}}</font></td>
+                                    <td>
                                    <a href="habitaciones/{{$oferta->habitacion->id}}" id="contact-popup" class="btn btn-success">
                                         <span class="glyphicon glyphicon-earphone"></span> Contactar
                                     </a>
@@ -60,10 +61,14 @@
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @elseif($oferta->estado == 'espera')
+                                    <td><font color="blue">{{ucwords($oferta->estado)}}</font></td>
+                                    <td>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
                                 @else
+                                    <td><font color="red">{{ucwords($oferta->estado)}}</font></td>
+                                    <td>
                                     <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
                                         <span class="glyphicon glyphicon-usd"></span> Ofertar
                                     </a>
