@@ -16,38 +16,46 @@
         transform: translateX(-50%) translateY(-50%);
         background-size: cover;
     }
-
     #rcorners2 {
         border-radius: 25px;
         border: 3px solid whitesmoke;
         padding: 20px;
-
-        height: 100px;
+        height: auto;
+    }
+    .mycontainer{
+        max-width: 90%;
+        margin: 20% auto;
+    }
+    .mibtn{
+        padding: 20px;
+        text-align: center;
+        /*margin-right: 10px;*/
+        
+    }
+    .col-md-4 a{
+        color: white;
+        padding: 0 15px;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
     }
 </style>
-
-<div class="container">
+<div class="mycontainer">
 <div class="row">
-    <div class="flex-center full-height">
-        <video width="150%" height="10%" autoplay loop muted preload="none" id="background">
-            <source src="../video/Lapse.mp4" type="video/mp4" />
-        </video>
-        <div class="links" style="text-align: center;" id="rcorners2">
-            <a href="estudiante" style="color: white;border: #f5fdf5"><font size="20">ESTUDIANTE</font></a>
-        </div>
-        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-        {{-- <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p> --}}
-        <div class="links" style="text-align: center;" id="rcorners2">
-            <a href="habitaciones" style="color: white" ><font size="20">HABITACIONES</font></a>
-        </div>
-        &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
-        {{-- <p>  &nbsp;&nbsp; &nbsp;&nbsp;</p> --}}
-        <div class="links" style="text-align: center;" id="rcorners2">
-            <a href="habitaciones/create" style="color: white" ><font size="20">ARRENDADOR</font></a>
-        </div>
-
+    <video width="100%" height="100%" autoplay loop muted preload="none" id="background">
+        <source src="../video/Lapse.mp4" type="video/mp4" />
+    </video>
+    <div class="col-md-4 mibtn" id="rcorners2">
+        <a href="estudiante" >ESTUDIANTE</font></a>
     </div>
+    <div class="col-md-4 mibtn" id="rcorners2">
+        <a href="habitaciones" >HABITACIONES</font></a>
+    </div>
+    <div class="col-md-4 mibtn" id="rcorners2">
+        <a href="habitaciones/create" >ARRENDADOR</font></a>
     </div>
 </div>
-{{-- </body> --}}
+</div>
 @endsection
