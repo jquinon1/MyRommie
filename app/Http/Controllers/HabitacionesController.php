@@ -71,6 +71,9 @@ class HabitacionesController extends Controller
             if(isset($request->universidad) && strlen($request->universidad) > 0){
                 $universidad = Universidad::search($request->universidad)->first();
                 $habitaciones = $universidad->habitaciones()->paginate(12);
+                if(count($habitaciones) == 0){
+                    Flash::info('No hay habitaciones cercarnas a '$universidad->nombre);
+                }
             }else{
                 $habitaciones = Habitacion::orderBy('created_at','DES')->paginate(12);
             }

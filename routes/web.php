@@ -37,19 +37,19 @@ Auth::routes();
 
 Route::get('/home', 'UsersController@index');
 
-Route::get('/habitacion', 'ControladorFrontEnd@habitacion');
+// Route::get('/habitacion', 'ControladorFrontEnd@habitacion');
 
-Route::get('/habitacion/{id}', 'ControladorFrontEnd@habitacion2')->where(['id' => '[0-9]*']);
+// Route::get('/habitacion/{id}', 'ControladorFrontEnd@habitacion2')->where(['id' => '[0-9]*']);
 
 Route::get('/arrendador', 'ControladorFrontEnd@arrendador');
 
-Route::get('/infoarrendador', 'ControladorFrontEnd@infoarrendador');
+// Route::get('/infoarrendador', 'ControladorFrontEnd@infoarrendador');
 
 Route::get('/estudiante', 'ControladorFrontEnd@estudiante');
 
 
 
-Route::get('/pm', 'ControladorFrontEnd@pm');
+// Route::get('/pm', 'ControladorFrontEnd@pm');
 
 Route::get('/map/{dir}',[
 	'uses'	=>	'ControladorFrontEnd@map2',
