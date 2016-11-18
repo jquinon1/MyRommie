@@ -12,6 +12,10 @@
 		max-height: 100%;
 		margin: auto;
 	}
+
+	@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
 </style>
 {{-- Form para agregar ubicaciones --}}
 <div id="addUbicacion" class="mfp-hide white-popup">
@@ -24,11 +28,11 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12 col-md-offset-1">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
-				<div class="panel-body">
-					<ul class="nav nav-tabs">
+				<div class="panel-heading">
+					<ul class="nav nav-tabs nav-justified">
 						<li role="presentation" ><a id="users" href="#"><p style="color: black;">Usuarios</p></a></li>
 						<li role="presentation" ><a id="ubicaciones" href="#"><p style="color: black;">Ubicaciones</p></a></li>
 						<li role="presentation" ><a id="uni" href="#"><p style="color: black;">Universidades</p></a></li>
@@ -36,9 +40,8 @@
 					</ul>
 				</div>
 				{{-- Lista con los usuarios --}}
-				<div class="panel-footer">
-					<div id="usuarios">
-						<table class="table table-striped">
+				<div class="panel-body table-responsive">
+						<table id="usuarios" class="table table-hover table-striped">
 							<thead>
 								<th>Nombre</th>
 								<th>Correo</th>
@@ -71,11 +74,10 @@
 								@endforeach
 							</tbody>
 						</table>
-					</div>
-					{{--  --}}
 					<div id="ubicacioneslist" >
 						<a href="#" id="ubicacion-popup" class="btn btn-info">Agregar Ubicacion</a>
-						<table class="table table-striped">
+						<table class="table table-hover table-striped">
+
 							<thead>
 								<th>Pais</th>
 								<th>Ciudad</th>
@@ -101,13 +103,13 @@
 					</div>
 					<div id="universidadeslist">
 						<a href="#" id="universidad-popup" class="btn btn-info">Agregar Universidad</a>
-						<table class="table table-striped">
+						<table class="table table-hover table-striped">
 							<thead>
-								<th width="10%">Ciudad</th>
-								<th width="20%">Nombre</th>
-								<th width="40%">Pagina Oficial</th>
-								<th width="15%">Habitaciones cercanas</th>
-								<th width="20%">Accion</th>
+								<th>Ciudad</th>
+								<th>Nombre</th>
+								<th>Pagina Oficial</th>
+								<th>Habitaciones cercanas</th>
+								<th>Accion</th>
 							</thead>
 							<tbody>
 								@foreach($universidades as $universidad)
