@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Acerca de')
+@section('title','Contáctanos')
 @section('content')
     <style>
         #background {
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default" style="margin-bottom: 50%">
-                    <div class="panel-heading">Contactanos</div>
+                    <div class="panel-heading">Contáctanos</div>
                     <div class="panel-body">
                         <form class="form-horizontal" >
                             <div class="form-group">
@@ -32,12 +32,12 @@
                                 <label id="nombre" type="email"  name="nombre " class="control-label" >myrommie@gmail.com</label>
                             </div>
                             <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Telefono: </label>
+                                <label for="nombre" class="col-md-4 control-label">Teléfono: </label>
                                 <label id="nombre" type="email"  name="nombre" class="control-label">3137668717</label>
                             </div>
                            
                             <div class="form-group">
-                                <label for="nombre" class="col-md-4 control-label">Direccion: </label>
+                                <label for="nombre" class="col-md-4 control-label">Dirección: </label>
                                 <label id="nombre" type="email"  name="nombre" class="control-label">Universidad Eafit oficina 19-2</label>
                             </div>
 
