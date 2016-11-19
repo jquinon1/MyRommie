@@ -19,39 +19,6 @@ use App\Ubicacion;
  use App\Universidad;
 
 use App\Imagen;
-?>
-<!--html>
-<div>
-    <input id="latitud" type="hidden" value=6.2359>
-    <input id="longitud" type="hidden" value=-75.5751>
-</div>
-<script LANGUAGE="JavaScript">
-    geocoder.geocode({'address': direccion, componentRestrictions: {
-                country: 'CO',
-                locality: 'medellin'
-              }
-            }, function(results, status) {
-              if (status === google.maps.GeocoderStatus.OK) {
-                  var marker = new google.maps.Marker({
-                  map: resultsMap,
-                  position: results[0].geometry.location
-                  });
-                  markers.push(marker);
-                  resultsMap.panTo(results[0].geometry.location);
-                  resultsMap.setZoom(15);
-                  posada=results[0].geometry.location;
-              } else {
-                if(status = "OVER_QUERY_LIMIT"){
-                  alert("Lo sentimos intentelo de nuevo unos segundos mas tarde");
-                  i=dirs.length;
-                }else{
-                  alert('Geocode no pudo encontrar su dirección debido a: ' + status);
-                }
-              }
-            });
-</script>
-</html-->
-<?php
 
 class HabitacionesController extends Controller
 {

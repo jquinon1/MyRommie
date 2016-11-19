@@ -51,4 +51,8 @@ class User extends Authenticatable
         return $this->activated;
     }
 
+    public function scopeSearchUser($query,$email){
+      return $query->where('email','LIKE',"%$email%")->get();
+    }
+
 }

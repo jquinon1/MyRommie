@@ -24,17 +24,17 @@
             <div class="col-md-12 col-xs-12">
               <div class="col-md-8 col-xs-8">
                 <center>
-            <div id="calificaionUser"></div></center>
-          </div class="col-md-4 col-xs-4">
-              <a id="calificarUser" class="btn btn-info col-md-4 col-xs-4">Calificar</a>
+                  <div id="calificaionUser"></div></center>
+                </div class="col-md-4 col-xs-4">
+                <a id="calificarUser" class="btn btn-info col-md-4 col-xs-4">Calificar</a>
+              </div>
             </div>
+            {!! Form::close() !!}
           </div>
-          {!! Form::close() !!}
         </div>
       </div>
-    </div>
-    <div class="col-md-2">
+      <div class="col-md-2">
 
+      </div>
     </div>
   </div>
-</div>
