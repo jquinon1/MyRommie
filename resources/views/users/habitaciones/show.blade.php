@@ -24,7 +24,7 @@
  @include('users.templates.show_info',$user)
 </div>
 @else
-<div id="imagen" class="mfp-hide white-popup"> 
+<div id="imagen" class="mfp-hide white-popup">
   @include('users.imagenes.create',$habitacion)
 </div>
 @endif
@@ -35,8 +35,8 @@
 
     <div class="row">
       <div class="col-md-6">
-        <a class="btn btn-primary waves-effect" href="{{route('habitaciones.index')}}"><span class="material-icons">view_module</span> HABITACIONES</a><hr>
-        <img class="mySlides w3-animate-fading img-responsive" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup" width="500" height="500" >
+        <a class="btn btn-primary waves-effect col-md-12 col-xs-12 col-lg-12 col-xl-12" href="{{route('habitaciones.index')}}"><span class="material-icons">view_module</span> HABITACIONES</a>
+        <img class="mySlides w3-animate-fading img-responsive" src="{{asset('images/habitaciones/'.$habitacion->imagenes[0]->name)}}" id="open-popup" width="100%" height="500" >
         <hr>
         @if (!Auth::guest())
         @if(Auth::user()->id == $habitacion->user->id)
@@ -71,7 +71,7 @@
           {!! Form::open(['route'=> ['ofertas.store',$habitacion->id], 'method' => 'POST']) !!}
           <div class="form-group row">
             <div class="col-sm-6">
-              {!! Form::number('oferta',null,['class'=>'form-control form-control-sm', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}              
+              {!! Form::number('oferta',null,['class'=>'form-control form-control-sm', 'autocomplete'=>'off','required','placeholder'=>'example: 500000']) !!}
             </div>
             {!! Form::submit('Ofertar',['class' => 'btn btn-primary col-sm-2 col-form-label col-form-label-sm']) !!}
           </div>
@@ -84,7 +84,7 @@
             <h3>Descripción</h3>
           </div>
           <div class="panel-body">
-           <p>{{$habitacion->descripcion}}</p>            
+           <p>{{$habitacion->descripcion}}</p>
          </div>
        </div>
        @if(Auth::check())
@@ -95,7 +95,7 @@
         <div class="panel-body">
          @foreach($habitacion->user->caracteristicas as $caracteristica)
          <h4><span class="label label-default">{{$caracteristica->nombre}}</span></h4>
-         @endforeach            
+         @endforeach
        </div>
      </div>
      @endif

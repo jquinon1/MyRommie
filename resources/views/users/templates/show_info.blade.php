@@ -1,6 +1,8 @@
 <div class="container" >
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
       <div class="panel panel-default">
 
         <div class="panel-heading">Datos</div>
@@ -19,17 +21,19 @@
             </div>
           </div>
           <div class="form-group">
-            <div id="calificaionUser" class="pull-left" style="margin-left: 20%;"></div>
-            <div class="col-md-6">
-              <a id="calificarUser" class="btn btn-info">Calificar</a>
+            <div class="col-md-12 col-xs-12" style="">
+              <div class="col-md-6 col-xs-6">
+            <div id="calificaionUser" class="pull-right"></div>
+            </div>
+              <a id="calificarUser" class="btn btn-info col-md-4 col-xs-4">Calificar</a>
             </div>
           </div>
-
-
-          {!! Form::close() !!} 
-
+          {!! Form::close() !!}
         </div>
       </div>
+    </div>
+    <div class="col-md-2">
+
     </div>
   </div>
 </div>
