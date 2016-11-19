@@ -152,8 +152,8 @@
               <li><a href="{{ route('users.create') }}">Register</a></li>
             @else
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">{{ Auth::user()->nombre }}<span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nombre }}<span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
                   <li><a href="{{url('/home')}}">Principal</a></li>
                   <li><a href="{{route('users.edit',Auth::user()->id)}}">Actualizar datos</a></li>
                   @if(Auth::user()->isArrendador())
@@ -161,7 +161,7 @@
                 @elseif(! Auth::user()->isAdmin())
                   <li><a href="{{url('/estudiante')}}">Buscar Habitacion</a></li>
                 @endif
-                  <li role="separator" class="divider"></li>
+                  <li role="separator" class="divider"><hr></li>
                   <li>
                     <a href="{{ url('/logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -202,7 +202,7 @@
 <script>
 $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 $(document).ready(function() {
-    $('dropdown-toggle').dropdown()
+    $('.dropdown-toggle').dropdown()
 });
 </script>
 
