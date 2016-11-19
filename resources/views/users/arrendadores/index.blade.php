@@ -1,17 +1,16 @@
 @extends('layouts.app')
-@section('title','Usuario')
+@section('title', ucfirst(Auth::user()->tipo_usuario) .' | '. ucfirst(Auth::user()->nombre))
 @section('content')
-
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Bievenido {{ Auth::user()->nombre ." ". Auth::user()->apellido }}</div>
 
-                <div class="panel-body">
-                    <a href="{{ route('habitaciones.create' )}}" class="btn btn-info">Agregar Habitación</a>
-                    <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info">Actualizar Datos</a>
-                    <table class="table table-striped" width="90%">
+                <div class="panel-body table-responsive">
+                    <a href="{{ route('habitaciones.create' )}}" class="btn btn-info col-md-2 col-xs-12">Agregar Habitación</a>
+                    <a href="{{route('users.edit',Auth::user()->id)}}" class="btn btn-info col-md-2 col-xs-12">Actualizar Datos</a>
+                    <table class="table table-striped">
                         <thead>
                             <th width="10%">Precio</th>
                             <th width="10%">Ofertas</th>
@@ -26,9 +25,7 @@
                                 <td>{{ $habitacion->precio }}</td>
                                 <td style="text-align: center;">
                                     @if($habitacion->ofertas->where('estado','=','espera')->count() > 0)
-                                    {{-- <div class="btn btn-success"> --}}
                                         <a class="btn btn-success" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge ">{{$habitacion->ofertas->where('estado','=','espera')->count() }}</a>
-                                    {{-- </div> --}}
                                     @else
                                     <a class="btn btn-warning" href="{{route('ofertas.index',$habitacion->id)}}"><span class="badge">0</a>
                                     @endif
@@ -39,7 +36,7 @@
                                 <td>
                                     <a href="{{ route('habitaciones.edit',$habitacion)}}" class="btn btn-warning">
                                         <span class="glyphicon glyphicon-pencil"></span>
-                                    </a> 
+                                    </a>
                                     <a href="{{ route('users.habitaciones.destroy', $habitacion->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span>
                                     </a>
@@ -52,14 +49,14 @@
                         </tbody>
                     </table>
                 </div>
-                <br>
-                    <h4 >Mis Ofertas</h4></li>
-                <br>
                 </div>
-
-                <div class="panel-body">
+              </div>  <hr>
+              <div class="col-md-12">
+                <div class="panel panel-default">
+                <div class="panel-heading">Mis Ofertas</div>
+                <div class="panel-body table-responsive">
                     <center>
-                    <table class="table table-striped">
+                    <table class="table">
                         <thead>
                             <th>Habitacion</th>
                             <th>Precio</th>
@@ -75,12 +72,12 @@
                                 @include('users.templates.show_info',$user)
                             </div>
                             <tr>
-                                <td>{{ $oferta->habitacion->direccion}}</td>
+                                <td>{{ str_replace(("_")," ",$oferta->habitacion->direccion)}}</td>
                                 <td>${{ $oferta->habitacion->precio}}</td>
                                 <td>${{ $oferta->oferta}}</td>
                                 <td>{{$oferta->created_at->diffForHumans()}}</td>
-                                
-                                @if($oferta->estado == 'aceptado')    
+
+                                @if($oferta->estado == 'aceptado')
                                     <td><font color="green">{{ucwords($oferta->estado)}}</font></td>
                                     <td>
                                    <a href="habitaciones/{{$oferta->habitacion->id}}" id="contact-popup" class="btn btn-success">
@@ -88,7 +85,7 @@
                                     </a>
                                     <a href="habitaciones/{{$oferta->habitacion->id}}" class="btn btn-info">
                                         <span class="glyphicon glyphicon-usd"></span> Ofertar
-                                    </a> 
+                                    </a>
                                     <a href="{{route('users.ofertas.destroy',$oferta->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?'); ">
                                         <span class="glyphicon glyphicon-remove-circle"></span> Eliminar
                                     </a>
@@ -118,7 +115,6 @@
             </div>
         </div>
     </div>
-</div>
 {{-- <center>
 <div id="test-popup" class="white-popup mfp-hide">
   Popup content
