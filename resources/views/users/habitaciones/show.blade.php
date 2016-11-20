@@ -56,7 +56,7 @@
               </div>
               <div class="panel-body">
                 @foreach($habitacion->universidades as $universidad)
-                  <h4><span class="label label-default">{{$universidad->nombre}}</span></h4>
+                  <span class="label label-default" style="font-size:110%; display:inline-block; margin-top:5px;">{{ $universidad->nombre}}</span>
                 @endforeach
               </div>
             </div>
