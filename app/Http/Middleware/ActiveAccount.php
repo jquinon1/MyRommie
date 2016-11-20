@@ -18,7 +18,7 @@ class ActiveAccount
      */
     public function handle($request, Closure $next)
     {
-        if(User::where('email','=',$request->email)->count() > 0){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'activated' => true])) {
                 return $next($request);
             }else{
@@ -26,7 +26,7 @@ class ActiveAccount
                 return back();
             }
         }else{
-            Flash::warning("La cuenta ".$request->email." no existe en nuestros registros");
+            Flash::warning("La cuenta ".$request->email." no existe en nuestros registros o ingreso mal la contraseña");
             return back();
         }
     }
