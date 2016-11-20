@@ -105,7 +105,7 @@
               </div>
               <div class="panel-body">
                 @foreach($habitacion->user->caracteristicas as $caracteristica)
-                  <h4><span class="label label-default">{{$caracteristica->nombre}}</span></h4>
+                  <span class="label label-default" style="font-size:110%; display:inline-block; margin-top:5px;">{{$caracteristica->nombre}}</span>
                 @endforeach
               </div>
             </div>
