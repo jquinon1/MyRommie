@@ -55,4 +55,13 @@ class User extends Authenticatable
       return $query->where('email','LIKE',"%$email%")->get();
     }
 
+    public function alreadyOfer($habitacion){
+      foreach ($this->ofertas as $oferta){
+        if ($oferta->habitacion->id == $habitacion) {
+          return true;
+        }
+      }
+      return false;
+    }
+
 }
